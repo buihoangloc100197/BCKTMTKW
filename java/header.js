@@ -18,7 +18,7 @@ const globalHeaderHTML = `
             <ul class="nav-links">
                 <li><a href="index.html" class="nav-item" data-id="home" data-i18n="nav_home">TRANG CHỦ</a></li>
                 <li class="nav-item-dropdown">
-                    <a href="#" class="nav-item" data-id="collection" data-i18n="nav_collection">BỘ SƯU TẬP</a>
+                    <a href="lamborghini.html" class="nav-item" data-id="collection" data-i18n="nav_collection">BỘ SƯU TẬP</a>
                     <ul class="dropdown-menu">
                         <li><a href="lamborghini.html" class="dropdown-item" data-i18n="coll_lamborghini">Lamborghini</a></li>
                         <li><a href="ferrari.html" class="dropdown-item" data-i18n="coll_ferrari">Ferrari</a></li>
@@ -30,12 +30,12 @@ const globalHeaderHTML = `
                     </ul>
                 </li>
                 <li class="nav-item-dropdown">
-                    <a href="index.html" class="nav-item" data-id="services" data-i18n="nav_services">DỊCH VỤ</a>
+                    <a href="DichVu/index.html" class="nav-item" data-id="services" data-i18n="nav_services">DỊCH VỤ</a>
                     <ul class="dropdown-menu">
-                        <li><a href="index.html" class="dropdown-item" data-i18n="service_rental">Cho Thuê Xe</a></li>
-                        <li><a href="index.html" class="dropdown-item" data-i18n="service_maintenance">Bảo Dưỡng</a></li>
-                        <li><a href="index.html" class="dropdown-item" data-i18n="service_upgrade">Nâng Cấp Ngoại Thất</a></li>
-                         <li><a href="index.html" class="dropdown-item" data-i18n="service_contact">Liên Hệ</a></li>
+                        <li><a href="DichVu/rental.html" class="dropdown-item" data-i18n="service_rental">Cho Thuê Xe</a></li>
+                        <li><a href="DichVu/maintenance.html" class="dropdown-item" data-i18n="service_maintenance">Bảo Dưỡng</a></li>
+                        <li><a href="DichVu/upgrade.html" class="dropdown-item" data-i18n="service_upgrade">Nâng Cấp Ngoại Thất</a></li>
+                         <li><a href="DichVu/concierge.html" class="dropdown-item" data-i18n="service_contact">Liên Hệ</a></li>
 
 
                     </ul>
