@@ -11,10 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const nextBtn = section.querySelector('.next-btn');
         if (!track || !prevBtn || !nextBtn) return;
 
-        let currentIndex = 0;
-        const cards = Array.from(track.querySelectorAll('.news-card'));
-        const totalCards = cards.length;
-        
         // Calculate how many cards are visible
         const getVisibleCards = () => {
             if (window.innerWidth <= 768) return 1;
@@ -22,47 +18,60 @@ document.addEventListener("DOMContentLoaded", () => {
             return 3;
         };
 
-        const updateSlider = () => {
-            const visibleCards = getVisibleCards();
-            const cardWidth = track.offsetWidth / visibleCards;
-            const gap = 30; // Matches CSS gap
-            
-            // Calculate move distance including gap
-            const moveDistance = (track.querySelector('.news-card').offsetWidth + gap) * currentIndex;
-            track.style.transform = `translateX(-${moveDistance}px)`;
-        };
+        let isAnimating = false;
 
         nextBtn.addEventListener('click', () => {
-            const visibleCards = getVisibleCards();
-            const maxIndex = totalCards - visibleCards;
+            if (isAnimating) return;
+            isAnimating = true;
             
-            if (currentIndex < maxIndex) {
-                currentIndex++;
-            } else {
-                // Loop back to start
-                currentIndex = 0;
-            }
-            updateSlider();
+            const gap = 30; // Matches CSS gap
+            const moveDistance = track.querySelector('.news-card').offsetWidth + gap;
+            
+            track.style.transition = 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)';
+            track.style.transform = `translateX(-${moveDistance}px)`;
+            
+            setTimeout(() => {
+                track.style.transition = 'none';
+                track.appendChild(track.firstElementChild);
+                track.style.transform = 'translateX(0)';
+                
+                // Đợi một chút để browser kịp render
+                setTimeout(() => {
+                    isAnimating = false;
+                }, 50);
+            }, 600); // 600ms match với transition
         });
 
         prevBtn.addEventListener('click', () => {
-            const visibleCards = getVisibleCards();
-            const maxIndex = totalCards - visibleCards;
-
-            if (currentIndex > 0) {
-                currentIndex--;
-            } else {
-                // Loop to end
-                currentIndex = maxIndex;
-            }
-            updateSlider();
+            if (isAnimating) return;
+            isAnimating = true;
+            
+            const gap = 30; // Matches CSS gap
+            const moveDistance = track.querySelector('.news-card').offsetWidth + gap;
+            
+            // Đưa thẳng phần tử cuối lên đầu và dịch track sang trái mà không dùng effect
+            track.style.transition = 'none';
+            track.prepend(track.lastElementChild);
+            track.style.transform = `translateX(-${moveDistance}px)`;
+            
+            // Sau một frame, kích hoạt hiệu ứng mượt mà để chạy về 0 (chạy về bên phải)
+            setTimeout(() => {
+                track.style.transition = 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)';
+                track.style.transform = 'translateX(0)';
+                
+                setTimeout(() => {
+                    isAnimating = false;
+                }, 600);
+            }, 50);
         });
 
-        // Handle resize to fix position
-        window.addEventListener('resize', updateSlider);
-        
-        // Initial call
-        setTimeout(updateSlider, 100);
+        // Khi resize màn hình, căn lại vị trí gốc
+        window.addEventListener('resize', () => {
+            if (!isAnimating) {
+                track.style.transition = 'none';
+                track.style.transform = 'translateX(0)';
+            }
+        });
     });
 
     // Reveal animation for news cards on scroll

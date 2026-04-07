@@ -637,10 +637,45 @@ button {
 .news-section-header h2 {
     font-family: 'Be Vietnam Pro', sans-serif;
     font-size: 2.5rem;
-    color: #fff;
     margin-bottom: 15px;
     text-transform: uppercase;
     letter-spacing: 2px;
+    display: inline-block;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-size: 200% auto;
+    animation: textShine 4s linear infinite;
+}
+
+@keyframes textShine {
+    to {
+        background-position: 200% center;
+    }
+}
+
+/* 1. Tin Mới Nhất & Sự Kiện: Vàng Gold Đặc Trưng */
+.main-content section:nth-child(2) .news-section-header h2 {
+    background-image: linear-gradient(to right, #d4af37 0%, #fcd55d 25%, #ffffff 50%, #fcd55d 75%, #d4af37 100%);
+    filter: drop-shadow(0px 4px 10px rgba(212, 175, 55, 0.3));
+}
+
+/* 2. Mẫu Xe Được Yêu Thích: Đỏ Rực Lửa Siêu Thể Thao */
+.main-content section:nth-child(3) .news-section-header h2 {
+    background-image: linear-gradient(to right, #ff3366 0%, #ff6b6b 25%, #ffffff 50%, #ff6b6b 75%, #ff3366 100%);
+    filter: drop-shadow(0px 4px 10px rgba(255, 51, 102, 0.3));
+}
+
+/* 3. Xe Điện & Môi Trường Xanh: Xanh Neon Tương Lai */
+.main-content section:nth-child(4) .news-section-header h2 {
+    background-image: linear-gradient(to right, #00f2fe 0%, #4facfe 25%, #ffffff 50%, #4facfe 75%, #00f2fe 100%);
+    filter: drop-shadow(0px 4px 10px rgba(0, 242, 254, 0.3));
+}
+
+/* 4. Xe Sắp Được Ra Mắt: Bạc Titanium Ánh Tím */
+.main-content section:nth-child(5) .news-section-header h2 {
+    background-image: linear-gradient(to right, #b8c6db 0%, #f5f7fa 25%, #ffffff 50%, #f5f7fa 75%, #b8c6db 100%);
+    filter: drop-shadow(0px 4px 10px rgba(184, 198, 219, 0.4));
 }
 
 .news-section-header p {
