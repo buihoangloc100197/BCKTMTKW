@@ -1,0 +1,422 @@
+/* ZORENB Luxury Showroom - Login Page Styles */
+
+/* Variable Definitions */
+:root {
+    --primary-gold: #c5a059;
+    --primary-gold-light: #e4c48a;
+    --primary-gold-dark: #8e6d2a;
+    --bg-dark: #0a0a0a;
+    --bg-darker: #050505;
+    --glass-bg: rgba(20, 20, 20, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --text-white: #ffffff;
+    --text-gray: #a0a0a0;
+    --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base Body Styles for Login Page */
+.login-page {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    background: var(--bg-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Inter', 'Be Vietnam Pro', sans-serif;
+    color: var(--text-white);
+    overflow: hidden;
+    position: relative;
+    background-image: 
+        radial-gradient(circle at 50% 50%, rgba(197, 160, 89, 0.05), transparent 70%),
+        linear-gradient(to bottom, #0a0a0a, #050505);
+}
+
+/* Decorative Background Glows */
+.bg-glow-1 {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(197, 160, 89, 0.08) 0%, transparent 70%);
+    top: -200px;
+    left: -200px;
+    z-index: 0;
+    filter: blur(80px);
+}
+
+.bg-glow-2 {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(197, 160, 89, 0.05) 0%, transparent 70%);
+    bottom: -100px;
+    right: -100px;
+    z-index: 0;
+    filter: blur(60px);
+}
+
+/* Centered Container */
+.login-container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 450px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Login Branding (Logo & Title) */
+.login-brand {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.logo-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.logo-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary-gold), var(--primary-gold-dark));
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--bg-dark);
+    box-shadow: 0 0 30px rgba(197, 160, 89, 0.4);
+    position: relative;
+    z-index: 10;
+}
+
+.brand-name {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 36px;
+    letter-spacing: 6px;
+    font-weight: 800;
+    background: linear-gradient(to right, #ffffff, var(--primary-gold-light));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 5px 0;
+    text-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.brand-tagline {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    letter-spacing: 4px;
+    color: var(--text-gray);
+    text-transform: uppercase;
+}
+
+/* Glassmorphism Login Card */
+.login-card {
+    width: 100%;
+    background: var(--glass-bg);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+    transition: var(--transition-smooth);
+}
+
+.login-card:hover {
+    border-color: rgba(197, 160, 89, 0.3);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.6), 0 0 20px rgba(197, 160, 89, 0.1);
+}
+
+.card-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.card-subtitle {
+    font-size: 14px;
+    color: var(--text-gray);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Login Form Styles */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group label {
+    font-size: 13px;
+    color: var(--text-gray);
+    font-weight: 500;
+    margin-left: 2px;
+}
+
+.label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 14px 16px;
+    color: var(--text-white);
+    font-size: 15px;
+    box-sizing: border-box;
+    transition: var(--transition-smooth);
+    outline: none;
+}
+
+.login-form input:focus {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--primary-gold);
+    box-shadow: 0 0 10px rgba(197, 160, 89, 0.2);
+}
+
+/* Submit Button */
+.btn-login-submit {
+    margin-top: 10px;
+    background: linear-gradient(90deg, var(--primary-gold-dark), var(--primary-gold), var(--primary-gold-dark));
+    background-size: 200% auto;
+    border: none;
+    padding: 16px;
+    border-radius: 12px;
+    color: var(--bg-dark);
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-login-submit:hover {
+    background-position: right center;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(197, 160, 89, 0.5);
+}
+
+/* Social Login Section */
+.auth-divider {
+    margin: 25px 0;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--text-gray);
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.auth-divider:not(:empty)::before {
+    margin-right: 15px;
+}
+
+.auth-divider:not(:empty)::after {
+    margin-left: 15px;
+}
+
+.social-login-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btn-social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 12px;
+    color: var(--text-white);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.btn-google:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.btn-facebook:hover {
+    background: rgba(24, 119, 242, 0.1);
+    border-color: rgba(24, 119, 242, 0.3);
+}
+
+.btn-social svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Back Home Button */
+.back-home {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-gray);
+    text-decoration: none;
+    font-size: 14px;
+    transition: var(--transition-smooth);
+    z-index: 100;
+}
+
+.back-home:hover {
+    color: var(--text-white);
+}
+
+/* Link Styles */
+.forgot-link, .register-link {
+    color: var(--primary-gold);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    transition: var(--transition-smooth);
+}
+
+.forgot-link:hover, .register-link:hover {
+    color: var(--primary-gold-light);
+    text-decoration: underline;
+}
+
+.login-footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+    color: var(--text-gray);
+}
+
+/* Checkbox Styles */
+.form-options {
+    display: flex;
+    align-items: center;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 13px;
+    color: var(--text-gray);
+    user-select: none;
+}
+
+.remember-me input {
+    display: none;
+}
+
+.checkmark {
+    width: 18px;
+    height: 18px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    position: relative;
+}
+
+.remember-me input:checked + .checkmark {
+    background: var(--primary-gold);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 5px;
+    top: 2px;
+    width: 4px;
+    height: 8px;
+    border: solid var(--bg-dark);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.remember-me input:checked + .checkmark:after {
+    display: block;
+}
+
+/* Animations */
+.animate-fade-in-down {
+    animation: fadeInDown 1s ease-out;
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .login-container {
+        padding: 15px;
+    }
+    .login-card {
+        padding: 25px;
+    }
+    .back-home {
+        top: 20px;
+        left: 20px;
+    }
+}
