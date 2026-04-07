@@ -30,16 +30,18 @@ const globalHeaderHTML = `
                     </ul>
                 </li>
                 <li class="nav-item-dropdown">
-                    <a href="#" class="nav-item" data-id="services" data-i18n="nav_services">DỊCH VỤ</a>
+                    <a href="index.html" class="nav-item" data-id="services" data-i18n="nav_services">DỊCH VỤ</a>
                     <ul class="dropdown-menu">
-                        <li><a href="#" class="dropdown-item" data-i18n="service_rental">Cho Thuê Xe</a></li>
-                        <li><a href="#" class="dropdown-item" data-i18n="service_maintenance">Bảo Dưỡng</a></li>
-                        <li><a href="#" class="dropdown-item" data-i18n="service_upgrade">Nâng Cấp Ngoại Thất</a></li>
+                        <li><a href="index.html" class="dropdown-item" data-i18n="service_rental">Cho Thuê Xe</a></li>
+                        <li><a href="index.html" class="dropdown-item" data-i18n="service_maintenance">Bảo Dưỡng</a></li>
+                        <li><a href="index.html" class="dropdown-item" data-i18n="service_upgrade">Nâng Cấp Ngoại Thất</a></li>
+                         <li><a href="index.html" class="dropdown-item" data-i18n="service_contact">Liên Hệ</a></li>
+
+
                     </ul>
                 </li>
-                <li><a href="#" class="nav-item" data-id="news" data-i18n="nav_news">TIN TỨC</a></li>
-                <li><a href="#" class="nav-item" data-id="contact" data-i18n="nav_contact">LIÊN HỆ</a></li>
-            </ul>
+                <li><a href="index.html" class="nav-item" data-id="news" data-i18n="nav_news">TIN TỨC</a></li>
+                
         </nav>
         
         <!-- Bên phải: Ngôn ngữ / Đăng nhập / Đăng ký -->
@@ -58,8 +60,8 @@ const globalHeaderHTML = `
                 </div>
             </div>
             
-            <button class="btn btn-login" data-i18n="btn_login">Đăng nhập</button>
-            <button class="btn btn-register" data-i18n="btn_register">Đăng ký</button>
+            <button class="btn btn-login" data-i18n="btn_login" onclick="window.location.href='login.html'">Đăng nhập</button>
+            <button class="btn btn-register" data-i18n="btn_register" onclick="window.location.href='register.html'">Đăng ký</button>
         </div>
     </header>
 `;
@@ -76,10 +78,10 @@ function initGlobalHeader() {
     const placeholder = document.getElementById('global-header');
     if (placeholder) {
         placeholder.innerHTML = globalHeaderHTML;
-        
+
         // Highlight active nav item
         syncActiveNav();
-        
+
         // Final i18n Sync
         if (typeof i18nData !== 'undefined') {
             const savedLang = localStorage.getItem('zorenb_lang') || 'vi';
@@ -94,10 +96,10 @@ function initGlobalHeader() {
 function syncActiveNav() {
     const path = window.location.pathname;
     const page = path.split("/").pop();
-    
+
     document.querySelectorAll('.nav-item').forEach(item => {
         item.classList.remove('active');
-        
+
         if (page === 'index.html' || page === '') {
             if (item.getAttribute('data-id') === 'home') item.classList.add('active');
         } else if (['lamborghini.html', 'ferrari.html', 'bugatti.html', 'mclaren.html', 'porsche.html', 'rolls-royce.html', 'bentley.html'].includes(page)) {
