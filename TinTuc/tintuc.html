@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tin Tức | ZORENB - Thế Giới Siêu Xe</title>
+    
+    <!-- LƯU Ý QUAN TRỌNG: 
+         Thẻ base này giúp giữ nguyên đường dẫn relative của các file bên ngoài (như css, js, images...)
+         giúp file tintuc.html chạy hoàn hảo dù nằm trong thư목 con TinTuc, mà không cần chỉnh sửa source chính. -->
+    <base href="../">
+
+    <!-- Google Fonts: Roboto (Body), Inter (UI), Be Vietnam Pro (Headings) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&family=Inter:wght@400;500;600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!-- Toàn bộ CSS đã được gộp chung vào file tintuc.css để hoàn toàn độc lập -->
+    <link rel="stylesheet" href="TinTuc/tintuc.css">
+
+    <!-- KHÔNG CẦN GỌI header.js CỦA SOURCE ĐỂ ĐẢM BẢO ĐỘC LẬP KHI CHUYỂN NHÁNH -->
+    <script src="java/i18n.js"></script>
+</head>
+
+<body class="news-page">
+    <!-- CUSTOM CURSOR TỪ SOURCE CHÍNH -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- HEADER ĐÃ ĐƯỢC HARDCODE TRỰC TIẾP GIÚP KHÔNG BỊ MẤT KHI ĐỔI SOURCE -->
+    <header class="main-header dynamic-header">
+        <div class="header-left">
+            <a href="index.html" class="brand-logo">
+                <div class="logo-icon">Z</div>
+                <span class="brand-name">ZORENB</span>
+            </a>
+        </div>
+        
+        <nav class="header-center">
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-item" data-id="home" data-i18n="nav_home">TRANG CHỦ</a></li>
+                <li class="nav-item-dropdown">
+                    <a href="#" class="nav-item" data-id="collection" data-i18n="nav_collection">BỘ SƯU TẬP</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="lamborghini.html" class="dropdown-item" data-i18n="coll_lamborghini">Lamborghini</a></li>
+                        <li><a href="ferrari.html" class="dropdown-item" data-i18n="coll_ferrari">Ferrari</a></li>
+                        <li><a href="mclaren.html" class="dropdown-item" data-i18n="coll_mclaren">McLaren</a></li>
+                        <li><a href="bugatti.html" class="dropdown-item" data-i18n="coll_bugatti">Bugatti</a></li>
+                        <li><a href="rolls-royce.html" class="dropdown-item" data-i18n="coll_rollsroyce">Rolls Royce</a></li>
+                        <li><a href="bentley.html" class="dropdown-item" data-i18n="coll_bentley">Bentley</a></li>
+                        <li><a href="porsche.html" class="dropdown-item" data-i18n="coll_porsche">Porsche</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item-dropdown">
+                    <a href="index.html" class="nav-item" data-id="services" data-i18n="nav_services">DỊCH VỤ</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html" class="dropdown-item" data-i18n="service_rental">Cho Thuê Xe</a></li>
+                        <li><a href="index.html" class="dropdown-item" data-i18n="service_maintenance">Bảo Dưỡng</a></li>
+                        <li><a href="index.html" class="dropdown-item" data-i18n="service_upgrade">Nâng Cấp Ngoại Thất</a></li>
+                         <li><a href="index.html" class="dropdown-item" data-i18n="service_contact">Liên Hệ</a></li>
+                    </ul>
+                </li>
+                <li><a href="javascript:void(0)" class="nav-item active" data-id="news" data-i18n="nav_news">TIN TỨC</a></li>
+            </ul>
+        </nav>
+        
+        <div class="header-right">
+            <div class="language-selector">
+                <span class="globe-icon">🌐</span>
+                <span class="lang-current-flag"></span>
+                <div class="lang-dropdown glass-panel">
+                    <a href="javascript:void(0)" class="lang-option" onclick="handleLanguageChange('vi')"><span>🇻🇳</span> Tiếng Việt</a>
+                    <a href="javascript:void(0)" class="lang-option" onclick="handleLanguageChange('en')"><span>🇺🇸</span> English</a>
+                    <a href="javascript:void(0)" class="lang-option" onclick="handleLanguageChange('fr')"><span>🇫🇷</span> Français</a>
+                    <a href="javascript:void(0)" class="lang-option" onclick="handleLanguageChange('ko')"><span>🇰🇷</span> 한국어</a>
+                    <a href="javascript:void(0)" class="lang-option" onclick="handleLanguageChange('ja')"><span>🇯🇵</span> 日本語</a>
+                    <a href="javascript:void(0)" class="lang-option" onclick="handleLanguageChange('zh')"><span>🇨🇳</span> 简体中文</a>
+                </div>
+            </div>
+            
+            <button class="btn btn-login" data-i18n="btn_login" onclick="window.location.href='login.html'">Đăng nhập</button>
+            <button class="btn btn-register" data-i18n="btn_register" onclick="window.location.href='register.html'">Đăng ký</button>
+        </div>
+    </header>
+
+    <!-- MAIN NEWS CONTENT -->
+    <main class="main-content">
+        <!-- Hero Section cho trang Tin Tức -->
+        <section class="news-hero">
+            <h1>Tin Tức & Sự Kiện</h1>
+            <p>Cập nhật những thông tin mới nhất về thị trường siêu xe, xu hướng thiết kế tương lai và các sự kiện ra mắt độc quyền từ ZORENB Luxury.</p>
+        </section>
+
+        <!-- Grid Bài Viết -->
+        <section class="news-container">
+            <!-- News Card 1 -->
+            <article class="news-card">
+                <div class="news-card-img">
+                    <span class="news-badge">Mới Nhất</span>
+                    <img src="https://images.unsplash.com/photo-1544839309-847250495393?auto=format&fit=crop&q=80&w=800" alt="McLaren Release">
+                </div>
+                <div class="news-content">
+                    <span class="news-date">07 Tháng 04, 2026</span>
+                    <h2 class="news-title">McLaren Công Bố Siêu Phẩm Hypercar Thế Hệ Mới</h2>
+                    <p class="news-desc">Mẫu xe hybrid mới nhất của McLaren mang đến sức mạnh kết hợp lên tới 1200 mã lực, định chuẩn lại giới hạn tột cùng của tốc độ trên đường đua.</p>
+                    <a href="javascript:void(0)" class="news-readmore">Đọc thêm <i>&rarr;</i></a>
+                </div>
+            </article>
+
+            <!-- News Card 2 -->
+            <article class="news-card">
+                <div class="news-card-img">
+                    <span class="news-badge">Sự Kiện</span>
+                    <img src="https://images.unsplash.com/photo-1614205543781-8316dfbb6d58?auto=format&fit=crop&q=80&w=800" alt="Lamborghini Event">
+                </div>
+                <div class="news-content">
+                    <span class="news-date">02 Tháng 04, 2026</span>
+                    <h2 class="news-title">Triển Lãm ZORENB Exclusive 2026 Tại Dubai</h2>
+                    <p class="news-desc">Sự kiện quy tụ những phiên bản siêu xe giới hạn bậc nhất thế giới, kèm theo những màn ra mắt bất ngờ dành riêng cho giới tinh hoa Ả Rập.</p>
+                    <a href="javascript:void(0)" class="news-readmore">Đọc thêm <i>&rarr;</i></a>
+                </div>
+            </article>
+
+            <!-- News Card 3 -->
+            <article class="news-card">
+                <div class="news-card-img">
+                    <span class="news-badge">Công Nghệ</span>
+                    <img src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?auto=format&fit=crop&q=80&w=800" alt="Tech Auto">
+                </div>
+                <div class="news-content">
+                    <span class="news-date">28 Tháng 03, 2026</span>
+                    <h2 class="news-title">AI Trong Thiết Kế Khí Động Học Của Porsche</h2>
+                    <p class="news-desc">Khám phá cách các kỹ sư Weissach áp dụng trí tuệ nhân tạo để tối ưu lực ép xuống (downforce) của chiếc Porsche 911 GT3 RS thế hệ tiếp theo.</p>
+                    <a href="javascript:void(0)" class="news-readmore">Đọc thêm <i>&rarr;</i></a>
+                </div>
+            </article>
+
+            <!-- News Card 4 -->
+            <article class="news-card">
+                <div class="news-card-img">
+                    <span class="news-badge">Đánh Giá</span>
+                    <img src="https://images.unsplash.com/photo-1542282088-fe8426682b8f?auto=format&fit=crop&q=80&w=800" alt="Rolls Royce Drive">
+                </div>
+                <div class="news-content">
+                    <span class="news-date">15 Tháng 03, 2026</span>
+                    <h2 class="news-title">Trải Nghiệm Sự Tĩnh Lặng Cùng Rolls-Royce Phantom</h2>
+                    <p class="news-desc">Cảm giác lái như lướt trên thảm ma thuật và khoang cabin tĩnh lặng đến tuyệt đối. Phantom tịnh tiến đến đỉnh cao của sự sang trọng quý tộc.</p>
+                    <a href="javascript:void(0)" class="news-readmore">Đọc thêm <i>&rarr;</i></a>
+                </div>
+            </article>
+
+            <!-- News Card 5 -->
+            <article class="news-card">
+                <div class="news-card-img">
+                    <span class="news-badge">Thị Trường</span>
+                    <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&q=80&w=800" alt="Ferrari Market">
+                </div>
+                <div class="news-content">
+                    <span class="news-date">10 Tháng 03, 2026</span>
+                    <h2 class="news-title">Ferrari Đạt Doanh Số Kỷ Lục Nửa Đầu Năm 2026</h2>
+                    <p class="news-desc">Bất chấp bối cảnh kinh tế toàn cầu, "Ngựa chồm" nước Ý vẫn liên tục xô đổ kỷ lục doanh thu nhờ vào lực đẩy từ dòng SUV siêu sang Purosangue.</p>
+                    <a href="javascript:void(0)" class="news-readmore">Đọc thêm <i>&rarr;</i></a>
+                </div>
+            </article>
+
+            <!-- News Card 6 -->
+            <article class="news-card">
+                <div class="news-card-img">
+                    <span class="news-badge">Độc Quyền</span>
+                    <img src="https://images.unsplash.com/photo-1584345604476-8ec5e12e42a5?auto=format&fit=crop&q=80&w=800" alt="Bugatti One off">
+                </div>
+                <div class="news-content">
+                    <span class="news-date">05 Tháng 03, 2026</span>
+                    <h2 class="news-title">Chiêm Ngưỡng Bugatti One-Off Trị Giá Trăm Triệu Đô</h2>
+                    <p class="news-desc">Phiên bản độc bản (One-off) được chế tác hoàn toàn thủ công theo yêu cầu của một vị tỷ phú bí ẩn người Trung Đông, đánh dấu đẳng cấp cá nhân hóa.</p>
+                    <a href="javascript:void(0)" class="news-readmore">Đọc thêm <i>&rarr;</i></a>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <!-- FOOTER TỪ SOURCE CHÍNH -->
+    <footer class="main-footer fade-in">
+        <p data-i18n="footer_copyright">&copy; 2026 ZORENB Luxury Showroom. Đã đăng ký bản quyền toàn cầu.</p>
+    </footer>
+
+    <!-- NÚT CSKH GÓC DƯỚI PHẢI TỪ SOURCE CHÍNH (Jumping Support Button) -->
+    <a href="tel:18001909" class="cskh-wrapper bounce-luxury">
+        <div class="cskh-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+        </div>
+        <div class="cskh-text">
+            <span data-i18n="cskh_label">CSKH:</span>
+            <strong>18001909</strong>
+        </div>
+    </a>
+
+    
+    <!-- JS riêng cho trang Tin Tức (bao gồm cả xử lý con trỏ chuột) -->
+    <script src="TinTuc/tintuc.js"></script>
+</body>
+
+</html>
