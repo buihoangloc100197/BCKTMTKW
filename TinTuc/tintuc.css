@@ -22,7 +22,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    cursor: none;
 }
 
 body {
@@ -40,7 +39,7 @@ a,
 button {
     text-decoration: none;
     color: inherit;
-    cursor: none;
+    cursor: pointer;
 }
 
 ul {
@@ -481,15 +480,13 @@ button {
 
 .cskh-wrapper,
 .cskh-wrapper * {
-    cursor: none;
+    cursor: pointer;
 }
 
 /* =========================================
    PHẦN CSS RIÊNG CỦA TRANG TIN TỨC (tintuc.css)
    ========================================= */
-body.news-page {
-    /* Đã kế thừa thuộc tính body từ gốc nhưng có thể thêm đặc tính riêng */
-}
+/* Đã kế thừa thuộc tính body từ gốc nhưng có thể thêm đặc tính riêng */
 
 .news-hero {
     padding-top: 140px;
@@ -515,14 +512,7 @@ body.news-page {
     line-height: 1.6;
 }
 
-.news-container {
-    max-width: 1200px;
-    margin: 60px auto;
-    padding: 0 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 40px;
-}
+/* news-container replaced by news-section and news-grid */
 
 .news-card {
     background: rgba(25, 25, 30, 0.6);
@@ -611,23 +601,138 @@ body.news-page {
     flex-grow: 1;
 }
 
-.news-readmore {
-    color: #d4af37;
-    font-weight: 600;
-    text-decoration: none;
-    display: inline-flex;
+/* =========================================
+   NEW SLIDER LAYOUT
+   ========================================= */
+.news-section {
+    padding: 100px 0;
+    width: 100%;
+    position: relative;
+}
+
+.news-section.section-alt {
+    background: rgba(255, 255, 255, 0.02);
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.news-section-header {
+    max-width: 1300px;
+    margin: 0 auto 60px;
+    padding: 0 40px;
+    text-align: left;
+    position: relative;
+}
+
+.news-section-header::before {
+    content: '';
+    position: absolute;
+    left: 40px;
+    top: -15px;
+    width: 50px;
+    height: 3px;
+    background: var(--color-accent-gold);
+}
+
+.news-section-header h2 {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.news-section-header p {
+    color: #a0aec0;
+    font-size: 1.15rem;
+    max-width: 900px;
+    line-height: 1.6;
+}
+
+/* SLIDER COMPONENTS */
+.news-slider-container {
+    position: relative;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 70px; /* Space for buttons */
+}
+
+.news-slider-track-wrap {
+    overflow: hidden;
+    width: 100%;
+}
+
+.news-track {
+    display: flex;
+    gap: 30px;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform;
+}
+
+.news-track .news-card {
+    flex: 0 0 calc(33.333% - 20px); /* 3 cards per row */
+    min-width: 0; /* Important for flex items */
+}
+
+/* NAVIGATION BUTTONS */
+.slider-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 54px;
+    height: 54px;
+    background: rgba(20, 20, 20, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    color: var(--color-accent-gold);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    transition: all 0.3s;
-    font-size: 0.95rem;
-    margin-top: auto;
+    font-size: 1.4rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
-.news-readmore i {
-    margin-left: 8px;
+.slider-nav:hover {
+    background: var(--color-accent-gold);
+    color: var(--color-bg-base);
+    border-color: var(--color-accent-gold);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+}
+
+.prev-btn { left: 10px; }
+.next-btn { right: 10px; }
+
+.slider-nav i {
     font-style: normal;
-    transition: transform 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.news-card:hover .news-readmore i {
-    transform: translateX(5px);
+@media (max-width: 1100px) {
+    .news-track .news-card {
+        flex: 0 0 calc(50% - 15px); /* 2 cards */
+    }
+}
+
+@media (max-width: 768px) {
+    .news-slider-container {
+        padding: 0 50px;
+    }
+    .news-track .news-card {
+        flex: 0 0 100%; /* 1 card */
+    }
+    .news-section-header h2 {
+        font-size: 1.8rem;
+    }
+    .slider-nav {
+        width: 44px;
+        height: 44px;
+        font-size: 1.1rem;
+    }
 }
