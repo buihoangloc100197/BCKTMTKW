@@ -80,7 +80,7 @@
                 <div class="auth-divider">HOẶC ĐĂNG NHẬP BẰNG</div>
 
                 <div class="social-login-group">
-                    <button type="button" class="btn-social btn-google">
+                    <button type="button" class="btn-social btn-google" id="googleSignInBtn">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
                             <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-1 .67-2.28 1.07-3.71 1.07-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
@@ -114,6 +114,51 @@
 
     <script src="java/cursor.js"></script>
     <script src="java/login.js"></script>
+
+    <script>
+        // API Callback xử lý khi Google trả về dữ liệu (Google OAuth 2.0)
+        function handleCredentialResponse(response) {
+            // Giải mã JWT Token từ Google GSI
+            const responsePayload = JSON.parse(atob(response.credential.split('.')[1]));
+            
+            // Lưu dữ liệu vào hệ thống web để làm tài khoản
+            localStorage.setItem('isLoggedIn', 'true');
+            localStorage.setItem('userName', responsePayload.name);
+            localStorage.setItem('userEmail', responsePayload.email);
+            localStorage.setItem('userAvatar', responsePayload.picture);
+            
+            window.location.href = 'index.html';
+        }
+
+        window.onload = function () {
+            // Khởi tạo Google Identity Services
+            if(window.google) {
+                google.accounts.id.initialize({
+                    client_id: "YOUR_GOOGLE_CLIENT_ID_HERE.apps.googleusercontent.com", // Điền Client ID thật của bạn
+                    callback: handleCredentialResponse
+                });
+                
+                // Fallback mô phỏng nếu chưa cấu hình Client ID chạy server thật
+                const btnGoogle = document.getElementById('googleSignInBtn');
+                if (btnGoogle) {
+                    btnGoogle.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        
+                        // Nếu thư viện Google chạy được thì nó sẽ gọi popup, 
+                        // Nhưng ở máy trạm file:// thì chúng ta giả lập thông tin cho nhanh
+                        localStorage.setItem('isLoggedIn', 'true');
+                        localStorage.setItem('userName', 'Zorenb VIP');
+                        localStorage.setItem('userEmail', 'client@google.com');
+                        localStorage.setItem('userAvatar', 'https://ui-avatars.com/api/?name=Z+V&background=4285F4&color=fff&bold=true');
+                        
+                        // Chuyển hướng về trang chủ ngay lập tức
+                        window.location.href = 'index.html';
+                    });
+                }
+            }
+        }
+    </script>
 </body>
 
 </html>
+

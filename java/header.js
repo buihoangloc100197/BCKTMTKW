@@ -59,9 +59,28 @@ const globalHeaderHTML = `
                     <a href="javascript:void(0)" class="lang-option" onclick="handleLanguageChange('zh')"><span>🇨🇳</span> 简体中文</a>
                 </div>
             </div>
-            
-            <button class="btn btn-login" data-i18n="btn_login" onclick="window.location.href='login.html'">Đăng nhập</button>
-            <button class="btn btn-register" data-i18n="btn_register" onclick="window.location.href='register.html'">Đăng ký</button>
+            <!-- Auth Buttons (Guest) -->
+            <div id="auth-guest" style="display: flex; gap: 1.2rem;">
+                <button class="btn btn-login" data-i18n="btn_login" onclick="window.location.href='login.html'">Đăng nhập</button>
+                <button class="btn btn-register" data-i18n="btn_register" onclick="window.location.href='register.html'">Đăng ký</button>
+            </div>
+
+            <!-- User Menu (Logged In) -->
+            <div id="auth-user" class="user-menu-wrapper" style="display: none;">
+                <div class="user-avatar-btn">
+                    <img src="https://ui-avatars.com/api/?name=User&background=c5a059&color=0a0a0a&bold=true" alt="User Avatar" class="user-avatar" id="header-avatar">
+                </div>
+                <div class="user-dropdown glass-panel">
+                    <div class="user-dropdown-header">
+                        <strong class="user-name">Người dùng VIP</strong>
+                        <span class="user-email">user@zorenb.com</span>
+                    </div>
+                    <div class="user-dropdown-divider"></div>
+                    <a href="javascript:void(0)" class="dropdown-item">Hồ sơ cá nhân</a>
+                    <a href="javascript:void(0)" class="dropdown-item">Cài đặt</a>
+                    <a href="javascript:void(0)" class="dropdown-item" onclick="logoutUser()">Đăng xuất</a>
+                </div>
+            </div>
         </div>
     </header>
 `;
@@ -82,15 +101,60 @@ function initGlobalHeader() {
         // Highlight active nav item
         syncActiveNav();
 
+        // Xử lý Hiển thị Avatar Đăng nhập
+        const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+        const authGuest = document.getElementById('auth-guest');
+        const authUser = document.getElementById('auth-user');
+        
+        if (isLoggedIn) {
+            if (authGuest) authGuest.style.display = 'none';
+            if (authUser) {
+                authUser.style.display = 'flex';
+                
+                // Nạp dữ liệu tài khoản từ Google/hệ thống hiển thị lên Header
+                const savedName = localStorage.getItem('userName') || 'Người dùng VIP';
+                const savedEmail = localStorage.getItem('userEmail') || 'user@zorenb.com';
+                const savedAvatar = localStorage.getItem('userAvatar') || `https://ui-avatars.com/api/?name=${encodeURIComponent(savedName)}&background=c5a059&color=0a0a0a&bold=true`;
+                
+                const nameEl = authUser.querySelector('.user-name');
+                const emailEl = authUser.querySelector('.user-email');
+                const avatarEl = document.getElementById('header-avatar');
+                
+                if (nameEl) nameEl.textContent = savedName;
+                if (emailEl) emailEl.textContent = savedEmail;
+                if (avatarEl) avatarEl.src = savedAvatar;
+
+                // Toggle Dropdown Menu khi click
+                authUser.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    this.classList.toggle('active');
+                });
+                
+                // Đóng dropdown khi click ra ngoài
+                document.addEventListener('click', function(e) {
+                    if (!authUser.contains(e.target)) {
+                        authUser.classList.remove('active');
+                    }
+                });
+            }
+        } else {
+            if (authGuest) authGuest.style.display = 'flex';
+            if (authUser) authUser.style.display = 'none';
+        }
+
         // Final i18n Sync
         if (typeof i18nData !== 'undefined') {
             const savedLang = localStorage.getItem('zorenb_lang') || 'vi';
-            // Use setLanguage directly
             if (typeof setLanguage === 'function') {
                 setLanguage(savedLang);
             }
         }
     }
+}
+
+function logoutUser() {
+    localStorage.removeItem('isLoggedIn');
+    window.location.reload();
 }
 
 function syncActiveNav() {
