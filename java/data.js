@@ -11,14 +11,7 @@ const vehicles = [
         interior: "https://images.unsplash.com/photo-1632245842861-12c448bb95b2?auto=format&fit=crop&w=1200&q=100",
         badges: ["V12", "Hybrid"],
         specs: { accel: "2.5s", maxSpeed: "350km/h", power: "1015hp", engine: "6.5L V12 Hybrid", weight: "1,772kg" },
-        sale: 5,
-        description: "Revuelto là siêu xe hybrid V12 đầu tiên của Lamborghini, định nghĩa lại khái niệm về hiệu suất và trải nghiệm lái tương lai.",
-        gallery: [
-            "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?auto=format&fit=crop&w=1200&q=100",
-            "https://images.unsplash.com/photo-1632245842861-12c448bb95b2?auto=format&fit=crop&w=1200&q=100",
-            "image/lambo_rear.png",
-            "image/lambo_wheel.png"
-        ]
+        description: "Revuelto là siêu xe hybrid V12 đầu tiên của Lamborghini, định nghĩa lại khái niệm về hiệu suất và trải nghiệm lái tương lai."
     },
     {
         id: 2,
@@ -114,7 +107,6 @@ const vehicles = [
         interior: "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?auto=format&fit=crop&w=1200&q=100",
         badges: ["V12", "Rare"],
         specs: { accel: "3.9s", maxSpeed: "330km/h", power: "550hp", engine: "6.0L V12", weight: "1,625kg" },
-        sale: 15,
         description: "Biểu tượng của thập niên 90 với sức mạnh mãnh liệt và vẻ ngoài hầm hố không thể nhầm lẫn."
     },
     // --- FERRARI (9 Cars) ---
@@ -128,14 +120,7 @@ const vehicles = [
         interior: "https://images.unsplash.com/photo-1614200187524-dc4b892acf16?auto=format&fit=crop&w=1200&q=100",
         badges: ["V8 Turbo", "Hybrid"],
         specs: { accel: "2.5s", maxSpeed: "340km/h", power: "986hp", engine: "4.0L V8 Plug-in Hybrid", weight: "1,570kg" },
-        sale: 8,
-        description: "Đỉnh cao công nghệ Plug-in Hybrid, mang lại hiệu suất vượt trội và khả năng tăng tốc kinh ngạc.",
-        gallery: [
-            "https://images.unsplash.com/photo-1592198084033-aade902d1aae?auto=format&fit=crop&w=1200&q=100",
-            "https://images.unsplash.com/photo-1614200187524-dc4b892acf16?auto=format&fit=crop&w=1200&q=100",
-            "https://images.unsplash.com/photo-1592198084033-aade902d1aae?auto=format&fit=crop&w=1200&q=100",
-            "https://images.unsplash.com/photo-1614200187524-dc4b892acf16?auto=format&fit=crop&w=1200&q=100"
-        ]
+        description: "Đỉnh cao công nghệ Plug-in Hybrid, mang lại hiệu suất vượt trội và khả năng tăng tốc kinh ngạc."
     },
     {
         id: 11,
@@ -244,13 +229,7 @@ const vehicles = [
         interior: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1200&q=100",
         badges: ["W16 Quad-Turbo", "Limited"],
         specs: { accel: "2.3s", maxSpeed: "350km/h", power: "1500hp", engine: "8.0L W16 Quad-Turbo", weight: "1,945kg" },
-        description: "Kỹ thuật thượng thừa của người Pháp, cỗ máy tốc độ thuần túy trên mọi cung đường.",
-        gallery: [
-            "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?auto=format&fit=crop&w=1200&q=100",
-            "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1200&q=100",
-            "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?auto=format&fit=crop&w=1200&q=100",
-            "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1200&q=100"
-        ]
+        description: "Kỹ thuật thượng thừa của người Pháp, cỗ máy tốc độ thuần túy trên mọi cung đường."
     },
     {
         id: 20,
@@ -359,7 +338,6 @@ const vehicles = [
         interior: "https://images.unsplash.com/photo-1552519507-88544af8bc98?auto=format&fit=crop&w=1200&q=100",
         badges: ["Carbon Fiber", "Twin-Turbo"],
         specs: { accel: "2.8s", maxSpeed: "332km/h", power: "740hp", engine: "4.0L V8 Twin-Turbo", weight: "1,389kg" },
-        sale: 12,
         description: "Sự tiến hóa của tốc độ, nhẹ hơn và mạnh mẽ hơn bất kỳ chiếc McLaren thương mại nào trước đó."
     },
     {
@@ -481,7 +459,6 @@ const vehicles = [
         interior: "https://images.unsplash.com/photo-1614200174823-3b102555562d?auto=format&fit=crop&w=1200&q=100",
         badges: ["Electric", "AWD"],
         specs: { accel: "2.8s", maxSpeed: "260km/h", power: "750hp", engine: "Dual Electric Motors", weight: "2,295kg" },
-        sale: 20,
         description: "Linh hồn điện của Porsche, kết hợp sức mạnh tức thì với sự sang trọng bậc nhất."
     },
     {

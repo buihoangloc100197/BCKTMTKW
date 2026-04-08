@@ -26,8 +26,7 @@
     align-items: center;
     font-family: 'Inter', 'Be Vietnam Pro', sans-serif;
     color: var(--text-white);
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow: hidden;
     position: relative;
     background-image: 
         radial-gradient(circle at 50% 50%, rgba(197, 160, 89, 0.05), transparent 70%),
@@ -148,7 +147,6 @@
     color: var(--text-gray);
     margin-bottom: 30px;
     text-align: center;
-    white-space: nowrap;
 }
 
 /* Login Form Styles */
@@ -183,8 +181,6 @@
 }
 
 .login-form input[type="text"],
-.login-form input[type="email"],
-.login-form input[type="tel"],
 .login-form input[type="password"] {
     width: 100%;
     background: rgba(255, 255, 255, 0.05);
@@ -202,13 +198,6 @@
     background: rgba(255, 255, 255, 0.08);
     border-color: var(--primary-gold);
     box-shadow: 0 0 10px rgba(197, 160, 89, 0.2);
-}
-
-.login-form input:disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-    background: rgba(255, 255, 255, 0.02);
-    border-color: rgba(255, 255, 255, 0.05);
 }
 
 /* Submit Button */
@@ -429,14 +418,5 @@
     .back-home {
         top: 20px;
         left: 20px;
-    }
-}
-
-/* Fix cho thiết bị màn hình thấp hoặc form dài */
-@media (max-height: 850px) {
-    .login-page {
-        align-items: flex-start;
-        padding-top: 50px;
-        padding-bottom: 50px;
     }
 }

@@ -1,10 +1,54 @@
 document.addEventListener('DOMContentLoaded', () => {
     // 1. CHUỘT TÙY CHỈNH (Luxury Magnetic Cursor)
-    // Đã ẩn chuột tùy chỉnh để khôi phục chuột mặc định
+    const cursor = document.querySelector('.cursor');
+    const cursorFollower = document.querySelector('.cursor-follower');
 
-    // 2. HIỆU ỨNG KÍCH HOẠT KHI CHUỘT CHỈ VÀO CÁC NÚT BẤM
-    // Đã gỡ bỏ hiệu ứng hover để tránh lỗi con trỏ
+    // Tọa độ mục tiêu
+    let cursorX = 0, cursorY = 0;
+    // Tọa độ Follower đang vẽ (sẽ trễ hơn cursorX/Y để tạo cảm giác đuổi theo)
+    let followerX = 0, followerY = 0;
 
+    // Lắng nghe sự kiện di chuyển chuột
+    document.addEventListener('mousemove', (e) => {
+        cursorX = e.clientX;
+        cursorY = e.clientY;
+
+        // Cập nhật ngay vị trí điểm chấm nhỏ vàng
+        if (cursor) {
+            cursor.style.left = cursorX + 'px';
+            cursor.style.top = cursorY + 'px';
+        }
+    });
+
+    // Vòng lặp vẽ liên tục bằng requestAnimationFrame (Lerp Motion) mượt như phim
+    function animateCursor() {
+        // Linear Interpolation (Lerp) - Di chuyển 15% khoảng cách còn lại ở mỗi Frame
+        followerX += (cursorX - followerX) * 0.15;
+        followerY += (cursorY - followerY) * 0.15;
+
+        if (cursorFollower) {
+            cursorFollower.style.left = followerX + 'px';
+            cursorFollower.style.top = followerY + 'px';
+        }
+
+        requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+
+    // 2. HIỆU ỨNG KÍCH HOẠT KHI CHUỘT CHỈ VÀO CÁC NÚT BẤM (Hover Active)
+    const hoverElements = document.querySelectorAll('a, button, .custom-cursor-hover');
+
+    hoverElements.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            cursor.classList.add('hover-active');
+            cursorFollower.classList.add('hover-active');
+        });
+
+        el.addEventListener('mouseleave', () => {
+            cursor.classList.remove('hover-active');
+            cursorFollower.classList.remove('hover-active');
+        });
+    });
 
     // 3. NÚT CHÍNH CÓ TÍNH CHẤT TỪ TÍNH (Magnetic Call-to-action)
     const magneticBtn = document.querySelector('.magnetic-btn');
@@ -78,11 +122,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- HIỆU ỨNG GÕ CHỮ (Typewriter Effect) ---
     function typeWriter(element, htmlContent, speed = 30) {
-        if (element.typeWriterTimeout) {
-            clearTimeout(element.typeWriterTimeout);
-            element.typeWriterTimeout = null;
-        }
-        
         element.innerHTML = ""; // Xóa nội dung cũ
         let i = 0;
         let isTag = false;
@@ -100,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (isTag) {
                     type(); 
                 } else {
-                    element.typeWriterTimeout = setTimeout(type, speed);
+                    setTimeout(type, speed);
                 }
             }
         }
@@ -146,28 +185,20 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('next-car').addEventListener('click', nextCar);
     document.getElementById('prev-car').addEventListener('click', prevCar);
 
-    // Gỡ bỏ tính năng đổi xe tự động khi lướt chuột (Scroll) để người dùng có thể kéo màn hình xuống đọc các section dưới.
-    
-    // =========================================
-    // 4.1 SCROLL REVEAL (Hiệu ứng cuộn màn hình)
-    // =========================================
-    const reveals = document.querySelectorAll('.reveal-on-scroll');
-    const revealOptions = {
-        threshold: 0.15,
-        rootMargin: "0px 0px -50px 0px"
-    };
+    // Lắng nghe sự kiện Cuộn chuột (Scroll switch)
+    let lastScrollTime = 0;
+    window.addEventListener('wheel', (e) => {
+        const currentTime = new Date().getTime();
+        if (currentTime - lastScrollTime < 1500) return;
 
-    const revealOnScroll = new IntersectionObserver(function(entries, observer) {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) return;
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-        });
-    }, revealOptions);
-
-    reveals.forEach(reveal => {
-        revealOnScroll.observe(reveal);
+        if (e.deltaY > 0) {
+            nextCar();
+        } else {
+            prevCar();
+        }
+        lastScrollTime = currentTime;
     });
+
     // --- LẮNG NGHE BÀN PHÍM VẬT LÝ (< và >) ---
     window.addEventListener('keydown', (e) => {
         // Kiểm tra phím < (comma ,) hoặc ArrowLeft
