@@ -40,7 +40,7 @@ const globalHeaderHTML = `
 
                     </ul>
                 </li>
-                <li><a href="index.html" class="nav-item" data-id="news" data-i18n="nav_news">TIN TỨC</a></li>
+                <li><a href="TinTuc/tintuc.html" class="nav-item" data-id="news" data-i18n="nav_news">TIN TỨC</a></li>
                 
         </nav>
         
