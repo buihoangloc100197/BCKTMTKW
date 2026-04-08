@@ -19,8 +19,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    cursor: none;
-    /* Tắt chuột mặc định để dùng Custom Cursor */
 }
 
 body {
@@ -39,8 +37,7 @@ a,
 button {
     text-decoration: none;
     color: inherit;
-    cursor: none;
-    /* Giữ trạng thái ẩn cho chuột */
+    cursor: pointer;
 }
 
 ul {
@@ -57,6 +54,7 @@ button {
    CUSTOM CURSOR (Chuột VIP độc quyền)
    ========================================= */
 .cursor {
+    display: none !important;
     width: 8px;
     height: 8px;
     background-color: var(--color-accent-gold);
@@ -72,6 +70,7 @@ button {
 }
 
 .cursor-follower {
+    display: none !important;
     width: 40px;
     height: 40px;
     border: 1px solid rgba(212, 175, 55, 0.4);
@@ -468,11 +467,11 @@ button {
     margin-top: 8rem;
     transition: opacity 0.5s ease, transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 
-    /* Thiết lập Flexbox để quản lý khoảng cách cực rộng (Ultra-Spacious) */
+    /* Thiết lập Flexbox để quản lý khoảng cách */
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5.5rem; /* Tăng từ 2.6rem lên 5.5rem để tạo sự thoáng đãng tối đa */
+    gap: 2.5rem; 
 }
 
 /* Class đánh dấu trạng thái đang chuyển đổi để JS sử dụng */
@@ -484,10 +483,9 @@ button {
 
 .hero-title {
     font-family: var(--font-heading);
-    font-size: 3.8rem;
-    /* Giảm kích thước để vừa trên một hàng ngang */
+    font-size: 3rem;
     font-weight: 700;
-    line-height: 1.25; /* Tăng line-height để không bị dính khi xuống dòng */
+    line-height: 1.25;
     color: var(--color-text-primary);
     text-shadow: 0 15px 30px rgba(0, 0, 0, 0.8);
     text-transform: uppercase;
@@ -514,9 +512,8 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5rem;
-    /* Tăng khoảng cách giữa các thông số */
-    padding: 2rem 5rem;
+    gap: 2.5rem;
+    padding: 1.5rem 3.5rem;
 
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(20px);
@@ -718,8 +715,128 @@ button {
     }
 }
 
-/* Ẩn con trỏ mặc định khi hover vào nút và các con của nó */
-.cskh-wrapper,
-.cskh-wrapper * {
-    cursor: none;
+/* =========================================
+   NEW LUXURY SECTIONS (Homepage Enhancement)
+   ========================================= */
+
+/* Typography & Layout Utilities */
+.section-header { margin-bottom: 4rem; }
+.section-header.center { text-align: center; }
+.section-tagline {
+    font-family: var(--font-ui);
+    font-size: 0.85rem;
+    color: var(--color-accent-gold);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    display: block;
+    margin-bottom: 1rem;
+    font-weight: 600;
 }
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 2.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+}
+.section-desc {
+    font-size: 1.05rem;
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    max-width: 800px;
+}
+.text-dark { color: #050505; }
+.text-gold { color: var(--color-accent-gold); }
+.text-light { color: #fff; }
+.glass-panel {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+/* --- Section 1: Heritage --- */
+.heritage-section { padding: 8rem 5rem; max-width: 1400px; margin: 0 auto; }
+.heritage-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+.heritage-img-wrapper { position: relative; border-radius: 4px; overflow: hidden; }
+.heritage-img { width: 100%; display: block; filter: grayscale(20%); transition: all 0.5s; }
+.heritage-img-wrapper:hover .heritage-img { filter: grayscale(0%); transform: scale(1.05); }
+.outline-gold::after { content:''; position:absolute; top: -15px; left: -15px; right: 15px; bottom: 15px; border: 1px solid var(--color-accent-gold); z-index:-1; }
+.outline-btn { background: transparent; border: 1px solid var(--color-accent-gold); color: var(--color-accent-gold); padding: 1rem 2.5rem; margin-top: 2rem; cursor: pointer;}
+.outline-btn:hover { background: var(--color-accent-gold); color: #000; }
+
+/* --- Section 2: Masterpiece Collection --- */
+.masterpiece-collection { padding: 6rem 5rem; background: linear-gradient(180deg, #000 0%, #0a0a0a 100%); }
+.collection-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 1400px; margin: 0 auto; }
+.collection-card { position: relative; border-radius: 8px; overflow: hidden; transition: transform 0.4s ease; min-height: 480px; display: flex; flex-direction: column; justify-content: flex-end; }
+.card-img-wrapper { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); z-index: 1;}
+.card-overlay { position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.2) 60%, transparent 100%); z-index: 2; transition: background 0.4s; }
+.card-content { position: relative; z-index: 3; padding: 2.5rem; transform: translateY(20px); transition: transform 0.4s; }
+.car-name { font-family: var(--font-heading); font-size: 1.6rem; margin-bottom: 0.5rem; }
+.car-stats-hidden { display: flex; gap: 10px; color: var(--color-accent-gold); font-size: 0.85rem; font-weight: 600; opacity: 0; transition: opacity 0.4s; }
+.dot-divider { color: rgba(255,255,255,0.3); }
+.btn-discover { background: transparent; border: none; color: #fff; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; margin-top: 1.5rem; font-weight: 600; display: flex; align-items: center; gap: 10px; cursor:pointer;}
+.group-hover:hover { transform: translateY(-10px); border-color: var(--color-accent-gold); }
+.group-hover:hover .card-img-wrapper { transform: scale(1.08); }
+.group-hover:hover .card-overlay { background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.4) 100%); }
+.group-hover:hover .car-stats-hidden { opacity: 1; }
+.group-hover:hover .card-content { transform: translateY(0); }
+
+/* --- Section 3: Pinnacle of Engineering --- */
+.engineering-pinnacle { padding: 8rem 5rem; max-width: 1400px; margin: 0 auto; text-align: center; }
+.engineering-flex { display: flex; gap: 3rem; justify-content: space-between; margin-top: 4rem; }
+.engineering-col { flex: 1; padding: 3rem 2rem; border-radius: 12px; text-align: left; transition: all 0.4s; }
+.engineering-col:hover { transform: translateY(-5px); background: rgba(255,255,255,0.05); border-color: var(--color-accent-gold); }
+.eng-icon { margin-bottom: 1.5rem; }
+.engineering-col h4 { font-size: 1.3rem; margin-bottom: 1rem; color: #fff; }
+.engineering-col p { color: var(--color-text-secondary); font-size: 0.95rem; line-height: 1.6; }
+
+/* --- Section 4: Bespoke Atelier --- */
+.bespoke-atelier { position: relative; padding: 10rem 5rem; display: flex; justify-content: flex-end; align-items: center; min-height: 600px; }
+.bespoke-image { position: absolute; top:0; left:0; width:70%; height:100%; background-image: url('image/3.jpg'); background-size: cover; background-position: center; z-index: 1; }
+.bespoke-overlay { position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(to right, transparent 0%, #000 80%); }
+.bespoke-content { position: relative; z-index: 2; max-width: 600px; padding: 4rem; background: #fff; border-radius: 4px; box-shadow: -20px 20px 60px rgba(0,0,0,0.5); }
+.bespoke-content .section-title { font-size: 2.2rem; }
+.bespoke-content .btn-primary { background: #000; color: var(--color-accent-gold); border: none; }
+.bespoke-content .btn-primary:hover { background: var(--color-accent-gold); color: #000; }
+
+/* --- Section 5: Cinematic Banner --- */
+.cinematic-banner { position: relative; height: 70vh; display: flex; justify-content: center; align-items: center; text-align: center; overflow: hidden; }
+.cinematic-bg { position: absolute; top:0; left:0; width:100%; height:100%; background-size: cover; background-position: center; filter: brightness(0.6); z-index: 1; transition: filter 0.5s; }
+.cinematic-banner:hover .cinematic-bg { filter: brightness(0.4) scale(1.05); }
+.cinematic-overlay { position: absolute; top:0; left:0; width:100%; height:100%; z-index: 2; background: rgba(0,0,0,0.3); }
+.cinematic-content { position: relative; z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 2rem; }
+.cinematic-title { font-size: 4rem; font-family: var(--font-heading); text-shadow: 0 10px 30px rgba(0,0,0,0.8); letter-spacing: 5px; }
+.btn-play-video { width: 80px; height: 80px; border-radius: 50%; border: 2px solid var(--color-accent-gold); display: flex; justify-content: center; align-items: center; cursor: pointer; color: var(--color-accent-gold); background: rgba(0,0,0,0.4); backdrop-filter: blur(5px); transition: all 0.3s; }
+.btn-play-video:hover { background: var(--color-accent-gold); color: #000; transform: scale(1.1); }
+.watch-text { font-size: 0.85rem; letter-spacing: 3px; font-weight: 600; }
+
+/* --- Section 6: Journal --- */
+.journal-section { padding: 8rem 5rem; max-width: 1400px; margin: 0 auto; }
+.journal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+.journal-card { cursor: pointer; }
+.journal-img-wrapper { overflow: hidden; border-radius: 4px; margin-bottom: 2rem; }
+.journal-img { width: 100%; height: 350px; object-fit: cover; transition: transform 0.6s; filter: brightness(0.8); }
+.journal-card:hover .journal-img { transform: scale(1.05); filter: brightness(1); }
+.journal-date { color: var(--color-accent-gold); font-size: 0.85rem; letter-spacing: 2px; display: block; margin-bottom: 0.8rem; }
+.journal-title { font-family: var(--font-heading); font-size: 1.6rem; margin-bottom: 1rem; transition: color 0.3s; }
+.journal-card:hover .journal-title { color: var(--color-accent-gold); }
+.read-more { font-weight: 600; font-size: 0.9rem; text-transform: uppercase; color: var(--color-text-secondary); }
+.journal-card:hover .read-more { color: #fff; }
+
+/* --- Hiệu ứng cuộn (Scroll Reveal) --- */
+.reveal-on-scroll { opacity: 0; transform: translateY(40px); transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1); }
+.reveal-on-scroll.visible { opacity: 1; transform: translateY(0); }
+
+/* Vài điều chỉnh Responsive Layout cơ bản */
+@media (max-width: 1024px) {
+    .engineering-flex, .heritage-grid, .journal-grid { flex-direction: column; grid-template-columns: 1fr; }
+    .collection-grid { grid-template-columns: 1fr 1fr; }
+    .bespoke-image { width: 100%; }
+    .bespoke-overlay { background: rgba(0,0,0,0.6); }
+    .bespoke-content { padding: 2rem; margin: 0 auto; background: rgba(255,255,255,0.9); }
+}
+@media (max-width: 768px) {
+    .collection-grid { grid-template-columns: 1fr; }
+    .heritage-section, .masterpiece-collection, .engineering-pinnacle, .bespoke-atelier, .journal-section { padding: 4rem 2rem; }
+}
