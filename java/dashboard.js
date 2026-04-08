@@ -174,63 +174,59 @@ document.addEventListener('DOMContentLoaded', () => {
         checkboxes.forEach(cb => cb.addEventListener('change', handleCompareChange));
     }
 
-    // 6. TRUNG TÂM XỬ LÝ BỘ LỌC (Central Filter Logic)
-    const typeCheckboxes = document.querySelectorAll('.type-filter');
-    
-    function applyFilters() {
-        let filtered = vehicles;
-
-        // Lọc theo Hãng (Brand)
+    // 6. EVENT LISTENERS
+    if (searchInput) searchInput.addEventListener('input', () => {
+        const query = searchInput.value.toLowerCase();
+        let filtered = vehicles.filter(v => v.name.toLowerCase().includes(query) || v.brand.toLowerCase().includes(query));
+        
         const currentBrand = document.body.dataset.brand;
         if (currentBrand) {
             filtered = filtered.filter(v => v.brand.toLowerCase() === currentBrand.toLowerCase());
         }
-
-        // Lọc theo Tìm kiếm
-        if (searchInput && searchInput.value) {
-            const query = searchInput.value.toLowerCase();
-            filtered = filtered.filter(v => v.name.toLowerCase().includes(query) || v.brand.toLowerCase().includes(query));
-        }
-
-        // Lọc theo Mức giá
-        if (priceSlider) {
-            const maxPrice = parseInt(priceSlider.value);
-            filtered = filtered.filter(v => v.price <= maxPrice);
-        }
-
-        // Lọc theo Phân khúc (Type Checkboxes)
-        if (typeCheckboxes.length > 0) {
-            const checkedTypes = Array.from(typeCheckboxes)
-                .filter(cb => cb.checked)
-                .map(cb => cb.value); // Lấy ds value: "Hypercar", "Sportcar"
-            
-            if (checkedTypes.length > 0) {
-                filtered = filtered.filter(v => checkedTypes.includes(v.type));
-            }
-        }
-
         renderGrid(filtered);
-    }
+    });
 
-    // 7. GÁN EVENT LISTENERS
-    if (searchInput) searchInput.addEventListener('input', applyFilters);
-    if (priceSlider) priceSlider.addEventListener('input', applyFilters);
-    if (typeCheckboxes.length > 0) {
-        typeCheckboxes.forEach(cb => cb.addEventListener('change', applyFilters));
-    }
+    if (priceSlider) priceSlider.addEventListener('input', () => {
+        const maxPrice = parseInt(priceSlider.value);
+        let filtered = vehicles.filter(v => v.price <= maxPrice);
+        
+        const currentBrand = document.body.dataset.brand;
+        if (currentBrand) {
+            filtered = filtered.filter(v => v.brand.toLowerCase() === currentBrand.toLowerCase());
+        }
+        renderGrid(filtered);
+    });
 
-    if (btnCompareNow) btnCompareNow.addEventListener('click', renderComparison);
-    if (modalClose) modalClose.addEventListener('click', () => compareModal.classList.remove('active'));
-    if (btnClearCompare) btnClearCompare.addEventListener('click', () => {
+    btnCompareNow.addEventListener('click', renderComparison);
+    modalClose.addEventListener('click', () => compareModal.classList.remove('active'));
+    btnClearCompare.addEventListener('click', () => {
         selectedCars = [];
         updateCompareBar();
-        applyFilters(); 
+        const currentBrand = document.body.dataset.brand;
+        if (currentBrand) {
+            renderGrid(vehicles.filter(v => v.brand.toLowerCase() === currentBrand.toLowerCase()));
+        } else {
+            renderGrid(vehicles);
+        }
     });
 
+    // 7. KHỞI TẠO (Multi-Page Logic)
+    const currentBrand = document.body.dataset.brand;
+    
+    // Listen for language changes to re-render grid
     window.addEventListener('languageChanged', (e) => {
-        applyFilters();
+        const brand = document.body.dataset.brand;
+        if (brand) {
+            renderGrid(vehicles.filter(v => v.brand.toLowerCase() === brand.toLowerCase()));
+        } else {
+            renderGrid(vehicles);
+        }
     });
 
-    // 8. KHỞI TẠO LẦN ĐẦU
-    applyFilters();
+    if (currentBrand) {
+        const filteredVehicles = vehicles.filter(v => v.brand.toLowerCase() === currentBrand.toLowerCase());
+        renderGrid(filteredVehicles);
+    } else {
+        renderGrid(vehicles);
+    }
 });
