@@ -108,6 +108,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateVehicle(index) {
+        if (!heroSection) return; // Tránh lỗi crash nếu phần tử không tồn tại
+        
         // Thêm class chuyển cảnh
         heroSection.classList.add('hero-switching');
 
@@ -118,12 +120,12 @@ document.addEventListener('DOMContentLoaded', () => {
             heroSection.style.backgroundImage = `url('${car.image}')`;
 
             // Cập nhật Content với hiệu ứng gõ chữ
-            typeWriter(carTitle, car.title, 40);
-            carSubtitle.innerText = car.subtitle; 
+            if (carTitle) typeWriter(carTitle, car.title, 40);
+            if (carSubtitle) carSubtitle.innerText = car.subtitle; 
 
-            specAccel.innerText = car.accel;
-            specSpeed.innerText = car.speed;
-            specEngine.innerText = car.engine;
+            if (specAccel) specAccel.innerText = car.accel;
+            if (specSpeed) specSpeed.innerText = car.speed;
+            if (specEngine) specEngine.innerText = car.engine;
 
             // Xóa class để hiện nội dung mới
             heroSection.classList.remove('hero-switching');
@@ -131,20 +133,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function nextCar() {
+        if (!heroSection) return;
         currentVehicle = (currentVehicle + 1) % vehicles.length;
         updateVehicle(currentVehicle);
         resetTimer();
     }
 
     function prevCar() {
+        if (!heroSection) return;
         currentVehicle = (currentVehicle - 1 + vehicles.length) % vehicles.length;
         updateVehicle(currentVehicle);
         resetTimer();
     }
 
     // Lắng nghe sự kiện Nút bấm
-    document.getElementById('next-car').addEventListener('click', nextCar);
-    document.getElementById('prev-car').addEventListener('click', prevCar);
+    const nextBtn = document.getElementById('next-car');
+    const prevBtn = document.getElementById('prev-car');
+    if (nextBtn) nextBtn.addEventListener('click', nextCar);
+    if (prevBtn) prevBtn.addEventListener('click', prevCar);
 
     // Gỡ bỏ tính năng đổi xe tự động khi lướt chuột (Scroll) để người dùng có thể kéo màn hình xuống đọc các section dưới.
     

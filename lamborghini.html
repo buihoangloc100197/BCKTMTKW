@@ -35,17 +35,7 @@
                 <input type="text" placeholder="Tìm kiếm siêu xe..." id="search-input" data-i18n="search_placeholder">
             </div>
             
-            <div class="top-controls">
-                <div class="icon-group">
-                    <div class="icon-btn" title="Thông báo" data-i18n="[title]tooltip_notifications">🔔<span class="badge">3</span></div>
-                    <div class="icon-btn" title="Tin nhắn" data-i18n="[title]tooltip_messages">💬</div>
-                </div>
-                <div class="user-profile">
-                    <img src="https://i.pravatar.cc/100" alt="User Avatar" class="avatar-sm">
-                    <span>VIP Member</span>
-                </div>
-                <button class="btn btn-primary magnetic-btn" data-i18n="btn_consignment">+ Ký Gửi Siêu Xe</button>
-            </div>
+
         </div>
 
         <div class="marketplace-main">
@@ -54,9 +44,9 @@
                 <div class="filter-section">
                     <h3 data-i18n="filter_type">LOẠI SIÊU XE</h3>
                     <div class="filter-group">
-                        <label class="filter-check"><input type="checkbox" checked> <span data-i18n="type_hypercar">Hypercar</span></label>
-                        <label class="filter-check"><input type="checkbox"> <span data-i18n="type_sportcar">Sportcar</span></label>
-                        <label class="filter-check"><input type="checkbox"> <span data-i18n="type_suv">SUV Luxury</span></label>
+                        <label class="filter-check"><input type="checkbox" class="type-filter" value="Hypercar"> <span data-i18n="type_hypercar">Hypercar</span></label>
+                        <label class="filter-check"><input type="checkbox" class="type-filter" value="Sportcar"> <span data-i18n="type_sportcar">Sportcar</span></label>
+                        <label class="filter-check"><input type="checkbox" class="type-filter" value="SUV Luxury"> <span data-i18n="type_suv">SUV Luxury</span></label>
                     </div>
                 </div>
 
@@ -89,10 +79,6 @@
             <div class="marketplace-grid-content">
                 <div class="grid-header">
                     <h2><span id="car-count">64</span> <span data-i18n="car_count_suffix">SIÊU XE ĐANG TRƯNG BÀY</span></h2>
-                    <div class="view-options">
-                        <span class="active" data-i18n="view_grid">Lưới</span>
-                        <span data-i18n="view_list">Danh sách</span>
-                    </div>
                 </div>
 
                 <div class="car-grid" id="car-grid">
@@ -163,9 +149,15 @@
         </div>
     </div>
 
+    <!-- FOOTER -->
+    <footer class="main-footer fade-in">
+        <p data-i18n="footer_copyright">© 2026 ZORENB Luxury Showroom. Đã đăng ký bản quyền toàn cầu.</p>
+    </footer>
+
     <!-- JavaScript -->
     <script src="java/data.js"></script>
     <script src="java/main.js"></script>
     <script src="java/dashboard.js"></script>
 </body>
 </html>
+

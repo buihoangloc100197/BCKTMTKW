@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đặt Mua Siêu Xe - ZORENB Luxury Showroom</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/booking.css">
+
+    <!-- Language & Header Data -->
+    <script src="java/data.js"></script>
+    <script src="java/i18n.js"></script>
+</head>
+<body class="booking-body purchase-page">
+    <!-- BACKGROUND LAYERS -->
+    <div class="booking-bg-layer" id="page-bg"></div>
+    <div class="booking-overlay"></div>
+
+    <!-- BACK BUTTON -->
+    <a href="javascript:history.back()" class="btn-back-booking">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        <span>QUAY LẠI</span>
+    </a>
+
+    <!-- FORM CONTAINER -->
+    <div class="booking-container" id="form-container">
+        <div class="booking-header">
+            <h2 id="page-title">YÊU CẦU SỞ HỮU</h2>
+            <p id="page-subtitle">Khởi đầu hành trình huyền thoại cùng <span id="car-display-name" class="text-gold">...</span></p>
+        </div>
+
+        <form id="booking-form" class="form-grid">
+            <div class="form-group">
+                <label>Danh xưng & Họ tên</label>
+                <input type="text" id="full-name" class="form-input" placeholder="Ví dụ: Ông Nguyễn Văn A" required>
+            </div>
+            <div class="form-group">
+                <label>Số điện thoại ưu tiên</label>
+                <input type="tel" id="phone" class="form-input" placeholder="Số điện thoại cá nhân" required>
+            </div>
+            <div class="form-group">
+                <label>Hình thức liên lạc ưu tiên</label>
+                <select id="contact-method" class="form-input" style="background: rgba(255,255,255,0.03); color: #fff;">
+                    <option value="phone">Cuộc gọi trực tiếp</option>
+                    <option value="zalo">Zalo / WhatsApp</option>
+                    <option value="email">Email bảo mật</option>
+                    <option value="meeting">Hẹn gặp trực tiếp tại Showroom</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Mã VIP Membership (Nếu có)</label>
+                <input type="text" id="vip-code" class="form-input" placeholder="ZRN-XXXX-XXXX">
+            </div>
+            <div class="form-group full-width">
+                <label>Bộ sưu tập hiện tại hoặc Yêu cầu cá nhân hóa (Bespoke)</label>
+                <textarea id="notes" class="form-input" rows="4" placeholder="Chia sẻ thêm về mong muốn của quý khách để chúng tôi chuẩn bị buổi tư vấn tốt nhất."></textarea>
+            </div>
+            <div class="form-group full-width">
+                <button type="submit" class="btn-submit-booking" id="btn-submit">GỬI YÊU CẦU TƯ VẤN VIP</button>
+            </div>
+        </form>
+
+        <!-- SUCCESS MESSAGE -->
+        <div id="success-state" style="display: none; text-align: center; padding: 2.5rem 0;">
+            <div class="success-icon" style="font-size: 4rem; color: var(--color-accent-gold); margin-bottom: 2rem;">✧</div>
+            <h2 style="color: var(--color-accent-gold); letter-spacing: 5px; margin-bottom: 1.5rem;">LỜI MỜI ĐÃ ĐƯỢC GỬI</h2>
+            <p style="color: var(--color-text-secondary); line-height: 2; max-width: 500px; margin: 0 auto;">Yêu cầu của quý khách đã được chuyển tới Giám đốc Kinh doanh khu vực. Một chuyên viên tư vấn cá nhân sẽ liên hệ với quý khách trong thời gian sớm nhất để bắt đầu quy trình sở hữu độc bản.</p>
+            <button class="btn-submit-booking" style="margin-top: 3rem; max-width: 300px;" onclick="window.location.href='index.html'">HOÀN TẤT</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="java/booking.js"></script>
+</body>
+</html>
+

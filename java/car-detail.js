@@ -47,28 +47,49 @@ document.addEventListener('DOMContentLoaded', () => {
             style: 'currency', currency: 'VND'
         }).format(car.price);
 
+        // Gallery Population
+        const interiorImg = document.getElementById('interior-img');
+        if (car.gallery && car.gallery.length >= 4) {
+            if (interiorImg) interiorImg.src = car.gallery[1]; // Default to interior
+            for (let i = 1; i <= 4; i++) {
+                const thumb = document.getElementById(`thumb-${i}`);
+                if (thumb) {
+                    thumb.src = car.gallery[i - 1];
+                    thumb.style.display = 'block'; // Ensure visible
+                }
+            }
+        } else if (car.interior) {
+            if (interiorImg) interiorImg.src = car.interior;
+            const t1 = document.getElementById('thumb-1');
+            const t2 = document.getElementById('thumb-2');
+            const t3 = document.getElementById('thumb-3');
+            const t4 = document.getElementById('thumb-4');
+            
+            if (t1) { t1.src = car.image; t1.style.display = 'block'; }
+            if (t2) { t2.src = car.interior; t2.style.display = 'block'; }
+            if (t3) t3.style.display = 'none';
+            if (t4) t4.style.display = 'none';
+        }
+
+        // Dynamic Booking & Purchase Links
+        const bookingLink = document.getElementById('btn-booking-link');
+        const purchaseLink = document.getElementById('btn-purchase-link');
+        if (bookingLink) bookingLink.href = `booking.html?id=${carId}`;
+        if (purchaseLink) purchaseLink.href = `purchase.html?id=${carId}`;
+
+        // Dynamic Navigation Link
+        const navCollectionLink = document.getElementById('nav-collection-link');
+        if (navCollectionLink) {
+            navCollectionLink.href = `${car.brand.toLowerCase()}.html`;
+        }
+
         // Related Cars
         renderRelated();
     }
 
+    // --- INITIALIZE & LISTENERS ---
     populateUI();
-
-    // Listen for language changes
     window.addEventListener('languageChanged', populateUI);
-
-    // Gallery
-    const interiorImg = document.getElementById('interior-img');
-    if (car.interior) {
-        interiorImg.src = car.interior;
-        document.getElementById('thumb-1').src = car.image; // Use exterior as thumb
-        document.getElementById('thumb-2').src = car.interior;
-    }
-
-    // Dynamic Navigation Link
-    const navCollectionLink = document.getElementById('nav-collection-link');
-    if (navCollectionLink) {
-        navCollectionLink.href = `${car.brand.toLowerCase()}.html`;
-    }
 
     // 4. RENDER RELATED CARS
     const relatedContainer = document.getElementById('related-cars');
@@ -98,5 +119,27 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             </div>
         `;
+    }
+    // 5. CIRCULAR NAVIGATION LOGIC
+    const featuredCars = [1, 19, 10]; // IDs from index.html grid (Lamborghini, Bugatti, Ferrari)
+    const currentIndex = featuredCars.indexOf(carId);
+
+    const prevBtn = document.getElementById('nav-prev');
+    const nextBtn = document.getElementById('nav-next');
+
+    if (currentIndex !== -1 && prevBtn && nextBtn) {
+        // Calculate Prev Index (Circular)
+        const prevIndex = (currentIndex - 1 + featuredCars.length) % featuredCars.length;
+        const prevId = featuredCars[prevIndex];
+        prevBtn.href = `car-detail.html?id=${prevId}`;
+
+        // Calculate Next Index (Circular)
+        const nextIndex = (currentIndex + 1) % featuredCars.length;
+        const nextId = featuredCars[nextIndex];
+        nextBtn.href = `car-detail.html?id=${nextId}`;
+    } else {
+        // If car is not in the featured list, hide navigation or link to first/last
+        if (prevBtn) prevBtn.style.display = 'none';
+        if (nextBtn) nextBtn.style.display = 'none';
     }
 });
