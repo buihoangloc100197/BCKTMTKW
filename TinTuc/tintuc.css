@@ -1,0 +1,773 @@
+/* =========================================
+   CSS GỐC (styles.css) ĐÃ ĐƯỢC GỘP VÀO ĐÂY
+   Cung cấp cấu hình cơ bản, font chữ, Header, Footer và Nút CSKH.
+   ========================================= */
+
+/* CSS Variables & Cấu Hình Cơ Bản */
+:root {
+    --color-bg-base: #050505;
+    --color-bg-surface: #121212;
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #aaaaaa;
+
+    --color-accent-gold: #d4af37;
+    --color-accent-gold-hover: #fcd55d;
+
+    --font-heading: 'Be Vietnam Pro', 'Inter', 'Segoe UI', 'Microsoft YaHei', sans-serif;
+    --font-ui: 'Inter', 'Roboto', 'Segoe UI', 'Microsoft YaHei', 'Meiryo', 'Malgun Gothic', sans-serif;
+    --font-body: 'Roboto', 'Segoe UI', 'Microsoft YaHei', 'Meiryo', 'Malgun Gothic', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-bg-base);
+    color: var(--color-text-primary);
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: #000;
+}
+
+a,
+button {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    border: none;
+    font-family: var(--font-ui);
+    transition: all 0.3s ease;
+}
+
+/* =========================================
+   CUSTOM CURSOR
+   ========================================= */
+.cursor {
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-accent-gold);
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease, background-color 0.2s;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+.cursor-follower {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s, background-color 0.3s, border 0.3s;
+}
+
+.cursor.hover-active {
+    transform: translate(-50%, -50%) scale(1.5);
+    background-color: transparent;
+    border: 2px solid var(--color-accent-gold);
+    box-shadow: none;
+}
+
+.cursor-follower.hover-active {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(212, 175, 55, 0.1);
+    border-color: transparent;
+}
+
+/* =========================================
+   HEADER & ĐIỀU HƯỚNG
+   ========================================= */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.8rem 5rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.4s ease;
+}
+
+.header-left {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.logo-icon {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-bg-base);
+    background: linear-gradient(135deg, var(--color-accent-gold-hover), var(--color-accent-gold));
+    width: 44px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+}
+
+.brand-name {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--color-text-primary);
+    text-transform: uppercase;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.header-center {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 3.5rem;
+}
+
+.nav-item-dropdown {
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.nav-item {
+    font-family: var(--font-ui);
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    color: var(--color-text-primary);
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    padding: 0.5rem 0;
+    position: relative;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--color-accent-gold);
+    transition: width 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.nav-item:hover,
+.nav-item.active {
+    opacity: 1;
+}
+
+.nav-item:hover::after,
+.nav-item.active::after {
+    width: 100%;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: rgba(10, 10, 10, 0.9);
+    backdrop-filter: blur(25px);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    padding: 1.2rem 0;
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: 1000;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+.nav-item-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0px);
+}
+
+.dropdown-item {
+    display: block;
+    padding: 0.8rem 2rem;
+    font-family: var(--font-ui);
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.dropdown-item:hover {
+    color: var(--color-accent-gold);
+    background: rgba(212, 175, 55, 0.05);
+    padding-left: 2.5rem;
+}
+
+.header-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.btn {
+    padding: 0.7rem 1.8rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 4px;
+    letter-spacing: 1px;
+}
+
+.language-selector {
+    position: relative;
+    margin-right: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.globe-icon {
+    font-size: 1.2rem;
+    color: var(--color-accent-gold);
+    transition: transform 0.4s ease;
+}
+
+.language-selector:hover .globe-icon {
+    transform: rotate(360deg);
+}
+
+.lang-current-flag {
+    font-size: 1.1rem;
+    padding: 2px 6px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.lang-dropdown {
+    position: absolute;
+    top: 150%;
+    right: 0;
+    width: 180px;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 8px;
+    padding: 10px 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s cubic-bezier(0.2, 1, 0.3, 1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.language-selector:hover .lang-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.lang-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 20px;
+    font-family: var(--font-ui);
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.lang-option span {
+    font-size: 1.2rem;
+}
+
+.lang-option:hover {
+    background: rgba(212, 175, 55, 0.1);
+    color: var(--color-accent-gold);
+    padding-left: 25px;
+}
+
+.lang-option.active {
+    color: var(--color-accent-gold);
+    background: rgba(212, 175, 55, 0.05);
+    font-weight: 600;
+}
+
+.btn-login {
+    background: transparent;
+    color: var(--color-text-primary);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.btn-login:hover {
+    color: var(--color-accent-gold);
+}
+
+.btn-register {
+    background-color: var(--color-accent-gold);
+    color: var(--color-bg-base);
+}
+
+.btn-register:hover {
+    background-color: var(--color-accent-gold-hover);
+    box-shadow: 0 5px 20px rgba(212, 175, 55, 0.5);
+    transform: translateY(-2px);
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+}
+
+/* =========================================
+   ANIMATIONS (Hiệu ứng Phim Ảnh - Cinematic)
+   ========================================= */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1.5s cubic-bezier(0.25, 1, 0.5, 1) 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+.main-footer {
+    text-align: center;
+    padding: 2rem;
+    font-family: var(--font-ui);
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.3);
+    background-color: var(--color-bg-base);
+    letter-spacing: 1px;
+}
+
+/* =========================================
+   NÚT CSKH (Customer Support Floating Button)
+   ========================================= */
+.cskh-wrapper {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem 1.5rem;
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(15px);
+    border: 1.5px solid var(--color-accent-gold);
+    border-radius: 50px;
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(212, 175, 55, 0.2);
+    transition: all 0.3s ease;
+}
+
+.cskh-wrapper:hover {
+    background: var(--color-accent-gold);
+    color: var(--color-bg-base);
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
+}
+
+.cskh-icon {
+    background: var(--color-accent-gold);
+    color: var(--color-bg-base);
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.cskh-wrapper:hover .cskh-icon {
+    background: #fff;
+}
+
+.cskh-text {
+    font-family: var(--font-ui);
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.cskh-text span {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.8;
+}
+
+.cskh-text strong {
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}
+
+/* HIỆU ỨNG NHẢY CÀ TƯNG (Luxury Bounce) */
+.bounce-luxury {
+    animation: bounce-luxury 3s infinite ease-in-out;
+}
+
+@keyframes bounce-luxury {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-20px); }
+    60% { transform: translateY(-10px); }
+}
+
+.cskh-wrapper,
+.cskh-wrapper * {
+    cursor: pointer;
+}
+
+/* =========================================
+   PHẦN CSS RIÊNG CỦA TRANG TIN TỨC (tintuc.css)
+   ========================================= */
+/* Đã kế thừa thuộc tính body từ gốc nhưng có thể thêm đặc tính riêng */
+
+.news-hero {
+    padding-top: 140px;
+    padding-bottom: 60px;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(20,20,25,1) 0%, rgba(10,10,12,1) 100%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.news-hero h1 {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 3.5rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.news-hero p {
+    font-size: 1.2rem;
+    color: #a0aec0;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* news-container replaced by news-section and news-grid */
+
+.news-card {
+    background: rgba(25, 25, 30, 0.6);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.news-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    border-color: rgba(212, 175, 55, 0.3);
+}
+
+.news-card-img {
+    height: 250px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.news-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+}
+
+.news-card:hover .news-card-img img {
+    transform: scale(1.1);
+}
+
+.news-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: linear-gradient(135deg, #d4af37, #f3e5ab);
+    color: #000;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.news-content {
+    padding: 30px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.news-date {
+    font-size: 0.9rem;
+    color: #718096;
+    margin-bottom: 12px;
+    display: block;
+    font-weight: 500;
+}
+
+.news-title {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 1.4rem;
+    color: #fff;
+    margin-bottom: 15px;
+    line-height: 1.4;
+    transition: color 0.3s;
+}
+
+.news-card:hover .news-title {
+    color: #f3e5ab;
+}
+
+.news-desc {
+    color: #a0aec0;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+/* =========================================
+   NEW SLIDER LAYOUT
+   ========================================= */
+.news-section {
+    padding: 100px 0;
+    width: 100%;
+    position: relative;
+}
+
+.news-section.section-alt {
+    background: rgba(255, 255, 255, 0.02);
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.news-section-header {
+    max-width: 1300px;
+    margin: 0 auto 60px;
+    padding: 0 40px;
+    text-align: left;
+    position: relative;
+}
+
+.news-section-header::before {
+    content: '';
+    position: absolute;
+    left: 40px;
+    top: -15px;
+    width: 50px;
+    height: 3px;
+    background: var(--color-accent-gold);
+}
+
+.news-section-header h2 {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: inline-block;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-size: 200% auto;
+    animation: textShine 4s linear infinite;
+}
+
+@keyframes textShine {
+    to {
+        background-position: 200% center;
+    }
+}
+
+/* 1. Tin Mới Nhất & Sự Kiện: Vàng Gold Đặc Trưng */
+.main-content section:nth-child(2) .news-section-header h2 {
+    background-image: linear-gradient(to right, #d4af37 0%, #fcd55d 25%, #ffffff 50%, #fcd55d 75%, #d4af37 100%);
+    filter: drop-shadow(0px 4px 10px rgba(212, 175, 55, 0.3));
+}
+
+/* 2. Mẫu Xe Được Yêu Thích: Đỏ Rực Lửa Siêu Thể Thao */
+.main-content section:nth-child(3) .news-section-header h2 {
+    background-image: linear-gradient(to right, #ff3366 0%, #ff6b6b 25%, #ffffff 50%, #ff6b6b 75%, #ff3366 100%);
+    filter: drop-shadow(0px 4px 10px rgba(255, 51, 102, 0.3));
+}
+
+/* 3. Xe Điện & Môi Trường Xanh: Xanh Neon Tương Lai */
+.main-content section:nth-child(4) .news-section-header h2 {
+    background-image: linear-gradient(to right, #00f2fe 0%, #4facfe 25%, #ffffff 50%, #4facfe 75%, #00f2fe 100%);
+    filter: drop-shadow(0px 4px 10px rgba(0, 242, 254, 0.3));
+}
+
+/* 4. Xe Sắp Được Ra Mắt: Bạc Titanium Ánh Tím */
+.main-content section:nth-child(5) .news-section-header h2 {
+    background-image: linear-gradient(to right, #b8c6db 0%, #f5f7fa 25%, #ffffff 50%, #f5f7fa 75%, #b8c6db 100%);
+    filter: drop-shadow(0px 4px 10px rgba(184, 198, 219, 0.4));
+}
+
+.news-section-header p {
+    color: #a0aec0;
+    font-size: 1.15rem;
+    max-width: 900px;
+    line-height: 1.6;
+}
+
+/* SLIDER COMPONENTS */
+.news-slider-container {
+    position: relative;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 70px; /* Space for buttons */
+}
+
+.news-slider-track-wrap {
+    overflow: hidden;
+    width: 100%;
+}
+
+.news-track {
+    display: flex;
+    gap: 30px;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform;
+}
+
+.news-track .news-card {
+    flex: 0 0 calc(33.333% - 20px); /* 3 cards per row */
+    min-width: 0; /* Important for flex items */
+}
+
+/* NAVIGATION BUTTONS */
+.slider-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 54px;
+    height: 54px;
+    background: rgba(20, 20, 20, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    color: var(--color-accent-gold);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.slider-nav:hover {
+    background: var(--color-accent-gold);
+    color: var(--color-bg-base);
+    border-color: var(--color-accent-gold);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+}
+
+.prev-btn { left: 10px; }
+.next-btn { right: 10px; }
+
+.slider-nav i {
+    font-style: normal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 1100px) {
+    .news-track .news-card {
+        flex: 0 0 calc(50% - 15px); /* 2 cards */
+    }
+}
+
+@media (max-width: 768px) {
+    .news-slider-container {
+        padding: 0 50px;
+    }
+    .news-track .news-card {
+        flex: 0 0 100%; /* 1 card */
+    }
+    .news-section-header h2 {
+        font-size: 1.8rem;
+    }
+    .slider-nav {
+        width: 44px;
+        height: 44px;
+        font-size: 1.1rem;
+    }
+}
