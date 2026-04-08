@@ -1,0 +1,218 @@
+/* =========================================
+   MAINTENANCE PAGE SPECIFIC STYLING
+   ========================================= */
+
+.section-heading {
+    text-align: center;
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--color-accent-gold);
+    margin: 6rem 0 3rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* ITEMS GRID */
+.maintenance-items-section {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 5rem;
+}
+
+.items-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.item-card {
+    padding: 3rem 2rem;
+    text-align: center;
+    border-radius: 15px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    background: rgba(15, 15, 15, 0.5);
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.item-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    border-color: var(--color-accent-gold);
+    box-shadow: 0 20px 40px rgba(212, 175, 55, 0.15), 0 0 20px rgba(212, 175, 55, 0.1);
+    background: rgba(212, 175, 55, 0.05);
+}
+
+.item-icon {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.item-card h3 {
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.item-list {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.item-list li {
+    color: var(--color-text-secondary);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    position: relative;
+    padding-left: 1.2rem;
+}
+
+.item-list li::before {
+    content: '→';
+    color: #3498db;
+    position: absolute;
+    left: 0;
+}
+
+/* SCHEDULE TIMELINE */
+.maintenance-schedule-section {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 5rem;
+}
+
+.schedule-timeline {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.schedule-milestone {
+    flex: 1;
+    padding: 3rem;
+    border-radius: 20px;
+    position: relative;
+    text-align: center;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    background: rgba(15, 15, 15, 0.5);
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.schedule-milestone:hover {
+    transform: translateY(-10px);
+    border-color: var(--color-accent-gold);
+    box-shadow: 0 20px 40px rgba(212, 175, 55, 0.15), 0 0 20px rgba(212, 175, 55, 0.1);
+    background: rgba(212, 175, 55, 0.05);
+}
+
+.milestone-featured {
+    border-color: var(--color-accent-gold) !important;
+    transform: scale(1.05);
+    z-index: 2;
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+}
+
+.milestone-badge {
+    background: var(--color-accent-gold);
+    color: #000;
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+.schedule-milestone h4 {
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.schedule-milestone p {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
+/* CTA SECTION */
+.maintenance-cta-section {
+    max-width: 900px;
+    margin: 8rem auto;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.maintenance-cta-inner {
+    padding: 7rem 5rem;
+    border-radius: 40px;
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    background: linear-gradient(135deg, rgba(20, 20, 20, 0.92) 0%, rgba(10, 10, 10, 0.97) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.cta-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    color: var(--color-accent-gold);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    padding: 6px 18px;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    border-radius: 50px;
+    background: rgba(212, 175, 55, 0.08);
+}
+
+.cta-title {
+    font-family: var(--font-heading);
+    font-size: 2.8rem;
+    color: #fff;
+    letter-spacing: 2px;
+    line-height: 1.2;
+}
+
+.cta-desc {
+    color: var(--color-text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    max-width: 560px;
+}
+
+.cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 1.4rem 3.5rem !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 2px !important;
+    margin-top: 1rem;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.cta-btn svg {
+    transition: transform 0.3s ease;
+}
+
+.cta-btn:hover svg {
+    transform: translateX(6px);
+}
+
+/* RESPONSIVENESS */
+@media (max-width: 768px) {
+    .maintenance-cta-inner {
+        padding: 5rem 2rem;
+    }
+
+    .cta-title {
+        font-size: 2rem;
+    }
+
+    .cta-btn {
+        padding: 1.2rem 2rem !important;
+    }
+}
