@@ -1,10 +1,329 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
+
 <head>
-    <meta http-equiv="refresh" content="0; url='Trang chu/index.html'" />
-    <title>Redirecting...</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZORENB - Showroom Siêu Xe Đẳng Cấp</title>
+
+    <!-- Google Fonts: Roboto (Body), Inter (UI), Be Vietnam Pro (Headings) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&family=Inter:wght@400;500;600&family=Roboto:wght@300;400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="java/i18n.js"></script>
+    <script src="java/header.js"></script>
 </head>
+
 <body>
-    <p>Please wait, redirecting to <a href="Trang chu/index.html">Home</a>...</p>
+    <!-- CUSTOM CURSOR -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- HEADER -->
+    <div id="global-header"></div>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <!-- Hero Section với Background Image Parallax -->
+        <section class="hero img-bg" id="hero-slider">
+            <!-- Lớp phủ bóng mờ để làm nổi bật chữ & thông số -->
+            <div class="hero-overlay"></div>
+
+            <!-- NÚT ĐIỀU HƯỚNG SLIDER (Luxury Design) -->
+            <button class="nav-btn prev-btn" id="prev-car">&lt;&lt;</button>
+            <button class="nav-btn next-btn" id="next-car">&gt;&gt;</button>
+
+            <div class="hero-content fade-in-up">
+                <h1 class="hero-title" id="car-title">Định Hình Phong Cách.<br>Xứng Tầm Đẳng Cấp</h1>
+                <p class="hero-subtitle" id="car-subtitle">Khám phá bộ sưu tập siêu xe giới hạn độc quyền và trải nghiệm
+                    dịch vụ cá nhân hóa đỉnh cao chỉ có tại ZORENB</p>
+
+                <!-- GLASSMORPHISM TECH SPECS CARD -->
+                <div class="tech-specs">
+                    <div class="spec-item">
+                        <span class="spec-value" id="spec-accel">2.8s</span>
+                        <span class="spec-label">0-100 km/h</span>
+                    </div>
+                    <div class="spec-divider"></div>
+                    <div class="spec-item">
+                        <span class="spec-value" id="spec-speed">350</span>
+                        <span class="spec-label">Top Speed (km/h)</span>
+                    </div>
+                    <div class="spec-divider"></div>
+                    <div class="spec-item">
+                        <span class="spec-value" id="spec-engine">V12</span>
+                        <span class="spec-label">Twin-Turbo Engine</span>
+                    </div>
+                </div>
+
+                <div class="hero-cta">
+                    <button class="btn btn-primary magnetic-btn" data-i18n="btn_explore"
+                        onclick="window.location.href='lamborghini.html'">Khám Phá Bộ Sưu Tập</button>
+                </div>
+            </div>
+        </section>
+        <!-- SECTION 1: Tuyên Ngôn & Di Sản (Brand Heritage) -->
+        <section class="heritage-section reveal-on-scroll">
+            <div class="heritage-grid">
+                <div class="heritage-img-wrapper outline-gold parallax-bg">
+                    <img src="image/2.jpg" alt="ZORENB Heritage" class="heritage-img">
+                </div>
+                <div class="heritage-content">
+                    <span class="section-tagline">TỰ HÀO DI SẢN</span>
+                    <h2 class="section-title" style="white-space: nowrap;">VƯỢT LÊN MỌI GIỚI HẠN</h2>
+                    <p class="section-desc">Nơi kỹ thuật cơ khí giao thoa cùng nghệ thuật thủ công. Tại ZORENB, chúng
+                        tôi không chỉ cung cấp siêu xe, chúng tôi trao cho bạn những kiệt tác độc bản đại diện cho sự
+                        thành đạt tột đỉnh và phong cách cá nhân.</p>
+                    <button class="btn btn-secondary magnetic-btn outline-btn"
+                        onclick="window.location.href='heritage.html'">Đọc Câu Chuyện ZORENB</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: Những Kiệt Tác Vượt Thời Gian (Masterpiece Collection) -->
+        <section class="masterpiece-collection reveal-on-scroll">
+            <div class="section-header center">
+                <span class="section-tagline">BỘ SƯU TẬP GIỚI HẠN</span>
+                <h2 class="section-title">KIỆT TÁC VƯỢT THỜI GIAN</h2>
+            </div>
+
+            <div class="collection-grid">
+                <!-- Xe 1 -->
+                <div class="collection-card glass-panel group-hover">
+                    <div class="card-img-wrapper" style="background-image: url('image/1.jpg');">
+                        <div class="card-overlay"></div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="car-name">Lamborghini Revuelto</h3>
+                        <div class="car-stats-hidden">
+                            <span>1015 HP</span>
+                            <span class="dot-divider">•</span>
+                            <span>2.5s</span>
+                            <span class="dot-divider">•</span>
+                            <span>350+ km/h</span>
+                        </div>
+                        <button class="btn-discover" onclick="window.location.href='lamborghini.html'">Khám Phá Kỷ
+                            Nguyên Hybrid <span class="arrow">&rarr;</span></button>
+                    </div>
+                </div>
+                <!-- Xe 2 -->
+                <div class="collection-card glass-panel group-hover">
+                    <div class="card-img-wrapper" style="background-image: url('image/2.jpg');">
+                        <div class="card-overlay"></div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="car-name">Bugatti Chiron</h3>
+                        <div class="car-stats-hidden">
+                            <span>1500 HP</span>
+                            <span class="dot-divider">•</span>
+                            <span>2.4s</span>
+                            <span class="dot-divider">•</span>
+                            <span>420 km/h</span>
+                        </div>
+                        <button class="btn-discover" onclick="window.location.href='bugatti.html'">Chiêm Ngưỡng Huyền
+                            Thoại <span class="arrow">&rarr;</span></button>
+                    </div>
+                </div>
+                <!-- Xe 3 -->
+                <div class="collection-card glass-panel group-hover">
+                    <div class="card-img-wrapper" style="background-image: url('image/3.jpg');">
+                        <div class="card-overlay"></div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="car-name">Ferrari SF90 Stradale</h3>
+                        <div class="car-stats-hidden">
+                            <span>1000 HP</span>
+                            <span class="dot-divider">•</span>
+                            <span>2.5s</span>
+                            <span class="dot-divider">•</span>
+                            <span>340 km/h</span>
+                        </div>
+                        <button class="btn-discover" onclick="window.location.href='ferrari.html'">Cảm Nhận Mãnh Thú F1
+                            <span class="arrow">&rarr;</span></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: Tinh Hoa Kỹ Thuật (Pinnacle of Engineering) -->
+        <section class="engineering-pinnacle reveal-on-scroll">
+            <div class="section-header">
+                <span class="section-tagline">KIẾN TRÚC HIỆU NĂNG CAO</span>
+                <h2 class="section-title text-light">TINH HOA KỸ THUẬT VÀ CÔNG NGHỆ</h2>
+            </div>
+            <div class="engineering-flex">
+                <div class="engineering-col glass-panel light-glow">
+                    <div class="eng-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-gold)"
+                            stroke-width="1.5">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                        </svg>
+                    </div>
+                    <h4>Động Cơ Thủ Công</h4>
+                    <p>Mỗi cỗ máy V12 hay W16 đều được chế tác và hiệu chỉnh bởi một kỹ sư duy nhất, mang lại sức mạnh
+                        thuần túy chưa từng có.</p>
+                </div>
+                <div class="engineering-col glass-panel light-glow">
+                    <div class="eng-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-gold)"
+                            stroke-width="1.5">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                        </svg>
+                    </div>
+                    <h4>Khí Động Học Cắt Gió</h4>
+                    <p>Hệ thống cánh gió chủ động (Active Aero) được mài giũa trong hầm gió tỷ lệ 1:1, tối ưu lực ép
+                        xuống dải đường đua.</p>
+                </div>
+                <div class="engineering-col glass-panel light-glow">
+                    <div class="eng-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-gold)"
+                            stroke-width="1.5">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        </svg>
+                    </div>
+                    <h4>Vật Liệu Kỷ Nguyên Mới</h4>
+                    <p>Khung gầm nguyên khối bằng Carbon Fiber siêu nhẹ kết hợp hợp kim Titanium siêu cứng, gia tăng sự
+                        tự tin trên mọi địa hình.</p>
+                </div>
+            </div>
+        </section>
+        <!-- SECTION 5: Trải Nghiệm Điện Ảnh (Cinematic Flyer) -->
+        <section class="cinematic-banner reveal-on-scroll" id="cinematic-section">
+            <!-- Thumbnail overlay (hiển thị mặc định) -->
+            <div class="cinematic-thumbnail" id="cinematic-thumbnail">
+                <div class="cinematic-bg parallax-bg"
+                    style="background-image: url('https://img.youtube.com/vi/aejiJ7kU5dQ/maxresdefault.jpg');"></div>
+                <div class="cinematic-overlay"></div>
+                <div class="cinematic-content">
+                    <h2 class="cinematic-title">RUNG ĐỘNG CÙNG ZORENB</h2>
+                    <div class="btn-play-video pulse-effect" id="btn-play-video">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="30" height="30">
+                            <path d="M8 5v14l11-7z" />
+                        </svg>
+                    </div>
+                    <span class="watch-text">XEM VIDEO TRẢI NGHIỆM</span>
+                </div>
+            </div>
+            <!-- YouTube iframe (ẩn ban đầu) -->
+            <div class="cinematic-iframe-wrap" id="cinematic-iframe-wrap" style="display:none;">
+                <iframe id="yt-iframe" width="100%" height="100%" src=""
+                    data-src="https://www.youtube.com/embed/aejiJ7kU5dQ?si=3Lpmq3ii8Vg6WFJ6&autoplay=1&rel=0&modestbranding=1"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                </iframe>
+            </div>
+        </section>
+
+        <!-- SECTION 6: Góc Tạp Chí (ZORENB Journal) -->
+        <section class="journal-section reveal-on-scroll">
+            <div class="section-header center">
+                <span class="section-tagline">TIN TỨC & SỰ KIỆN</span>
+                <h2 class="section-title">CHUYỂN ĐỘNG CÙNG SIÊU XE</h2>
+            </div>
+            <div class="journal-grid">
+                <div class="journal-card">
+                    <div class="journal-img-wrapper">
+                        <img src="image/3.jpg" class="journal-img" alt="Gala Dinner">
+                    </div>
+                    <div class="journal-info">
+                        <span class="journal-date">24 Th10, 2026</span>
+                        <h4 class="journal-title">Đêm Hội Siêu Xe - Hành Trình Xuyên Lục Địa</h4>
+                        <a href="#" class="read-more">Đọc tiếp <span class="arrow">&rarr;</span></a>
+                    </div>
+                </div>
+                <div class="journal-card">
+                    <div class="journal-img-wrapper">
+                        <img src="image/2.jpg" class="journal-img" alt="Car Launch">
+                    </div>
+                    <div class="journal-info">
+                        <span class="journal-date">15 Th10, 2026</span>
+                        <h4 class="journal-title">Công Bố Trở Lại Của Tác Phẩm Kỷ Nguyên Mới</h4>
+                        <a href="#" class="read-more">Đọc tiếp <span class="arrow">&rarr;</span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="main-footer fade-in">
+        <p data-i18n="footer_copyright">&copy; 2026 ZORENB Luxury Showroom. Đã đăng ký bản quyền toàn cầu.</p>
+    </footer>
+
+    <!-- NÚT CSKH (Jumping Support Button) -->
+    <a href="tel:18001909" class="cskh-wrapper bounce-luxury">
+        <div class="cskh-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                </path>
+            </svg>
+        </div>
+        <div class="cskh-text">
+            <span data-i18n="cskh_label">CSKH:</span>
+            <strong>18001909</strong>
+        </div>
+    </a>
+
+    <!-- JavaScript - Nằm trong thư mục java mà bạn đã yêu cầu tạo -->
+    <script src="java/main.js"></script>
+
+    <script>
+        // === CINEMATIC CLICK-TO-PLAY VIDEO ===
+        (function () {
+            const playBtn = document.getElementById('btn-play-video');
+            const thumbnail = document.getElementById('cinematic-thumbnail');
+            const iframeWrap = document.getElementById('cinematic-iframe-wrap');
+            const ytIframe = document.getElementById('yt-iframe');
+            const cinematicBg = thumbnail ? thumbnail.querySelector('.cinematic-bg') : null;
+
+            const VIDEO_ID = 'aejiJ7kU5dQ';
+            const thumbQualities = [
+                `https://img.youtube.com/vi/${VIDEO_ID}/maxresdefault.jpg`,
+                `https://img.youtube.com/vi/${VIDEO_ID}/hqdefault.jpg`,
+                `https://img.youtube.com/vi/${VIDEO_ID}/mqdefault.jpg`,
+                `https://img.youtube.com/vi/${VIDEO_ID}/default.jpg`
+            ];
+
+            // Tự động tìm thumbnail có độ phân giải cao nhất tồn tại
+            function loadBestThumb(index) {
+                if (!cinematicBg || index >= thumbQualities.length) return;
+                const img = new Image();
+                img.onload = function () {
+                    // YouTube trả về ảnh 120x90 nếu không có maxres → kiểm tra kích thước
+                    if (this.width > 120) {
+                        cinematicBg.style.backgroundImage = "url('" + thumbQualities[index] + "')";
+                    } else {
+                        loadBestThumb(index + 1);
+                    }
+                };
+                img.onerror = function () { loadBestThumb(index + 1); };
+                img.src = thumbQualities[index];
+            }
+            loadBestThumb(0);
+
+            // Click-to-play
+            if (playBtn) {
+                playBtn.addEventListener('click', function () {
+                    ytIframe.src = ytIframe.getAttribute('data-src');
+                    thumbnail.style.transition = 'opacity 0.4s ease';
+                    thumbnail.style.opacity = '0';
+                    thumbnail.style.pointerEvents = 'none';
+                    iframeWrap.style.display = 'block';
+                    setTimeout(function () {
+                        thumbnail.style.display = 'none';
+                    }, 400);
+                });
+            }
+        })();
+    </script>
 </body>
+
 </html>
