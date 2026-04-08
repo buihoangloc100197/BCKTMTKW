@@ -66,11 +66,11 @@ const newsData = {
         "content": "<p>Thay vì đào thải khối động cơ V12 hút khí tự nhiên vốn đã làm mê đắm nhiều thế hệ, Lamborghini bước một chân kiêu hãnh vào tương lai bằng siêu phẩm hybrid Revuelto.</p><p>Sức mạnh 1.015 HP là kết tinh của một trái tim V12 thế hệ mới cùng sự trợ lực của 3 mô-tơ điện tinh vi, phản ứng tức thời. Sự kết hợp này mang tới những cú đạp ga xé toạc chân trời, phản hồi siêu cấp tại dải vòng tua thấp, điều mà động cơ V12 truyền thống còn hạn chế.</p><p>Toàn bộ lượng xe sản xuất cho 3 năm tới đã kín đơn hàng, và mẫu siêu bò này được ZORENB dự đoán sẽ trở thành chiếc hybrid thành công nhất mọi thời đại.</p>"
     },
     "audi-r8": {
-        "title": "Audi R8 Thức Tỉnh: Lời Chia Tay Khúc Động Cơ V10",
+        "title": "Audi R8 Heritage: Tuyệt Tác Cuối Cùng Của Kỷ Nguyên V10",
         "date": "18 Tháng 03, 2026",
         "badge": "Huyền Thoại",
-        "image": "https://images.unsplash.com/photo-1583121274602-5e429c879493?auto=format&fit=crop&q=80&w=1000",
-        "content": "<p>Lời chia tay nào cũng buồn, nhưng chia tay một biểu tượng thì thường đi kèm những bản hùng ca bất diệt. Audi R8 thế hệ cuối mang theo lời giã biệt vĩnh viễn đến động cơ V10 hút khí tự nhiên.</p><p>Sự sắc lạnh nhưng hài hòa của thiết kế vượt thời gian, cùng tiếng gầm man dại vang lên bên mạn sườn, khiến phiên bản R8 cuối cùng trở thành một món quà vô giá của ngành công nghiệp ô tô Đức. Khả năng kiểm soát nhờ hệ thống Quattro tiếp tục đặt chuẩn mực an toàn cho hạng cân siêu xe.</p><p>Chúng ta sẽ nhìn vào R8 không như một cỗ máy lỗi thời, mà như một vị vua chọn cách nhường ngôi tại đỉnh cao rực rỡ nhất.</p>"
+        "image": "TinTuc/image/audi_r8.png",
+        "content": "<p>Trong giới siêu xe, Audi R8 không chỉ là một phương tiện, mà là một lời tuyên ngôn về kỹ thuật cơ khí thuần túy. Với phiên bản Heritage mới nhất, ZORENB vinh dự mang đến cái nhìn cận cảnh vào cỗ máy đã thay đổi định nghĩa về siêu xe hàng ngày.</p><p>Sức mạnh của R8 nằm ở khối động cơ V10 hút khí tự nhiên - một 'loài' đang dần tuyệt chủng. Tiếng gầm ở vòng tua 8,700 rpm là một bản giao hưởng cơ khí mà không động cơ tăng áp hay mô-tơ điện nào có thể thay thế được. Hệ dẫn động Quattro trứ danh nay được tinh chỉnh để truyền nhiều lực kéo hơn tới trục sau, mang lại cảm giác lái thuần khiết của một chiếc xe đua thực thụ.</p><p>Tại ZORENB Luxury, chúng tôi tin rằng Audi R8 Heritage chính là món quà cuối cùng dành cho những ai khao khát sự kết nối tuyệt đối giữa người lái và cung đường.</p>"
     },
     "bentley-gt": {
         "title": "Bentley Continental GT: Tuyệt Tác Grand Tourer Siêu Sang",
@@ -79,12 +79,12 @@ const newsData = {
         "image": "TinTuc/image/bentley.png",
         "content": "<p>Continental GT không chỉ đơn thuần là một cỗ xe để đi qua những dặm đường xa, mà nó đã trở thành một phần của triết lý sống. Được điêu khắc để mang lại sự hoàn hảo trong cả tốc độ và tiện nghi sành điệu.</p><p>Vẻ đẹp ngoại thất tựa điêu khắc cơ bắp uốn cong, khoang cabin pha trộn giữa các vòng xoay nhôm đánh bóng tinh xảo và mặt gỗ veneer tạo nên một kỳ quan thị giác. Động cơ W12 của Bentley tiếp tục thể hiện sự điềm đạm nhưng thừa sức đánh bại không gian và thời gian.</p><p>Dù chạy cắt qua các cung đường núi hay lướt dọc bờ biển nắng vàng, Grand Tourer của Bentley luôn duy trì phong thái quý tộc đậm chất Anh Quốc.</p>"
     },
-    "aston-vantage": {
-        "title": "Bản Sắc Aston Martin: Tái Sinh Thiết Kế V12 Vantage",
+    "laferrari-hero": {
+        "title": "Ferrari LaFerrari: Đỉnh Cao Nghệ Thuật Hybrid Tại ZORENB",
         "date": "08 Tháng 03, 2026",
-        "badge": "Giới Hạn",
-        "image": "https://images.unsplash.com/photo-1502877338535-766e14526847?auto=format&fit=crop&q=80&w=1000",
-        "content": "<p>Sự hỗn loạn và thanh lịch, tưởng chừng đối lập nhưng lại hoàn hảo hòa quyện trong siêu phẩm Aston Martin V12 Vantage mới nhất. Đây là món quà tối thượng trước thềm kỷ nguyên xe điện.</p><p>Việc khéo léo nhồi nhét cỗ máy V12 tăng áp kép vào một khung gầm nhỏ gọn tạo nên tỷ lệ mã lực trên trọng lượng cực khủng, mang lại sự linh hoạt đáng kinh ngạc trong các góc cua gấp. Âm thanh ống xả của V12 Vantage được ví như điệp khúc sấm sét từ các vị thần tốc độ.</p><p>Bản sửa đổi khí động học tinh vi với cánh gió liền mạch và thân mở rộng đã đóng dấu cho chiếc xe một vị thế kiên cường trên những tuyến đường cao tốc và đường đua danh giá.</p>"
+        "badge": "Đặc Quyền",
+        "image": "TinTuc/image/bugatti.jpg",
+        "content": "<p>Hiếm có mẫu xe nào có thể lấy cái tên của chính thương hiệu để đặt cho mình. LaFerrari - 'The Ferrari' - chính là minh chứng cho sự tự tin và trình độ chế tác bậc thầy của Maranello khi kết hợp sức mạnh F1 vào đường phố.</p><p>Hệ thống HY-KERS độc quyền không chỉ giúp xe đạt tổng công suất 963 mã lực, mà còn cung cấp khả năng tăng tốc tức thời ngay từ dải vòng tua thấp. Từng chi tiết khí động học chủ động trên thân xe là một tác phẩm điêu khắc biết chuyển động, luôn thay đổi để tối ưu lực ép khi ôm cua ở vận tốc trên 300km/h.</p><p>Mẫu xe này hiện đang được trưng bày tại sảnh trung tâm của ZORENB Luxury. Đây là cơ hội hiếm hoi để các tín đồ chiêm ngưỡng tận mắt một trong những kiệt tác hiếm nhất của giới hypercar toàn cầu.</p>"
     },
 
     // === Phân khu 3 ===
@@ -160,19 +160,19 @@ const newsData = {
         "image": "TinTuc/image/rolls_royce.png",
         "content": "<p>Sự ra mắt của Spectre đã thành công mỹ mãn, làm bước đệm cho Rolls-Royce tiếp tục dự án khai sinh mẫu xe điện thế hệ tiếp theo. Đây hứa hẹn là một bước ngoặc cực độ về độ sang trọng phi truyền thống.</p><p>Bỏ đi những chiếc lưới tản nhiệt Panthenon, thiết kế phía trước có thể tận dụng diện tích khổng lồ để biến thành một kiệt tác ánh sáng. Không gian bên trong cabin được phát triển như một phòng spa riêng, hoàn toàn không tiếng ồn nhờ cấu trúc sàn kẹp sandwich chứa đựng hệ thống vi mạch dải pin siêu dày.</p><p>Rolls-Royce luôn tìm ra cách tinh chế tương lai trước cả khi người ta kịp phác thảo ra nó.</p>"
     },
-    "pagani-bespoke": {
-        "title": "Sự Giao Thoa Giữa Công Nghệ Vượt Trội Và Sự Sang Trọng Của Pagani",
+    "bugatti-bolide": {
+        "title": "Bugatti Bolide: 'Quái Thú' Đường Đua Sắp Cập Bến ZORENB",
         "date": "15 Tháng 03, 2026",
         "badge": "Hé Lộ",
-        "image": "https://images.unsplash.com/photo-1553440569-bea36a8ebff1?auto=format&fit=crop&q=80&w=1000",
-        "content": "<p>Gã khổng lồ trầm lặng Pagani - bậc thầy của thủ công nước Ý đang tung ra những đoạn video hé lộ ngắn ngủi đi sâu vào cơ chế kết hợp vật liệu titanium, carbotitanium độc nhất của mình.</p><p>Không chỉ chú trọng vào sự thanh nhã đến điên rồ của từng khớp nối ống xả và bánh răng chuyển số tay, Pagani cam kết tiếp tục bảo vệ khối động cơ V12 do AMG cung cấp. Điều này dành tặng cho những nhà sưu tầm khao khát một tác phẩm cơ học truyền thống nhưng khoác trên mình lớp áo hoàng bào khoa học viễn tưởng.</p><p>Gói tùy chỉnh nghệ thuật này sẽ nâng tầm của sự xa xỉ, nơi mọi chiếc xe lắp ráp ra đều là độc nhất, không có bản thứ hai.</p>"
+        "image": "TinTuc/image/bugatti.png",
+        "content": "<p>Không còn là những đường nét mềm mại của Chiron, Bugatti Bolide là một cỗ máy thuần khiết dành cho tốc độ tối thượng trên đường đua. ZORENB Luxury vô cùng tự hào khi là một trong số ít đại lý được quyền phân phối siêu phẩm này tại khu vực.</p><p>Với thiết kế khí động học cực đoan, Bolide trông giống như một chiếc phi thuyền không gian hơn là một chiếc ô tô. Động cơ W16 huyền thoại vẫn là trái tim của cỗ máy, nhưng được tối ưu để hoạt động ở cường độ cao nhất. Tỷ lệ công suất trên trọng lượng chưa từng có trong lịch sử Bugatti hứa hẹn sẽ phá vỡ mọi giới hạn vật lý tại các đường đua danh tiếng.</p><p>Dự kiến, mẫu xe thử nghiệm đầu tiên sẽ ra mắt giới mộ điệu tại showroom ZORENB vào cuối quý này.</p>"
     },
-    "maserati-mc20": {
-        "title": "Maserati Folgore MC20: Phiên Bản Chớp Nhoáng Cực Đoan Mới",
+    "lambo-concept-x": {
+        "title": "Lamborghini Concept X: Tầm Nhìn Siêu Tưởng Cho Kỷ Nguyên Mới",
         "date": "10 Tháng 03, 2026",
         "badge": "Dự Đoán",
-        "image": "https://images.unsplash.com/photo-1492144534654-6efa9a12c03f?auto=format&fit=crop&q=80&w=1000",
-        "content": "<p>Là một mảnh ghép tốc độ được khao khát nhất thời gian gần đây, hình bóng về một phiên bản Folgore cường hóa của dòng Maserati MC20 đang tạo sóng trong dư luận nước Ý.</p><p>Điện hóa hoàn toàn hệ dẫn động, Folgore MC20 không phát thải nhưng sản sinh tiếng thét tổng hợp mô phỏng dải vòng tua ảo tạo phấn khích cao độ. Hơn nữa, việc sử dụng các đĩa phanh ceramic cỡ đại đã làm nổi bật tư duy hiệu suất tàn khốc mà trước giờ giới thượng lưu vẫn chưa từng thấy ở hãng cây đinh ba.</p><p>Chiếc xe chớp này hứa hẹn sẽ mang đến cho vùng đất Modena sự cạnh tranh không hề khoan nhượng giữa lòng nước Ý hào hoa.</p>"
+        "image": "TinTuc/image/lamborghini.jpg",
+        "content": "<p>Khi những giới hạn về thiết kế truyền thống bị xóa bỏ, chúng ta có Lamborghini Concept X. Đây là mẫu xe concept táo bạo nhất mà hãng xe 'bò tót' từng công bố, định hình ngôn ngữ thiết kế cho các thế hệ hypercar trong 10 năm tới.</p><p>Toàn bộ thân xe được chế tác từ sợi carbon cấu trúc nano, cho độ cứng vượt trội nhưng trọng lượng cực nhẹ. Hệ thống chiếu sáng LED hình chữ Y đặc trưng nay được tích hợp sâu vào hốc hút gió, tạo nên diện mạo hung hãn như những chiến đấu cơ tàng hình. Concept X không chỉ là một bài toán về thẩm mỹ, mà còn là nơi thử nghiệm hệ truyền động hybrid siêu tụ điện thế hệ mới.</p><p>ZORENB đang tích cực đàm phán để mang mẫu concept độc nhất vô nhị này về trưng bày tại sự kiện triển lãm sắp tới.</p>"
     }
 };
 
