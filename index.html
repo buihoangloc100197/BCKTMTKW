@@ -173,6 +173,7 @@
                 </div>
             </div>
         </section>
+<<<<<<< HEAD
 
         <!-- SECTION 4: Đặc Quyền Cá Nhân Hóa (Bespoke Atelier) -->
         <section class="bespoke-atelier reveal-on-scroll">
@@ -196,6 +197,33 @@
                     <svg viewBox="0 0 24 24" fill="currentColor" width="30" height="30"><path d="M8 5v14l11-7z"/></svg>
                 </div>
                 <span class="watch-text">XEM VIDEO TRẢI NGHIỆM</span>
+=======
+        <!-- SECTION 5: Trải Nghiệm Điện Ảnh (Cinematic Flyer) -->
+        <section class="cinematic-banner reveal-on-scroll" id="cinematic-section">
+            <!-- Thumbnail overlay (hiển thị mặc định) -->
+            <div class="cinematic-thumbnail" id="cinematic-thumbnail">
+                <div class="cinematic-bg parallax-bg"
+                    style="background-image: url('https://img.youtube.com/vi/aejiJ7kU5dQ/maxresdefault.jpg');"></div>
+                <div class="cinematic-overlay"></div>
+                <div class="cinematic-content">
+                    <h2 class="cinematic-title">RUNG ĐỘNG CÙNG ZORENB</h2>
+                    <div class="btn-play-video pulse-effect" id="btn-play-video">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="30" height="30">
+                            <path d="M8 5v14l11-7z" />
+                        </svg>
+                    </div>
+                    <span class="watch-text">XEM VIDEO TRẢI NGHIỆM</span>
+                </div>
+            </div>
+            <!-- YouTube iframe (ẩn ban đầu) -->
+            <div class="cinematic-iframe-wrap" id="cinematic-iframe-wrap" style="display:none;">
+                <iframe id="yt-iframe" width="100%" height="100%" src=""
+                    data-src="https://www.youtube.com/embed/aejiJ7kU5dQ?si=3Lpmq3ii8Vg6WFJ6&autoplay=1&rel=0&modestbranding=1"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                </iframe>
+>>>>>>> Loc
             </div>
         </section>
 
@@ -253,6 +281,59 @@
 
     <!-- JavaScript - Nằm trong thư mục java mà bạn đã yêu cầu tạo -->
     <script src="java/main.js"></script>
+<<<<<<< HEAD
+=======
+
+    <script>
+        // === CINEMATIC CLICK-TO-PLAY VIDEO ===
+        (function () {
+            const playBtn = document.getElementById('btn-play-video');
+            const thumbnail = document.getElementById('cinematic-thumbnail');
+            const iframeWrap = document.getElementById('cinematic-iframe-wrap');
+            const ytIframe = document.getElementById('yt-iframe');
+            const cinematicBg = thumbnail ? thumbnail.querySelector('.cinematic-bg') : null;
+
+            const VIDEO_ID = 'aejiJ7kU5dQ';
+            const thumbQualities = [
+                `https://img.youtube.com/vi/${VIDEO_ID}/maxresdefault.jpg`,
+                `https://img.youtube.com/vi/${VIDEO_ID}/hqdefault.jpg`,
+                `https://img.youtube.com/vi/${VIDEO_ID}/mqdefault.jpg`,
+                `https://img.youtube.com/vi/${VIDEO_ID}/default.jpg`
+            ];
+
+            // Tự động tìm thumbnail có độ phân giải cao nhất tồn tại
+            function loadBestThumb(index) {
+                if (!cinematicBg || index >= thumbQualities.length) return;
+                const img = new Image();
+                img.onload = function () {
+                    // YouTube trả về ảnh 120x90 nếu không có maxres → kiểm tra kích thước
+                    if (this.width > 120) {
+                        cinematicBg.style.backgroundImage = "url('" + thumbQualities[index] + "')";
+                    } else {
+                        loadBestThumb(index + 1);
+                    }
+                };
+                img.onerror = function () { loadBestThumb(index + 1); };
+                img.src = thumbQualities[index];
+            }
+            loadBestThumb(0);
+
+            // Click-to-play
+            if (playBtn) {
+                playBtn.addEventListener('click', function () {
+                    ytIframe.src = ytIframe.getAttribute('data-src');
+                    thumbnail.style.transition = 'opacity 0.4s ease';
+                    thumbnail.style.opacity = '0';
+                    thumbnail.style.pointerEvents = 'none';
+                    iframeWrap.style.display = 'block';
+                    setTimeout(function () {
+                        thumbnail.style.display = 'none';
+                    }, 400);
+                });
+            }
+        })();
+    </script>
+>>>>>>> Loc
 </body>
 
 </html>

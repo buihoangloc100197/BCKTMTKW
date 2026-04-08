@@ -16,6 +16,8 @@
     <!-- CSS Styles -->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/dashboard.css">
+    <script src="java/i18n.js"></script>
+    <script src="java/header.js"></script>
 </head>
 
 <body class="dashboard-body marketplace-theme">
@@ -24,52 +26,7 @@
     <div class="cursor-follower"></div>
 
     <!-- SHARED HEADER (Consistent UI) -->
-    <header class="main-header fade-in">
-        <div class="header-left">
-            <a href="index.html" class="brand-logo">
-                <div class="logo-icon">Z</div>
-                <span class="brand-name">ZORENB</span>
-            </a>
-        </div>
-
-        <nav class="header-center">
-            <ul class="nav-links">
-                <li><a href="index.html" class="nav-item">TRANG CHỦ</a></li>
-                <li class="nav-item-dropdown">
-                    <a href="#" class="nav-item active">BỘ SƯU TẬP</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="dashboard.html?car=lamborghini" class="dropdown-item"
-                                data-car="lamborghini">Lamborghini</a></li>
-                        <li><a href="dashboard.html?car=ferrari" class="dropdown-item" data-car="ferrari">Ferrari</a>
-                        </li>
-                        <li><a href="dashboard.html?car=mclaren" class="dropdown-item" data-car="mclaren">McLaren</a>
-                        </li>
-                        <li><a href="dashboard.html?car=bugatti" class="dropdown-item" data-car="bugatti">Bugatti</a>
-                        </li>
-                        <li><a href="dashboard.html?car=rolls-royce" class="dropdown-item" data-car="rolls-royce">Rolls
-                                Royce</a></li>
-                        <li><a href="dashboard.html?car=bentley" class="dropdown-item" data-car="bentley">Bentley</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item-dropdown">
-                    <a href="#" class="nav-item">DỊCH VỤ</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#" class="dropdown-item">Cho Thuê Xe</a></li>
-                        <li><a href="#" class="dropdown-item">Bảo Dưỡng</a></li>
-                        <li><a href="#" class="dropdown-item">Nâng Cấp Ngoại Thất</a></li>
-                    </ul>
-                </li>
-                <li><a href="#" class="nav-item">TIN TỨC</a></li>
-                <li><a href="#" class="nav-item">LIÊN HỆ</a></li>
-            </ul>
-        </nav>
-
-        <div class="header-right">
-            <button class="btn btn-login">Đăng nhập</button>
-            <button class="btn btn-register">Đăng ký</button>
-        </div>
-    </header>
+    <div id="global-header"></div>
 
     <!-- DASHBOARD MARKETPLACE CONTENT -->
     <main class="marketplace-container fade-in-up">
