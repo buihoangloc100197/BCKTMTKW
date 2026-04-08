@@ -14,9 +14,9 @@
         rel="stylesheet">
 
     <!-- CSS Styles -->
-    <link rel="stylesheet" href="../css/styles.css">
-    <script src="../java/i18n.js"></script>
-    <script src="../java/header.js"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/java/i18n.js"></script>
+    <script src="/java/header.js"></script>
 </head>
 
 <body>
@@ -196,7 +196,8 @@
         <section class="cinematic-banner reveal-on-scroll" id="cinematic-section">
             <!-- Thumbnail overlay (hiển thị mặc định) -->
             <div class="cinematic-thumbnail" id="cinematic-thumbnail">
-                <div class="cinematic-bg parallax-bg" style="background-image: url('https://img.youtube.com/vi/aejiJ7kU5dQ/maxresdefault.jpg');"></div>
+                <div class="cinematic-bg parallax-bg"
+                    style="background-image: url('https://img.youtube.com/vi/aejiJ7kU5dQ/maxresdefault.jpg');"></div>
                 <div class="cinematic-overlay"></div>
                 <div class="cinematic-content">
                     <h2 class="cinematic-title">RUNG ĐỘNG CÙNG ZORENB</h2>
@@ -210,16 +211,11 @@
             </div>
             <!-- YouTube iframe (ẩn ban đầu) -->
             <div class="cinematic-iframe-wrap" id="cinematic-iframe-wrap" style="display:none;">
-                <iframe
-                    id="yt-iframe"
-                    width="100%" height="100%"
-                    src=""
+                <iframe id="yt-iframe" width="100%" height="100%" src=""
                     data-src="https://www.youtube.com/embed/aejiJ7kU5dQ?si=3Lpmq3ii8Vg6WFJ6&autoplay=1&rel=0&modestbranding=1"
-                    title="YouTube video player"
-                    frameborder="0"
+                    title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    allowfullscreen>
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
                 </iframe>
             </div>
         </section>
@@ -281,11 +277,11 @@
 
     <script>
         // === CINEMATIC CLICK-TO-PLAY VIDEO ===
-        (function() {
-            const playBtn    = document.getElementById('btn-play-video');
-            const thumbnail  = document.getElementById('cinematic-thumbnail');
+        (function () {
+            const playBtn = document.getElementById('btn-play-video');
+            const thumbnail = document.getElementById('cinematic-thumbnail');
             const iframeWrap = document.getElementById('cinematic-iframe-wrap');
-            const ytIframe   = document.getElementById('yt-iframe');
+            const ytIframe = document.getElementById('yt-iframe');
             const cinematicBg = thumbnail ? thumbnail.querySelector('.cinematic-bg') : null;
 
             const VIDEO_ID = 'aejiJ7kU5dQ';
@@ -300,7 +296,7 @@
             function loadBestThumb(index) {
                 if (!cinematicBg || index >= thumbQualities.length) return;
                 const img = new Image();
-                img.onload = function() {
+                img.onload = function () {
                     // YouTube trả về ảnh 120x90 nếu không có maxres → kiểm tra kích thước
                     if (this.width > 120) {
                         cinematicBg.style.backgroundImage = "url('" + thumbQualities[index] + "')";
@@ -308,20 +304,20 @@
                         loadBestThumb(index + 1);
                     }
                 };
-                img.onerror = function() { loadBestThumb(index + 1); };
+                img.onerror = function () { loadBestThumb(index + 1); };
                 img.src = thumbQualities[index];
             }
             loadBestThumb(0);
 
             // Click-to-play
             if (playBtn) {
-                playBtn.addEventListener('click', function() {
+                playBtn.addEventListener('click', function () {
                     ytIframe.src = ytIframe.getAttribute('data-src');
                     thumbnail.style.transition = 'opacity 0.4s ease';
                     thumbnail.style.opacity = '0';
                     thumbnail.style.pointerEvents = 'none';
                     iframeWrap.style.display = 'block';
-                    setTimeout(function() {
+                    setTimeout(function () {
                         thumbnail.style.display = 'none';
                     }, 400);
                 });
