@@ -19,8 +19,9 @@
     <!-- Toàn bộ CSS đã được gộp chung vào file tintuc.css để hoàn toàn độc lập -->
     <link rel="stylesheet" href="TinTuc/tintuc.css">
 
-    <!-- KHÔNG CẦN GỌI header.js CỦA SOURCE ĐỂ ĐẢM BẢO ĐỘC LẬP KHI CHUYỂN NHÁNH -->
+    <!-- SỬ DỤNG LẠI SOURCE HEADER TOÀN CỤC ĐỂ ĐỒNG BỘ -->
     <script src="java/i18n.js"></script>
+    <script src="java/header.js"></script>
 </head>
 
 <body class="news-page">
@@ -28,61 +29,8 @@
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
 
-    <!-- HEADER ĐÃ ĐƯỢC HARDCODE TRỰC TIẾP GIÚP KHÔNG BỊ MẤT KHI ĐỔI SOURCE -->
-    <header class="main-header dynamic-header">
-        <div class="header-left">
-            <a href="index.html" class="brand-logo">
-                <div class="logo-icon">Z</div>
-                <span class="brand-name">ZORENB</span>
-            </a>
-        </div>
-        
-        <nav class="header-center">
-            <ul class="nav-links">
-                <li><a href="index.html" class="nav-item" data-id="home" data-i18n="nav_home">TRANG CHỦ</a></li>
-                <li class="nav-item-dropdown">
-                    <a href="#" class="nav-item" data-id="collection" data-i18n="nav_collection">BỘ SƯU TẬP</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="lamborghini.html" class="dropdown-item" data-i18n="coll_lamborghini">Lamborghini</a></li>
-                        <li><a href="ferrari.html" class="dropdown-item" data-i18n="coll_ferrari">Ferrari</a></li>
-                        <li><a href="mclaren.html" class="dropdown-item" data-i18n="coll_mclaren">McLaren</a></li>
-                        <li><a href="bugatti.html" class="dropdown-item" data-i18n="coll_bugatti">Bugatti</a></li>
-                        <li><a href="rolls-royce.html" class="dropdown-item" data-i18n="coll_rollsroyce">Rolls Royce</a></li>
-                        <li><a href="bentley.html" class="dropdown-item" data-i18n="coll_bentley">Bentley</a></li>
-                        <li><a href="porsche.html" class="dropdown-item" data-i18n="coll_porsche">Porsche</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item-dropdown">
-                    <a href="index.html" class="nav-item" data-id="services" data-i18n="nav_services">DỊCH VỤ</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="index.html" class="dropdown-item" data-i18n="service_rental">Cho Thuê Xe</a></li>
-                        <li><a href="index.html" class="dropdown-item" data-i18n="service_maintenance">Bảo Dưỡng</a></li>
-                        <li><a href="index.html" class="dropdown-item" data-i18n="service_upgrade">Nâng Cấp Ngoại Thất</a></li>
-                         <li><a href="index.html" class="dropdown-item" data-i18n="service_contact">Liên Hệ</a></li>
-                    </ul>
-                </li>
-                <li><a href="javascript:void(0)" class="nav-item active" data-id="news" data-i18n="nav_news">TIN TỨC</a></li>
-            </ul>
-        </nav>
-        
-        <div class="header-right">
-            <div class="language-selector">
-                <span class="globe-icon">🌐</span>
-                <span class="lang-current-flag"></span>
-                <div class="lang-dropdown glass-panel">
-                    <a href="javascript:void(0)" class="lang-option" onclick="handleLanguageChange('vi')"><span>🇻🇳</span> Tiếng Việt</a>
-                    <a href="javascript:void(0)" class="lang-option" onclick="handleLanguageChange('en')"><span>🇺🇸</span> English</a>
-                    <a href="javascript:void(0)" class="lang-option" onclick="handleLanguageChange('fr')"><span>🇫🇷</span> Français</a>
-                    <a href="javascript:void(0)" class="lang-option" onclick="handleLanguageChange('ko')"><span>🇰🇷</span> 한국어</a>
-                    <a href="javascript:void(0)" class="lang-option" onclick="handleLanguageChange('ja')"><span>🇯🇵</span> 日本語</a>
-                    <a href="javascript:void(0)" class="lang-option" onclick="handleLanguageChange('zh')"><span>🇨🇳</span> 简体中文</a>
-                </div>
-            </div>
-            
-            <button class="btn btn-login" data-i18n="btn_login" onclick="window.location.href='login.html'">Đăng nhập</button>
-            <button class="btn btn-register" data-i18n="btn_register" onclick="window.location.href='register.html'">Đăng ký</button>
-        </div>
-    </header>
+    <!-- HEADER ĐƯỢC TẢI ĐỘNG ĐỂ ĐỒNG BỘ VỚI TOÀN HỆ THỐNG -->
+    <div id="global-header"></div>
 
     <!-- MAIN NEWS CONTENT -->
     <main class="main-content">

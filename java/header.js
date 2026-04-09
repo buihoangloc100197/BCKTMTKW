@@ -66,6 +66,24 @@ const globalHeaderHTML = `
     </header>
 `;
 
+const globalCSKH_HTML = `
+    <!-- NÚT CSKH (Jumping Support Button) -->
+    <a href="tel:18001909" class="cskh-wrapper bounce-luxury">
+        <div class="cskh-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                </path>
+            </svg>
+        </div>
+        <div class="cskh-text">
+            <span data-i18n="cskh_label">CSKH:</span>
+            <strong>18001909</strong>
+        </div>
+    </a>
+`;
+
 function handleLanguageChange(lang) {
     if (typeof setLanguage === 'function') {
         setLanguage(lang);
@@ -82,6 +100,9 @@ function initGlobalHeader() {
         // Highlight active nav item
         syncActiveNav();
 
+        // Inject global CSKH button if missing
+        initGlobalCSKH();
+
         // Final i18n Sync
         if (typeof i18nData !== 'undefined') {
             const savedLang = localStorage.getItem('zorenb_lang') || 'vi';
@@ -90,7 +111,54 @@ function initGlobalHeader() {
                 setLanguage(savedLang);
             }
         }
+
+        // --- SMART HEADER LOGIC ---
+        let lastScrollTop = 0;
+        const headerElement = document.querySelector('.main-header');
+
+        const handleScroll = (e) => {
+            // Xác định vị trí cuộn: Lấy từ window hoặc từ phần tử đang cuộn (nếu là container nội bộ)
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Nếu sự kiện đến từ một container nội bộ (như Marketplace), lấy scrollTop của nó
+            if (e.target !== document && e.target.scrollTop !== undefined) {
+                scrollTop = e.target.scrollTop;
+            }
+
+            // Đổ nền đậm khi cuộn
+            if (scrollTop > 50) {
+                if (headerElement) headerElement.classList.add('scrolled');
+            } else {
+                if (headerElement) headerElement.classList.remove('scrolled');
+            }
+
+            // Ẩn hiện thông minh (Hide on scroll down, Show on up)
+            // Tăng độ nhạy: Chỉ ẩn khi đã cuộn qua 100px
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                if (headerElement) headerElement.classList.add('header-hidden');
+            } else if (scrollTop < lastScrollTop) {
+                if (headerElement) headerElement.classList.remove('header-hidden');
+            }
+            lastScrollTop = scrollTop;
+        };
+
+        // Lắng nghe ở mức TOÀN CỤC (Capture phase) để "bắt" được cả các sự kiện scroll bên trong Dashboard
+        window.addEventListener('scroll', handleScroll, true); 
+
+        // Quan trọng: Đăng ký trực tiếp cho các vùng scroll chính của Dashboard/News để đảm bảo nó luôn chạy
+        const mainSelectors = ['.marketplace-grid-content', '.marketplace-sidebar', 'main', '.news-track'];
+        mainSelectors.forEach(selector => {
+            const el = document.querySelector(selector);
+            if (el) el.addEventListener('scroll', handleScroll);
+        });
     }
+}
+
+function initGlobalCSKH() {
+    // Avoid duplication if the button is already in the HTML
+    if (document.querySelector('.cskh-wrapper')) return;
+    
+    document.body.insertAdjacentHTML('beforeend', globalCSKH_HTML);
 }
 
 function syncActiveNav() {
