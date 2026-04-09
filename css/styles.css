@@ -811,14 +811,15 @@ button {
 .bespoke-content .btn-primary:hover { background: var(--color-accent-gold); color: #000; }
 
 /* --- Section 5: Cinematic Banner --- */
-.cinematic-banner { position: relative; height: 70vh; display: flex; justify-content: center; align-items: center; text-align: center; overflow: hidden; }
+.cinematic-banner { position: relative; height: 80vh; display: flex; justify-content: center; align-items: center; text-align: center; overflow: hidden; background: #000; }
 .cinematic-thumbnail { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; z-index: 5; border: none; }
-.cinematic-iframe-wrap { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; }
-.cinematic-bg { position: absolute; top:0; left:0; width:100%; height:100%; background-size: cover; background-position: center; filter: brightness(0.6); z-index: 1; transition: filter 0.5s; }
-.cinematic-banner:hover .cinematic-bg { filter: brightness(0.4) scale(1.05); }
-.cinematic-overlay { position: absolute; top:0; left:0; width:100%; height:100%; z-index: 2; background: rgba(0,0,0,0.3); }
-.cinematic-content { position: relative; z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 2rem; }
-.cinematic-title { font-size: 4rem; font-family: var(--font-heading); text-shadow: 0 10px 30px rgba(0,0,0,0.8); letter-spacing: 5px; }
+.cinematic-iframe-wrap { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; pointer-events: none; }
+.cinematic-iframe-wrap[style*="block"] { pointer-events: auto; }
+.cinematic-bg { position: absolute; top:0; left:0; width:100%; height:100%; background-size: cover; background-position: center; filter: brightness(0.5); z-index: 1; transition: transform 2s ease, filter 0.8s ease; }
+.cinematic-banner:hover .cinematic-bg { filter: brightness(0.3) scale(1.1); }
+.cinematic-overlay { position: absolute; top:0; left:0; width:100%; height:100%; z-index: 2; background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.6) 100%); }
+.cinematic-content { position: relative; z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 2.5rem; }
+.cinematic-title { font-size: 3.5rem; font-family: var(--font-heading); text-shadow: 0 10px 40px rgba(0,0,0,1); letter-spacing: 10px; font-weight: 700; }
 .btn-play-video { width: 80px; height: 80px; border-radius: 50%; border: 2px solid var(--color-accent-gold); display: flex; justify-content: center; align-items: center; cursor: pointer; color: var(--color-accent-gold); background: rgba(0,0,0,0.4); backdrop-filter: blur(5px); transition: all 0.3s; }
 .btn-play-video:hover { background: var(--color-accent-gold); color: #000; transform: scale(1.1); }
 .watch-text { font-size: 0.85rem; letter-spacing: 3px; font-weight: 600; }
