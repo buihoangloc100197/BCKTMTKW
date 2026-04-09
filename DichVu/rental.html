@@ -12,6 +12,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="./css/base.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/rental.css">
 
     <!-- Logic -->
     <script src="./js/i18n.js"></script>
@@ -23,7 +24,7 @@
     <div class="cursor-follower"></div>
 
     <!-- BACK BUTTON -->
-    <a href="index.html" class="back-link-btn">
+    <a href="DichVu.html" class="back-link-btn">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M19 12H5M12 19l-7-7 7-7"></path>
         </svg>
@@ -38,7 +39,8 @@
             <div class="hero-overlay"></div>
             <div class="hero-content">
                 <h1 class="hero-title">Thuê Siêu Xe Độc Quyền</h1>
-                <p class="hero-subtitle">Trải nghiệm cảm giác lái những cỗ máy tốc độ hàng đầu thế giới ngay hôm nay.</p>
+                <p class="hero-subtitle">Trải nghiệm cảm giác lái những cỗ máy tốc độ hàng đầu thế giới ngay hôm nay.
+                </p>
             </div>
         </section>
 
@@ -60,7 +62,7 @@
                 <div class="rule-card glass-panel">
                     <div class="rule-header">
                         <span class="rule-num">02</span>
-                        <h3>Tiền Đặt Cọc (Security Deposit)</h3>
+                        <h3>Tiền Đặt Cọc</h3>
                     </div>
                     <ul class="rule-list">
                         <li>Ký quỹ tối thiểu 5.000 USD tùy dòng xe.</li>
@@ -88,103 +90,95 @@
             <div class="issues-flex">
                 <div class="issue-item glass-panel">
                     <div class="issue-content">
-                        <h4>Sự Cố Trên Đường (Breakdown/Accident)</h4>
-                        <p>ZORENB cung cấp dịch vụ cứu hộ 24/7. Trong trường hợp xảy ra va chạm, vui lòng giữ nguyên hiện trường và liên hệ ngay với đội ngũ Concierge của chúng tôi.</p>
+                        <h4>Sự Cố Trên Đường</h4>
+                        <p>ZORENB cung cấp dịch vụ cứu hộ 24/7. Trong trường hợp xảy ra va chạm, vui lòng giữ nguyên
+                            hiện trường và liên hệ ngay với đội ngũ Hỗ Trợ của chúng tôi.</p>
                     </div>
                 </div>
                 <div class="issue-item glass-panel">
                     <div class="issue-content">
                         <h4>Trả Xe Trễ Hạn</h4>
-                        <p>Vui lòng thông báo trước ít nhất 4 tiếng. Phí trễ hạn được tính theo giờ (15% giá thuê/giờ). Trễ trên 5 tiếng tính phí cả ngày.</p>
+                        <p>Vui lòng thông báo trước ít nhất 4 tiếng. Phí trễ hạn được tính theo giờ (15% giá thuê/giờ).
+                            Trễ trên 5 tiếng tính phí cả ngày.</p>
                     </div>
                 </div>
                 <div class="issue-item glass-panel">
                     <div class="issue-content">
                         <h4>Nhiên Liệu</h4>
-                        <p>Siêu xe chỉ sử dụng xăng RON 98. Vui lòng hoàn trả xe với cùng mức nhiên liệu như lúc nhận để tránh phí phụ thu từ đại lý.</p>
+                        <p>Siêu xe chỉ sử dụng xăng RON 98. Vui lòng hoàn trả xe với cùng mức nhiên liệu như lúc nhận để
+                            tránh phí phụ thu từ đại lý.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 3. HỢP ĐỒNG THUÊ XE (RENTAL CONTRACT FORM) - Using Grid Layout -->
-        <section class="rental-contract-section fade-in">
-            <div class="contract-container glass-panel">
-                <div class="contract-header">
-                    <h2 class="contract-title">HỢP ĐỒNG ĐĂNG KÝ THUÊ XE</h2>
-                    <p class="contract-sub">Vui lòng điền chính xác thông tin để bộ phận VIP xử lý yêu cầu của bạn.</p>
-                </div>
-                
-                <form class="contract-form">
-                    <!-- Grid: Thông tin cá nhân -->
-                    <div class="form-section">
-                        <h3 class="form-section-title">I. THÔNG TIN KHÁCH HÀNG</h3>
-                        <div class="form-grid-layout">
-                            <div class="form-group">
-                                <label>Họ và Tên (Full Name)</label>
-                                <input type="text" placeholder="Nguyễn Văn A" required>
+        <!-- 3. THÔNG TIN LIÊN HỆ (CONTACT SECTION) -->
+        <section class="contact-section fade-in">
+            <div class="contact-container glass-panel">
+                <div class="contact-grid">
+                    <!-- Left: Contact Details -->
+                    <div class="contact-info">
+                        <h2 class="contact-heading">Thông Tin Liên Hệ</h2>
+                        <p class="contact-sub">Kết nối với đội ngũ Hỗ Trợ của chúng tôi để được tư vấn dịch vụ cá
+                            nhân hóa.</p>
+
+                        <div class="info-list">
+                            <div class="info-item">
+                                <div class="info-icon">📍</div>
+                                <div class="info-text">
+                                    <label>Địa chỉ Showroom</label>
+                                    <p>01 Đ. Võ Văn Kiệt, Phường Phú Hữu, TP. Thủ Đức, TP. Hồ Chí Minh</p>
+                                </div>
                             </div>
+                            <div class="info-item">
+                                <div class="info-icon">📞</div>
+                                <div class="info-text">
+                                    <label>Hotline 24/7</label>
+                                    <p>1800 1909</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-icon">✉️</div>
+                                <div class="info-text">
+                                    <label>Email VIP</label>
+                                    <p>contact@zorenb.com</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-icon">🕒</div>
+                                <div class="info-text">
+                                    <label>Giờ mở cửa</label>
+                                    <p>08:00 - 20:00 (Hàng ngày)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Contact Form -->
+                    <div class="contact-form-wrapper">
+                        <form class="simple-contact-form">
                             <div class="form-group">
-                                <label>Số CCCD / Passport</label>
-                                <input type="text" placeholder="0123456789" required>
+                                <label>Họ và Tên</label>
+                                <input type="text" placeholder="Nhập họ và tên của bạn" required>
                             </div>
                             <div class="form-group">
                                 <label>Số Điện Thoại</label>
-                                <input type="tel" placeholder="0901 xxx xxx" required>
+                                <input type="text" placeholder="09xxx" required>
                             </div>
                             <div class="form-group">
-                                <label>Email Liên Hệ</label>
-                                <input type="email" placeholder="example@vip.com" required>
+                                <label>Email</label>
+                                <input type="text" placeholder="example@vip.com" required>
                             </div>
-                            <div class="form-group full-width">
-                                <label>Địa Chỉ Thường Trú</label>
-                                <input type="text" placeholder="Khu đô thị Sala, TP. Thủ Đức...">
+                            <div class="form-group">
+                                <label>Nội Dung Tư Vấn</label>
+                                <textarea rows="4" placeholder="Bạn quan tâm đến dòng xe nào?..."></textarea>
                             </div>
-                        </div>
+                            <button type="submit" class="btn btn-primary magnetic-btn submit-inquiry">
+                                Gửi Yêu Cầu Tư Vấn
+                            </button>
+                        </form>
                     </div>
-
-                    <!-- Grid: Thông tin thuê xe -->
-                    <div class="form-section">
-                        <h3 class="form-section-title">II. NỘI DUNG THUÊ XE</h3>
-                        <div class="form-grid-layout">
-                            <div class="form-group">
-                                <label>Mẫu Xe Lựa Chọn (Vehicle)</label>
-                                <select required>
-                                    <option value="">-- Chọn siêu xe --</option>
-                                    <option>Lamborghini Revuelto (V12 Hybrid)</option>
-                                    <option>Ferrari SF90 Stradale</option>
-                                    <option>McLaren 765LT Spider</option>
-                                    <option>Bugatti Chiron Super Sport</option>
-                                    <option>Rolls-Royce Spectre</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Ngày Nhận Xe</label>
-                                <input type="date" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Ngày Trả Xe</label>
-                                <input type="date" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Địa Điểm Giao Xe</label>
-                                <select>
-                                    <option>Tại Showroom ZORENB</option>
-                                    <option>Tại Gia Riêng (Private Home)</option>
-                                    <option>Sân Bay / Khách Sạn</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="contract-footer">
-                        <div class="terms-agreement">
-                            <input type="checkbox" id="agree-terms" required>
-                            <label for="agree-terms">Tôi xác nhận đã đọc, hiểu và đồng ý với tất cả <strong>Quy Định Thuê Xe</strong> của ZORENB Luxury Showroom.</label>
-                        </div>
-                        <button type="submit" class="btn btn-primary magnetic-btn submit-contract">Gửi Yêu Cầu Hợp Đồng</button>
-                    </div>
-                </form>
+                </div>
             </div>
         </section>
     </main>
@@ -204,264 +198,7 @@
     <script src="./js/main.js"></script>
     <script src="./js/services.js"></script>
 
-    <style>
 
-        /* Redesigned Rental Page Styling */
-        .section-heading {
-            text-align: center;
-            font-family: var(--font-heading);
-            font-size: 2.5rem;
-            color: var(--color-accent-gold);
-            margin: 6rem 0 3rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        /* REGULATIONS GRID */
-        .rental-rules-section {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 5rem;
-        }
-
-        .rules-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .rule-card {
-            padding: 3rem;
-            border-radius: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            transition: transform 0.4s ease;
-        }
-
-        .rule-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--color-accent-gold);
-        }
-
-        .rule-header {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .rule-num {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: rgba(212, 175, 55, 0.2);
-            font-family: var(--font-heading);
-        }
-
-        .rule-header h3 {
-            font-size: 1.3rem;
-            color: #fff;
-            letter-spacing: 1px;
-        }
-
-        .rule-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .rule-list li {
-            color: var(--color-text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.6;
-            position: relative;
-            padding-left: 1.5rem;
-        }
-
-        .rule-list li::before {
-            content: '•';
-            color: var(--color-accent-gold);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-
-        /* ISSUES FLEXBOX */
-        .rental-issues-section {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 5rem;
-        }
-
-        .issues-flex {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            justify-content: center;
-        }
-
-        .issue-item {
-            flex: 1;
-            min-width: 300px;
-            padding: 2.5rem;
-            border-radius: 15px;
-        }
-
-        .issue-content h4 {
-            color: #fff;
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .issue-content h4::before {
-            content: '⚠️';
-            font-size: 1.1rem;
-        }
-
-        .issue-content p {
-            color: var(--color-text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* CONTRACT FORM GRID */
-        .rental-contract-section {
-            max-width: 1200px;
-            margin: 8rem auto;
-            padding: 0 2rem;
-        }
-
-        .contract-container {
-            padding: 5rem;
-            border-radius: 30px;
-            border: 2px solid rgba(212, 175, 55, 0.2);
-        }
-
-        .contract-header {
-            text-align: center;
-            margin-bottom: 5rem;
-        }
-
-        .contract-title {
-            font-family: var(--font-heading);
-            font-size: 2.2rem;
-            color: #fff;
-            letter-spacing: 4px;
-            margin-bottom: 1rem;
-        }
-
-        .contract-sub {
-            color: var(--color-accent-gold);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .form-section {
-            margin-bottom: 4rem;
-        }
-
-        .form-section-title {
-            font-family: var(--font-ui);
-            font-size: 1.1rem;
-            color: var(--color-accent-gold);
-            margin-bottom: 2.5rem;
-            padding-bottom: 10px;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-            width: fit-content;
-        }
-
-        .form-grid-layout {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-        }
-
-        .form-group.full-width {
-            grid-column: span 2;
-        }
-
-        .form-group label {
-            font-size: 0.8rem;
-            color: var(--color-text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .form-group input, .form-group select, .form-group textarea {
-            background: rgba(0, 0, 0, 0.6); /* Changed to dark background */
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 1.2rem;
-            border-radius: 8px;
-            color: #fff;
-            font-family: var(--font-ui);
-            transition: all 0.3s ease;
-        }
-
-        .form-group select option {
-            background-color: #000; /* Ensure options are black */
-            color: #fff;
-        }
-
-        .form-group input:focus, .form-group select:focus {
-            outline: none;
-            border-color: var(--color-accent-gold);
-            background: rgba(212, 175, 55, 0.05);
-        }
-
-        .contract-footer {
-            margin-top: 5rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 2.5rem;
-        }
-
-        .terms-agreement {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            max-width: 600px;
-            cursor: pointer;
-        }
-
-        .terms-agreement label {
-            font-size: 0.9rem;
-            color: var(--color-text-secondary);
-            line-height: 1.5;
-        }
-
-        .terms-agreement strong {
-            color: var(--color-accent-gold);
-        }
-
-        .submit-contract {
-            padding: 1.5rem 5rem !important;
-            font-size: 1.1rem !important;
-        }
-
-        /* RESPONSIVENESS */
-        @media (max-width: 1100px) {
-            .rules-grid { grid-template-columns: 1fr; }
-            .rental-rules-section, .rental-issues-section { padding: 0 2rem; }
-            .contract-container { padding: 3rem; }
-        }
-
-        @media (max-width: 768px) {
-            .form-grid-layout { grid-template-columns: 1fr; }
-            .form-group.full-width { grid-column: span 1; }
-            .contract-title { font-size: 1.6rem; }
-            .section-heading { font-size: 2rem; }
-        }
-    </style>
 </body>
 
 </html>

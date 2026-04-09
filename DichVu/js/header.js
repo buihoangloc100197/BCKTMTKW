@@ -76,10 +76,10 @@ function initGlobalHeader() {
     const placeholder = document.getElementById('global-header');
     if (placeholder) {
         placeholder.innerHTML = globalHeaderHTML;
-        
+
         // Highlight active nav item
         syncActiveNav();
-        
+
         // Final i18n Sync
         if (typeof i18nData !== 'undefined') {
             const savedLang = localStorage.getItem('zorenb_lang') || 'vi';
@@ -126,10 +126,10 @@ function initGlobalHeader() {
 function syncActiveNav() {
     const path = window.location.pathname;
     const page = path.split("/").pop();
-    
+
     document.querySelectorAll('.nav-item').forEach(item => {
         item.classList.remove('active');
-        
+
         if (page === 'index.html' || page === '') {
             if (item.getAttribute('data-id') === 'home') item.classList.add('active');
         } else if (['lamborghini.html', 'ferrari.html', 'bugatti.html', 'mclaren.html', 'porsche.html', 'rolls-royce.html', 'bentley.html'].includes(page)) {

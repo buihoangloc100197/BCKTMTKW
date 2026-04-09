@@ -9,7 +9,9 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&family=Inter:wght@400;500;600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&family=Inter:wght@400;500;600&family=Roboto:wght@300;400;500&display=swap"
+        rel="stylesheet">
 
     <!-- Styles -->
     <link rel="stylesheet" href="./css/base.css">
@@ -25,7 +27,7 @@
     <div class="cursor-follower"></div>
 
     <!-- BACK BUTTON -->
-    <a href="index.html" class="back-link-btn">
+    <a href="DichVu.html" class="back-link-btn">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M19 12H5M12 19l-7-7 7-7"></path>
         </svg>
@@ -50,8 +52,9 @@
                 <!-- Left: Description -->
                 <div class="detail-text-block glass-panel">
                     <h2 class="section-title">Phong Cách Bespoke</h2>
-                    <p>Mỗi chi tiết, từ màu sơn ngoại thất đến từng đường kim mũi chỉ trong khoang lái, đều có thể được tùy chỉnh theo yêu cầu riêng biệt của bạn. ZORENB mang đến sự tự do sáng tạo tuyệt đối.</p>
-                    
+                    <p>Mỗi chi tiết, từ màu sơn ngoại thất đến từng đường kim mũi chỉ trong khoang lái, đều có thể được
+                        tùy chỉnh theo yêu cầu riêng biệt của bạn. ZORENB mang đến sự tự do sáng tạo tuyệt đối.</p>
+
                     <div class="feature-flex">
                         <div class="feature-item">
                             <span class="feature-icon">🎨</span>
@@ -71,7 +74,8 @@
                             <span class="feature-icon">🚀</span>
                             <div>
                                 <h4>Tối Ưu Hiệu Năng</h4>
-                                <p>Cân chỉnh hệ thống treo, ống xả và phần mềm điều khiển để nâng tầm trải nghiệm lái.</p>
+                                <p>Cân chỉnh hệ thống treo, ống xả và phần mềm điều khiển để nâng tầm trải nghiệm lái.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -100,7 +104,8 @@
                             <label>Email Liên Hệ</label>
                             <input type="email" placeholder="example@luxury.com">
                         </div>
-                        <button type="button" class="btn btn-primary magnetic-btn" style="width: 100%;">Nhận Tư Vấn VIP</button>
+                        <button type="button" class="btn btn-primary magnetic-btn" style="width: 100%;">Nhận Tư Vấn
+                            VIP</button>
                     </form>
                 </div>
             </div>
@@ -123,25 +128,130 @@
     <script src="./js/services.js"></script>
 
     <style>
-        .detail-page .detail-hero { height: 40vh; }
-        .detail-content-section { max-width: 1400px; margin: -80px auto 8rem; padding: 0 5rem; position: relative; z-index: 10; }
-        .detail-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 3rem; }
-        .detail-text-block, .detail-form-block { padding: 4rem; border-radius: 20px; }
-        .section-title { font-family: var(--font-heading); font-size: 2.2rem; color: var(--color-accent-gold); margin-bottom: 2rem; }
-        .feature-flex { display: flex; flex-direction: column; gap: 2rem; margin-top: 3rem; }
-        .feature-item { display: flex; gap: 1.5rem; }
-        .feature-icon { font-size: 1.8rem; min-width: 50px; }
-        .feature-item h4 { font-size: 1.2rem; color: #fff; margin-bottom: 0.5rem; }
-        .feature-item p { color: var(--color-text-secondary); font-size: 0.95rem; }
-        .btn-back { display: inline-block; margin-top: 4rem; color: var(--color-accent-gold); font-size: 0.9rem; text-decoration: underline; }
-        .form-title { font-family: var(--font-heading); font-size: 1.8rem; color: #fff; margin-bottom: 2.5rem; text-align: center; }
-        .luxury-form { display: flex; flex-direction: column; gap: 2rem; }
-        .form-group { display: flex; flex-direction: column; gap: 0.8rem; }
-        .form-group label { font-size: 0.85rem; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 1px; }
-        .form-group input, .form-group select { background: rgba(0, 0, 0, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); padding: 1.2rem; border-radius: 8px; color: #fff; font-family: var(--font-ui); transition: border 0.3s ease; }
-        .form-group select option { background-color: #000; color: #fff; }
-        .form-group input:focus { outline: none; border-color: var(--color-accent-gold); }
-        @media (max-width: 1000px) { .detail-grid { grid-template-columns: 1fr; } .detail-content-section { padding: 0 2rem; } }
+        .detail-page .detail-hero {
+            height: 40vh;
+        }
+
+        .detail-content-section {
+            max-width: 1400px;
+            margin: -80px auto 8rem;
+            padding: 0 5rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 3rem;
+        }
+
+        .detail-text-block,
+        .detail-form-block {
+            padding: 4rem;
+            border-radius: 20px;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            color: var(--color-accent-gold);
+            margin-bottom: 2rem;
+        }
+
+        .feature-flex {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .feature-icon {
+            font-size: 1.8rem;
+            min-width: 50px;
+        }
+
+        .feature-item h4 {
+            font-size: 1.2rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-item p {
+            color: var(--color-text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .btn-back {
+            display: inline-block;
+            margin-top: 4rem;
+            color: var(--color-accent-gold);
+            font-size: 0.9rem;
+            text-decoration: underline;
+        }
+
+        .form-title {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            color: #fff;
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+        .luxury-form {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            color: var(--color-text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-group input,
+        .form-group select {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.2rem;
+            border-radius: 8px;
+            color: #fff;
+            font-family: var(--font-ui);
+            transition: border 0.3s ease;
+        }
+
+        .form-group select option {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--color-accent-gold);
+        }
+
+        @media (max-width: 1000px) {
+            .detail-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .detail-content-section {
+                padding: 0 2rem;
+            }
+        }
     </style>
 </body>
 
