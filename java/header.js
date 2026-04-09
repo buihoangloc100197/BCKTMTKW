@@ -30,7 +30,7 @@ const globalHeaderHTML = `
                     </ul>
                 </li>
                 <li class="nav-item-dropdown">
-                    <a href="DichVu/index.html" class="nav-item" data-id="services" data-i18n="nav_services">DỊCH VỤ</a>
+                    <a href="DichVu/DichVu.html" class="nav-item" data-id="services" data-i18n="nav_services">DỊCH VỤ</a>
                     <ul class="dropdown-menu">
                         <li><a href="DichVu/rental.html" class="dropdown-item" data-i18n="service_rental">Cho Thuê Xe</a></li>
                         <li><a href="DichVu/maintenance.html" class="dropdown-item" data-i18n="service_maintenance">Bảo Dưỡng</a></li>
@@ -119,7 +119,7 @@ function initGlobalHeader() {
         const handleScroll = (e) => {
             // Xác định vị trí cuộn: Lấy từ window hoặc từ phần tử đang cuộn (nếu là container nội bộ)
             let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
+
             // Nếu sự kiện đến từ một container nội bộ (như Marketplace), lấy scrollTop của nó
             if (e.target !== document && e.target.scrollTop !== undefined) {
                 scrollTop = e.target.scrollTop;
@@ -143,7 +143,7 @@ function initGlobalHeader() {
         };
 
         // Lắng nghe ở mức TOÀN CỤC (Capture phase) để "bắt" được cả các sự kiện scroll bên trong Dashboard
-        window.addEventListener('scroll', handleScroll, true); 
+        window.addEventListener('scroll', handleScroll, true);
 
         // Quan trọng: Đăng ký trực tiếp cho các vùng scroll chính của Dashboard/News để đảm bảo nó luôn chạy
         const mainSelectors = ['.marketplace-grid-content', '.marketplace-sidebar', 'main', '.news-track'];
@@ -157,7 +157,7 @@ function initGlobalHeader() {
 function initGlobalCSKH() {
     // Avoid duplication if the button is already in the HTML
     if (document.querySelector('.cskh-wrapper')) return;
-    
+
     document.body.insertAdjacentHTML('beforeend', globalCSKH_HTML);
 }
 
