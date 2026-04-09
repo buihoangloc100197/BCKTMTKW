@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZORENB Collection - Luxury Marketplace</title>
+
+    <!-- Google Fonts: Roboto (Body), Inter (UI), Be Vietnam Pro (Headings) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&family=Inter:wght@400;500;600&family=Roboto:wght@300;400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <script src="java/i18n.js"></script>
+    <script src="java/header.js"></script>
+</head>
+
+<body class="dashboard-body marketplace-theme">
+    <!-- CUSTOM CURSOR -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- SHARED HEADER (Consistent UI) -->
+    <div id="global-header"></div>
+
+    <!-- DASHBOARD MARKETPLACE CONTENT -->
+    <main class="marketplace-container fade-in-up">
+
+        <!-- TOP CONTROL BAR (Inspired by image) -->
+        <div class="marketplace-top-bar glass-panel">
+            <div class="search-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="text" placeholder="Tìm kiếm siêu xe của bạn..." id="search-input">
+            </div>
+
+            <div class="top-controls">
+                <div class="icon-group">
+                    <div class="icon-btn" title="Thông báo">🔔<span class="badge">3</span></div>
+                    <div class="icon-btn" title="Tin nhắn">💬</div>
+                </div>
+                <div class="user-profile">
+                    <img src="https://i.pravatar.cc/100" alt="User Avatar" class="avatar-sm">
+                    <span>VIP Member</span>
+                </div>
+                <button class="btn btn-primary magnetic-btn">+ Ký Gửi Siêu Xe</button>
+            </div>
+        </div>
+
+        <div class="marketplace-main">
+            <!-- SIDEBAR FILTER (Inspired by image) -->
+            <aside class="marketplace-sidebar glass-panel">
+                <div class="filter-section">
+                    <h3>LOẠI SIÊU XE</h3>
+                    <div class="filter-group">
+                        <label class="filter-check"><input type="checkbox" checked> <span>Hypercar</span></label>
+                        <label class="filter-check"><input type="checkbox"> <span>Sportcar</span></label>
+                        <label class="filter-check"><input type="checkbox"> <span>SUV Luxury</span></label>
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <h3>THƯƠNG HIỆU</h3>
+                    <div class="brand-list">
+                        <label class="brand-item active"><input type="radio" name="brand" checked> Lamborghini</label>
+                        <label class="brand-item"><input type="radio" name="brand"> Ferrari</label>
+                        <label class="brand-item"><input type="radio" name="brand"> Bugatti</label>
+                        <label class="brand-item"><input type="radio" name="brand"> McLaren</label>
+                        <label class="brand-item"><input type="radio" name="brand"> Porsche</label>
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <h3>KHOẢNG GIÁ ($)</h3>
+                    <div class="price-range">
+                        <input type="range" min="200000" max="5000000" step="50000" id="price-slider">
+                        <div class="price-labels">
+                            <span>$200k</span>
+                            <span>$5M+</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- VEHICLE GRID (Inspired by image) -->
+            <div class="marketplace-grid-content">
+                <div class="grid-header">
+                    <h2><span id="car-count">64</span> SIÊU XE ĐANG TRƯNG BÀY</h2>
+                    <div class="view-options">
+                        <span class="active">Lưới</span>
+                        <span>Danh sách</span>
+                    </div>
+                </div>
+
+                <!-- CAR CARDS WILL BE RENDERED HERE BY JS -->
+                <div class="car-grid" id="car-grid">
+                    <!-- Loading skeleton or fallback items -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FLOATING COMPARE BAR (Hidden by default) -->
+    <div class="compare-bar glass-panel" id="compare-bar">
+        <div class="compare-info">
+            <span id="compare-count">0</span>/2 Siêu xe được chọn
+        </div>
+        <div class="selected-thumbs" id="selected-thumbs">
+            <!-- Thumbs will be added here -->
+        </div>
+        <button class="btn btn-primary magnetic-btn" id="btn-compare-now" disabled>So Sánh Ngay</button>
+        <button class="btn-clear" id="btn-clear-compare">Xóa hết</button>
+    </div>
+
+    <!-- COMPARISON MODAL (Hidden by default) -->
+    <div class="compare-modal" id="compare-modal">
+        <div class="modal-content glass-panel">
+            <button class="modal-close" id="modal-close">×</button>
+            <div class="modal-header">
+                <h2>SO SÁNH CHI TIẾT SIÊU XE</h2>
+            </div>
+            <div class="comparison-table-container" id="comparison-table">
+                <!-- Comparison table rendered by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="java/main.js"></script>
+    <script src="java/dashboard.js"></script>
+</body>
+
+</html>

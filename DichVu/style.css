@@ -1,0 +1,242 @@
+/* =========================================
+   SERVICES PAGE STYLING
+   ========================================= */
+
+:root {
+    --card-bg: rgba(20, 20, 20, 0.7);
+    --card-border: rgba(212, 175, 55, 0.3);
+    --card-glow: rgba(212, 175, 55, 0.15);
+}
+
+/* OVERRIDE GLOBAL HEADER TO BE FIXED */
+.main-header {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(5, 5, 5, 0.8) !important;
+    backdrop-filter: blur(20px) !important;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+/* SMART HIDE CLASS */
+.main-header.header-hidden {
+    transform: translateY(-100%) !important;
+}
+
+/* BACK LINK BUTTON */
+.back-link-btn {
+    position: fixed;
+    top: 120px;
+    left: 40px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0.8rem 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    color: #fff;
+    font-family: var(--font-ui);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.back-link-btn.header-hidden {
+    opacity: 0;
+    transform: translateX(-20px);
+    pointer-events: none;
+}
+
+.back-link-btn:hover {
+    background-position: center;
+    background-attachment: fixed;
+    margin-bottom: 4rem;
+}
+
+.services-container {
+    padding-top: 100px; /* Space for the absolute header */
+    min-height: 100vh;
+    background-color: var(--color-bg-base);
+}
+
+/* HERO SECTION */
+.services-hero {
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin-bottom: 4rem;
+}
+
+.services-hero .hero-content {
+    margin-top: 0;
+    gap: 2rem;
+}
+
+.services-hero .hero-title {
+    font-size: 3.5rem;
+    background: linear-gradient(to right, #fff, var(--color-accent-gold), #fff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: none;
+}
+
+/* GRID LAYOUT SECTION */
+.services-grid-section {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 5rem 8rem 5rem;
+}
+
+/* CSS GRID FOR THE CARDS */
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for desktop */
+    gap: 3rem;
+    perspective: 1000px;
+}
+
+/* SERVICE CARD WITH FLEXBOX INTERNAL LAYOUT */
+.service-card {
+    display: flex;
+    flex-direction: column; /* Vertical stack */
+    padding: 3.5rem;
+    border-radius: 20px;
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--card-border);
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top right, var(--card-glow), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    border-color: var(--color-accent-gold);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 20px rgba(212, 175, 55, 0.2);
+}
+
+.service-card:hover::before {
+    opacity: 1;
+}
+
+/* Card Icon Section (Flexbox centered) */
+.card-icon {
+    width: 80px;
+    height: 80px;
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid var(--color-accent-gold);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2.5rem;
+    color: var(--color-accent-gold);
+    transition: all 0.4s ease;
+}
+
+.service-card:hover .card-icon {
+    background: var(--color-accent-gold);
+    color: var(--color-bg-base);
+    transform: rotateY(360deg);
+}
+
+/* Card Body (Flexbox container) */
+.card-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 1.5rem;
+}
+
+.card-title {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.card-desc {
+    font-size: 1.05rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* Internal List (Flexbox) */
+.card-list {
+    margin-top: auto; /* Push list and button to bottom */
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-bottom: 2.5rem;
+}
+
+.card-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 0.95rem;
+    color: #dfdfdf;
+}
+
+.card-list li::before {
+    content: '→';
+    color: var(--color-accent-gold);
+    font-weight: bold;
+}
+
+/* Service Buttons */
+.service-card .btn-primary {
+    align-self: flex-start; /* Limit button width */
+    width: 100%;
+    text-align: center;
+}
+
+/* RESPONSIVENESS */
+@media (max-width: 1100px) {
+    .services-grid-section {
+        padding: 0 2rem 5rem 2rem;
+    }
+    .grid-layout {
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 850px) {
+    .grid-layout {
+        grid-template-columns: 1fr; /* Stack on mobile */
+    }
+    .services-hero .hero-title {
+        font-size: 2.5rem;
+    }
+    .service-card {
+        padding: 2.5rem;
+    }
+}

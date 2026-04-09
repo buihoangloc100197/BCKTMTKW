@@ -1,0 +1,262 @@
+/* =========================================
+   CAR DETAIL PAGE STYLES (IMMERSIVE DARK)
+   ========================================= */
+
+.detail-body {
+    background-color: #050505;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+
+
+.car-hero {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    transform: scale(1.1);
+    transition: transform 1.5s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.9) 100%);
+}
+
+.hero-content-detail {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    max-width: 900px;
+    margin-top: 6rem; /* Tăng khoảng cách khỏi Header */
+}
+
+.brand-badge-detail {
+    font-family: var(--font-ui);
+    font-size: 1rem;
+    letter-spacing: 5px;
+    color: var(--color-accent-gold);
+    margin-bottom: 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s forwards;
+}
+
+.car-title-detail {
+    font-family: var(--font-heading);
+    font-size: 6rem;
+    font-weight: 800;
+    letter-spacing: -2px;
+    line-height: 0.9;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s forwards 0.3s;
+}
+
+.car-description-detail {
+    font-family: var(--font-ui);
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    margin-bottom: 3rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s forwards 0.6s;
+}
+
+.btn-buy-large {
+    padding: 1.2rem 3rem;
+    font-size: 1.1rem;
+    letter-spacing: 3px;
+    opacity: 0;
+    animation: fadeInUp 0.8s forwards 0.9s;
+}
+
+.scroll-hint {
+    display: block;
+    margin-top: 2rem;
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    letter-spacing: 2px;
+    opacity: 0;
+    animation: fadeInUp 0.8s forwards 1.2s;
+}
+
+/* Floating Back Button */
+.btn-back-floating {
+    position: fixed;
+    top: 120px; /* Hạ xuống một chút để tránh chạm vào Header mới */
+    left: 40px;
+    z-index: 1000;
+    padding: 0.8rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-ui);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+}
+
+.btn-back-floating:hover {
+    background: var(--color-accent-gold);
+    color: #000;
+    border-color: var(--color-accent-gold);
+}
+
+/* Specs Section */
+.specs-section {
+    padding: 100px 0;
+    background: #000;
+}
+
+.container-detail {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.section-title-detail {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    letter-spacing: 8px;
+    margin-bottom: 3rem;
+    text-align: left;
+    color: var(--color-accent-gold);
+}
+
+.specs-grid-detail {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.spec-item-detail {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.spec-item-detail.highlighted {
+    border: 1px solid var(--color-accent-gold);
+    background: rgba(212, 175, 55, 0.05);
+}
+
+.spec-label-detail {
+    font-family: var(--font-ui);
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    letter-spacing: 2px;
+}
+
+.spec-value-detail {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.highlighted .spec-value-detail {
+    color: var(--color-accent-gold);
+}
+
+/* Interior Gallery */
+.interior-gallery {
+    padding: 50px 0 100px;
+}
+
+.gallery-focus {
+    width: 100%;
+    height: 600px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.gallery-focus img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery-thumbs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.gallery-thumb {
+    height: 120px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0.6;
+    object-fit: cover;
+    width: 100%;
+}
+
+.gallery-thumb:hover {
+    opacity: 1;
+    transform: translateY(-5px);
+}
+
+/* Related Section */
+.related-section {
+    padding: 100px 0;
+    background: #080808;
+}
+
+.related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+    .car-title-detail { font-size: 4rem; }
+    .specs-grid-detail { grid-template-columns: repeat(2, 1fr); }
+    .btn-back-floating { left: 20px; top: 80px; }
+}
+
+@media (max-width: 768px) {
+    .car-title-detail { font-size: 2.5rem; }
+    .specs-grid-detail { grid-template-columns: 1fr; }
+    .gallery-focus { height: 350px; }
+}

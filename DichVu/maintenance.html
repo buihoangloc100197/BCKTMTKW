@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bảo Dưỡng Chuyên Sâu - ZORENB</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&family=Inter:wght@400;500;600&family=Roboto:wght@300;400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/maintenance.css">
+
+    <!-- Logic -->
+    <script src="./js/i18n.js"></script>
+    <script src="./js/header.js"></script>
+</head>
+
+<body class="detail-page">
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- BACK BUTTON -->
+    <a href="DichVu.html" class="back-link-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7"></path>
+        </svg>
+        TRỞ LẠI
+    </a>
+
+    <div id="global-header"></div>
+
+    <main class="services-container fade-in-up">
+        <!-- Hero Section -->
+        <section class="services-hero detail-hero" style="background-image: url('./images/3.jpg');">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">Bảo Dưỡng Chuyên Sâu</h1>
+                <p class="hero-subtitle">Mỗi chiếc siêu xe là một tác phẩm cơ khí cần sự chăm sóc hoàn mỹ nhất.</p>
+            </div>
+        </section>
+
+        <!-- 1. HẠNG MỤC BẢO DƯỠNG (MAINTENANCE ITEMS) - Using Grid -->
+        <section class="maintenance-items-section fade-in">
+            <h2 class="section-heading">Danh Mục Bảo Dưỡng Chuyên Sâu</h2>
+            <div class="items-grid">
+                <div class="item-card glass-panel">
+                    <div class="item-icon">🏎️</div>
+                    <h3>Động Cơ & Truyền Động</h3>
+                    <ul class="item-list">
+                        <li>Thay nhớt động cơ hiệu năng cao.</li>
+                        <li>Kiểm tra bugi, bộ lọc gió carbon.</li>
+                        <li>Hiệu chỉnh hệ thống tăng áp (Turbo).</li>
+                    </ul>
+                </div>
+                <div class="item-card glass-panel">
+                    <div class="item-icon">🛑</div>
+                    <h3>Hệ Thống Phanh & Lốp</h3>
+                    <ul class="item-list">
+                        <li>Kiểm tra đĩa phanh Carbon Ceramic.</li>
+                        <li>Thay má phanh chuẩn đua.</li>
+                        <li>Cân bằng động & Góc đặt bánh xe.</li>
+                    </ul>
+                </div>
+                <div class="item-card glass-panel">
+                    <div class="item-icon">💻</div>
+                    <h3>Hệ Thống Điện & ECU</h3>
+                    <ul class="item-list">
+                        <li>Quét lỗi phần mềm chuyên dụng.</li>
+                        <li>Cập nhật Firmware nhà sản xuất.</li>
+                        <li>Hiệu chỉnh cảm biến đo gió (MAF).</li>
+                    </ul>
+                </div>
+                <div class="item-card glass-panel">
+                    <div class="item-icon">💎</div>
+                    <h3>Ngoại Thất & Khung Gầm</h3>
+                    <ul class="item-list">
+                        <li>Vệ sinh gầm xe bằng đá khô.</li>
+                        <li>Kiểm tra hệ thống treo thủy lực.</li>
+                        <li>Siết lực ốc gầm theo tiêu chuẩn.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. LỊCH TRÌNH BẢO DƯỠNG (MAINTENANCE SCHEDULE) - Using Flexbox Timeline -->
+        <section class="maintenance-schedule-section fade-in">
+            <h2 class="section-heading">Lịch Trình Bảo Trì Định Kỳ</h2>
+            <div class="schedule-timeline">
+                <div class="schedule-milestone glass-panel">
+                    <div class="milestone-badge">5.000 KM</div>
+                    <h4>Minor Service</h4>
+                    <p>Thay nhớt, lọc nhớt và kiểm tra 32 điểm an toàn cơ bản.</p>
+                </div>
+                <div class="schedule-milestone glass-panel milestone-featured">
+                    <div class="milestone-badge">15.000 KM</div>
+                    <h4>Standard Service</h4>
+                    <p>Bảo trì hệ thống lọc, vệ sinh phanh và kiểm tra chất lỏng.</p>
+                </div>
+                <div class="schedule-milestone glass-panel">
+                    <div class="milestone-badge">30.000 KM</div>
+                    <h4>Major Service</h4>
+                    <p>Thay bugi, dây curoa, dầu phanh và hiệu chỉnh ECU toàn diện.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. CTA - ĐẶT LỊCH -->
+        <section class="maintenance-cta-section fade-in">
+            <div class="maintenance-cta-inner glass-panel">
+                <span class="cta-badge">Dịch Vụ Cao Cấp</span>
+                <h2 class="cta-title">Sẵn Sàng Đặt Lịch Bảo Dưỡng?</h2>
+                <p class="cta-desc">Đội ngũ kỹ thuật viên chuyên nghiệp của ZORENB luôn sẵn sàng phục vụ.<br>Hãy liên hệ ngay để được tư vấn và đặt lịch bảo dưỡng riêng cho xe của bạn.</p>
+                <a href="concierge.html" class="btn btn-primary magnetic-btn cta-btn">
+                    <span>Liên Hệ Đặt Lịch Ngay</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2026 ZORENB Luxury Showroom. Đã đăng ký bản quyền toàn cầu.</p>
+    </footer>
+
+    <a href="tel:18001909" class="cskh-wrapper bounce-luxury">
+        <div class="cskh-icon">📞</div>
+        <div class="cskh-text">
+            <span>CSKH:</span>
+            <strong>18001909</strong>
+        </div>
+    </a>
+
+    <script src="./js/main.js"></script>
+    <script src="./js/services.js"></script>
+
+</body>
+
+</html>
