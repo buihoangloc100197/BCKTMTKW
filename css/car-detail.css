@@ -8,10 +8,7 @@
     overflow-x: hidden;
 }
 
-.transparent-header {
-    background: rgba(0,0,0,0.2) !important;
-    backdrop-filter: blur(10px);
-}
+
 
 .car-hero {
     height: 100vh;
@@ -109,7 +106,7 @@
 /* Floating Back Button */
 .btn-back-floating {
     position: fixed;
-    top: 100px;
+    top: 120px; /* Hạ xuống một chút để tránh chạm vào Header mới */
     left: 40px;
     z-index: 1000;
     padding: 0.8rem 1.5rem;
