@@ -88,6 +88,38 @@ function initGlobalHeader() {
                 setLanguage(savedLang);
             }
         }
+
+        // --- SMART HEADER LOGIC ---
+        let lastScrollTop = 0;
+        const headerElement = document.querySelector('.main-header');
+
+        const handleScroll = (e) => {
+            // Xác định vị trí cuộn: Lấy từ window hoặc từ phần tử đang cuộn (nếu là container nội bộ)
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Nếu sự kiện đến từ một container nội bộ, lấy scrollTop của nó
+            if (e.target !== document && e.target.scrollTop !== undefined) {
+                scrollTop = e.target.scrollTop;
+            }
+
+            // Đổ nền đậm khi cuộn
+            if (scrollTop > 50) {
+                if (headerElement) headerElement.classList.add('scrolled');
+            } else {
+                if (headerElement) headerElement.classList.remove('scrolled');
+            }
+
+            // Ẩn hiện thông minh (Hide on scroll down, Show on up)
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                if (headerElement) headerElement.classList.add('header-hidden');
+            } else if (scrollTop < lastScrollTop) {
+                if (headerElement) headerElement.classList.remove('header-hidden');
+            }
+            lastScrollTop = scrollTop;
+        };
+
+        // Lắng nghe ở mức TOÀN CỤC (Capture phase) để "bắt" được cả các sự kiện scroll bên trong containers
+        window.addEventListener('scroll', handleScroll, true);
     }
 }
 

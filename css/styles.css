@@ -109,19 +109,29 @@ button {
     padding: 1.8rem 5rem;
     /* Tăng padding để hít thở tốt hơn */
 
-    /* Gắn Header trôi trên tấm ảnh thay vì dính chặt ở trên */
-    position: absolute;
+    /* Gắn Header cố định và phong cách sang trọng giống trang Dịch Vụ */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 100;
+    z-index: 1000;
 
-    background-color: rgba(0, 0, 0, 0.05);
-    /* Thêm một chút độ tối cực nhẹ */
-    backdrop-filter: blur(15px);
-    /* Hiệu ứng kính mờ cho thanh điều hướng */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    transition: all 0.4s ease;
+    background-color: rgba(5, 5, 5, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.15); /* Viền vàng nhẹ đặc trưng */
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.4s ease;
+}
+
+/* SMART HIDE CLASS */
+.main-header.header-hidden {
+    transform: translateY(-100%) !important; /* Thêm important để đảm bảo không bị ghi đè */
+}
+
+/* Hiệu ứng khi cuộn: giữ nguyên độ đậm để đồng bộ */
+.main-header.scrolled {
+    background-color: rgba(5, 5, 5, 0.95) !important;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3) !important;
+    backdrop-filter: blur(25px) !important;
 }
 
 .header-left {
@@ -802,6 +812,8 @@ button {
 
 /* --- Section 5: Cinematic Banner --- */
 .cinematic-banner { position: relative; height: 70vh; display: flex; justify-content: center; align-items: center; text-align: center; overflow: hidden; }
+.cinematic-thumbnail { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; z-index: 5; border: none; }
+.cinematic-iframe-wrap { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; }
 .cinematic-bg { position: absolute; top:0; left:0; width:100%; height:100%; background-size: cover; background-position: center; filter: brightness(0.6); z-index: 1; transition: filter 0.5s; }
 .cinematic-banner:hover .cinematic-bg { filter: brightness(0.4) scale(1.05); }
 .cinematic-overlay { position: absolute; top:0; left:0; width:100%; height:100%; z-index: 2; background: rgba(0,0,0,0.3); }
