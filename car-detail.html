@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết Siêu xe - ZORENB</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/car-detail.css">
+    <link rel="stylesheet" href="css/booking.css">
+    <script src="java/i18n.js"></script>
+    <script src="java/header.js"></script>
+</head>
+<body class="detail-body">
+    <!-- CUSTOM CURSOR -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- SHARED HEADER -->
+    <div id="global-header"></div>
+
+    <!-- BACK BUTTON -->
+    <a href="javascript:history.back()" class="btn-back-floating glass-panel">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        <span data-i18n="btn_back">QUAY LẠI</span>
+    </a>
+
+    <!-- ... (Hero Section) ... -->
+    <section class="car-hero" id="car-hero">
+        <div class="hero-bg" id="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content-detail">
+            <div class="brand-badge-detail" id="detail-brand">BRAND</div>
+            <h1 class="car-title-detail" id="detail-name">CAR NAME</h1>
+            <p class="car-description-detail" id="detail-desc">Loading description...</p>
+            <div class="hero-actions">
+                <button class="btn btn-primary magnetic-btn btn-booking-trigger" data-i18n="btn_test_drive">ĐĂNG KÝ LÁI THỬ</button>
+                <button class="btn btn-primary btn-outline btn-buy-large" data-i18n="btn_buy_now" onclick="alert('Yêu cầu đặt mua đã được gửi tới chuyên viên tư vấn VIP.')">ĐẶT MUA NGAY</button>
+                <a href="#specs-section" class="scroll-hint i18n-scroll-hint">Khám phá thông số ↓</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SPECIFICATIONS SECTION -->
+    <section class="specs-section" id="specs-section">
+        <div class="container-detail">
+            <h2 class="section-title-detail" data-i18n="spec_title">THÔNG SỐ KỸ THUẬT</h2>
+            <div class="specs-grid-detail">
+                <div class="spec-item-detail glass-panel">
+                    <span class="spec-label-detail" data-i18n="spec_engine">ĐỘNG CƠ</span>
+                    <span class="spec-value-detail" id="spec-engine">-</span>
+                </div>
+                <div class="spec-item-detail glass-panel">
+                    <span class="spec-label-detail" data-i18n="spec_accel">TĂNG TỐC (0-100)</span>
+                    <span class="spec-value-detail" id="spec-accel">-</span>
+                </div>
+                <div class="spec-item-detail glass-panel">
+                    <span class="spec-label-detail" data-i18n="spec_speed">VẬN TỐC TỐI ĐA</span>
+                    <span class="spec-value-detail" id="spec-max">-</span>
+                </div>
+                <div class="spec-item-detail glass-panel">
+                    <span class="spec-label-detail" data-i18n="spec_power">CÔNG SUẤT</span>
+                    <span class="spec-value-detail" id="spec-power">-</span>
+                </div>
+                <div class="spec-item-detail glass-panel">
+                    <span class="spec-label-detail" data-i18n="spec_weight">TRỌNG LƯỢNG</span>
+                    <span class="spec-value-detail" id="spec-weight">-</span>
+                </div>
+                <div class="spec-item-detail glass-panel highlighted">
+                    <span class="spec-label-detail" data-i18n="spec_price">GIÁ NIÊM YẾT</span>
+                    <span class="spec-value-detail" id="spec-price">-</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERIOR GALLERY SECTION -->
+    <section class="interior-gallery">
+        <div class="container-detail">
+            <h2 class="section-title-detail" data-i18n="gallery_title">KHÔNG GIAN NỘI THẤT</h2>
+            <div class="gallery-focus glass-panel">
+                <img src="" alt="Interior Focus" id="interior-img">
+            </div>
+            <div class="gallery-thumbs">
+                <img src="" alt="Thumb 1" class="gallery-thumb" id="thumb-1" onclick="document.getElementById('interior-img').src=this.src">
+                <img src="" alt="Thumb 2" class="gallery-thumb" id="thumb-2" onclick="document.getElementById('interior-img').src=this.src">
+            </div>
+        </div>
+    </section>
+
+    <!-- RELATED CARS -->
+    <section class="related-section">
+        <div class="container-detail">
+            <h2 class="section-title-detail" data-i18n="related_title">CÓ THỂ QUÝ KHÁCH QUAN TÂM</h2>
+            <div class="related-grid" id="related-cars">
+                <!-- Data from JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- BOOKING MODAL -->
+    <div class="booking-modal" id="booking-modal">
+        <div class="booking-content glass-panel">
+            <button class="booking-close" id="booking-close">×</button>
+            <div class="booking-form-area" id="booking-form-area">
+                <div class="booking-header">
+                    <h2 data-i18n="booking_title">ĐẶT LỊCH LÁI THỬ VIP</h2>
+                    <p data-i18n="booking_subtitle">Hệ thống hỗ trợ chuyên sâu dành cho chủ nhân ZORENB tương lai</p>
+                </div>
+                <form id="form-test-drive">
+                    <div class="form-group">
+                        <label data-i18n="booking_car_label">Siêu xe quan tâm</label>
+                        <input type="text" id="booking-car-name" class="form-input" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label data-i18n="booking_name_label">Họ và tên của quý khách</label>
+                        <input type="text" id="booking-name" class="form-input" placeholder="Ví dụ: Nguyễn Văn A" required>
+                    </div>
+                    <div class="form-group">
+                        <label data-i18n="booking_phone_label">Số điện thoại liên hệ</label>
+                        <input type="tel" id="booking-phone" class="form-input" placeholder="Ví dụ: 0988xxxxxx" required>
+                    </div>
+                    <div class="form-group">
+                        <label data-i18n="booking_date_label">Ngày hẹn dự kiến</label>
+                        <input type="date" id="booking-date" class="form-input" required>
+                    </div>
+                    <button type="submit" class="btn-submit-booking magnetic-btn" data-i18n="booking_submit">GỬI YÊU CẦU LÁI THỬ</button>
+                </form>
+            </div>
+
+            <!-- Success Message -->
+            <div class="success-msg" id="success-msg">
+                <h3 data-i18n="booking_success_title">YÊU CẦU THÀNH CÔNG</h3>
+                <div class="divider-gold" style="margin-bottom: 2rem;"></div>
+                <p data-i18n="booking_success_desc">Cảm ơn quý khách đã quan tâm. Chuyên viên tư vấn VIP của ZORENB sẽ liên hệ xác nhận lịch hẹn trong vòng 15 phút.</p>
+                <button class="btn-submit-booking" data-i18n="btn_understand" onclick="document.getElementById('booking-modal').classList.remove('active')">ĐÃ HIỂU</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="java/data.js"></script>
+    <script src="java/main.js"></script>
+    <script src="java/car-detail.js"></script>
+</body>
+</html>

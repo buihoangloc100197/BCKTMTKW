@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tin Tức | ZORENB - Thế Giới Siêu Xe</title>
+    
+    <!-- LƯU Ý QUAN TRỌNG: 
+         Thẻ base này giúp giữ nguyên đường dẫn relative của các file bên ngoài (như css, js, images...)
+         giúp file tintuc.html chạy hoàn hảo dù nằm trong thư목 con TinTuc, mà không cần chỉnh sửa source chính. -->
+    <base href="../">
+
+    <!-- Google Fonts: Roboto (Body), Inter (UI), Be Vietnam Pro (Headings) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&family=Inter:wght@400;500;600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!-- Toàn bộ CSS đã được gộp chung vào file tintuc.css để hoàn toàn độc lập -->
+    <link rel="stylesheet" href="TinTuc/tintuc.css">
+
+    <!-- KHÔNG CẦN GỌI header.js CỦA SOURCE ĐỂ ĐẢM BẢO ĐỘC LẬP KHI CHUYỂN NHÁNH -->
+    <script src="java/i18n.js"></script>
+</head>
+
+<body class="news-page">
+    <!-- CUSTOM CURSOR TỪ SOURCE CHÍNH -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- HEADER ĐÃ ĐƯỢC HARDCODE TRỰC TIẾP GIÚP KHÔNG BỊ MẤT KHI ĐỔI SOURCE -->
+    <header class="main-header dynamic-header">
+        <div class="header-left">
+            <a href="index.html" class="brand-logo">
+                <div class="logo-icon">Z</div>
+                <span class="brand-name">ZORENB</span>
+            </a>
+        </div>
+        
+        <nav class="header-center">
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-item" data-id="home" data-i18n="nav_home">TRANG CHỦ</a></li>
+                <li class="nav-item-dropdown">
+                    <a href="#" class="nav-item" data-id="collection" data-i18n="nav_collection">BỘ SƯU TẬP</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="lamborghini.html" class="dropdown-item" data-i18n="coll_lamborghini">Lamborghini</a></li>
+                        <li><a href="ferrari.html" class="dropdown-item" data-i18n="coll_ferrari">Ferrari</a></li>
+                        <li><a href="mclaren.html" class="dropdown-item" data-i18n="coll_mclaren">McLaren</a></li>
+                        <li><a href="bugatti.html" class="dropdown-item" data-i18n="coll_bugatti">Bugatti</a></li>
+                        <li><a href="rolls-royce.html" class="dropdown-item" data-i18n="coll_rollsroyce">Rolls Royce</a></li>
+                        <li><a href="bentley.html" class="dropdown-item" data-i18n="coll_bentley">Bentley</a></li>
+                        <li><a href="porsche.html" class="dropdown-item" data-i18n="coll_porsche">Porsche</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item-dropdown">
+                    <a href="index.html" class="nav-item" data-id="services" data-i18n="nav_services">DỊCH VỤ</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html" class="dropdown-item" data-i18n="service_rental">Cho Thuê Xe</a></li>
+                        <li><a href="index.html" class="dropdown-item" data-i18n="service_maintenance">Bảo Dưỡng</a></li>
+                        <li><a href="index.html" class="dropdown-item" data-i18n="service_upgrade">Nâng Cấp Ngoại Thất</a></li>
+                         <li><a href="index.html" class="dropdown-item" data-i18n="service_contact">Liên Hệ</a></li>
+                    </ul>
+                </li>
+                <li><a href="javascript:void(0)" class="nav-item active" data-id="news" data-i18n="nav_news">TIN TỨC</a></li>
+            </ul>
+        </nav>
+        
+        <div class="header-right">
+            <div class="language-selector">
+                <span class="globe-icon">🌐</span>
+                <span class="lang-current-flag"></span>
+                <div class="lang-dropdown glass-panel">
+                    <a href="javascript:void(0)" class="lang-option" onclick="handleLanguageChange('vi')"><span>🇻🇳</span> Tiếng Việt</a>
+                    <a href="javascript:void(0)" class="lang-option" onclick="handleLanguageChange('en')"><span>🇺🇸</span> English</a>
+                    <a href="javascript:void(0)" class="lang-option" onclick="handleLanguageChange('fr')"><span>🇫🇷</span> Français</a>
+                    <a href="javascript:void(0)" class="lang-option" onclick="handleLanguageChange('ko')"><span>🇰🇷</span> 한국어</a>
+                    <a href="javascript:void(0)" class="lang-option" onclick="handleLanguageChange('ja')"><span>🇯🇵</span> 日本語</a>
+                    <a href="javascript:void(0)" class="lang-option" onclick="handleLanguageChange('zh')"><span>🇨🇳</span> 简体中文</a>
+                </div>
+            </div>
+            
+            <button class="btn btn-login" data-i18n="btn_login" onclick="window.location.href='login.html'">Đăng nhập</button>
+            <button class="btn btn-register" data-i18n="btn_register" onclick="window.location.href='register.html'">Đăng ký</button>
+        </div>
+    </header>
+
+    <!-- MAIN NEWS CONTENT -->
+    <main class="main-content">
+        <!-- Hero Section cho trang Tin Tức -->
+        <section class="news-hero">
+            <h1>Tin Tức & Sự Kiện</h1>
+            <p>Cập nhật những thông tin mới nhất về thị trường siêu xe, xu hướng thiết kế tương lai và các sự kiện ra mắt độc quyền từ ZORENB Luxury.</p>
+        </section>
+
+        <!-- Section 1: Tin mới nhất & Sự kiện -->
+        <section class="news-section">
+            <div class="news-section-header">
+                <h2>Tin Mới Nhất & Sự Kiện</h2>
+                <p>Cập nhật những chuyển động mới nhất từ thế giới siêu xe và các sự kiện độc quyền của ZORENB.</p>
+            </div>
+            
+            <div class="news-slider-container">
+                <button class="slider-nav prev-btn"><i>&larr;</i></button>
+                <div class="news-slider-track-wrap">
+                    <div class="news-track">
+                        <!-- Card 1 -->
+                        <article class="news-card">
+                            <div class="news-card-img">
+                                <span class="news-badge">Sự Kiện</span>
+                                <img src="TinTuc/image/lamborghini.jpg" alt="Dubai Event">
+                            </div>
+                            <div class="news-content">
+                                <span class="news-date">02 Tháng 04, 2026</span>
+                                <h2 class="news-title">Triển Lãm ZORENB Exclusive 2026 Tại Dubai</h2>
+                                <p class="news-desc">Sự kiện quy tụ những phiên bản siêu xe giới hạn bậc nhất thế giới, kèm theo những màn ra mắt bất ngờ.</p>
+                                <a href="javascript:void(0)" class="news-readmore">Đọc thêm <i>&rarr;</i></a>
+                            </div>
+                        </article>
+
+                        <!-- Card 2 -->
+                        <article class="news-card">
+                            <div class="news-card-img">
+                                <span class="news-badge">Thị Trường</span>
+                                <img src="TinTuc/image/ferrari.jpg" alt="Ferrari Market">
+                            </div>
+                            <div class="news-content">
+                                <span class="news-date">10 Tháng 03, 2026</span>
+                                <h2 class="news-title">Ferrari Đạt Doanh Số Kỷ Lục Nửa Đầu Năm 2026</h2>
+                                <p class="news-desc">"Ngựa chồm" nước Ý vẫn liên tục xô đổ kỷ lục doanh thu nhờ vào lực đẩy từ dòng SUV Purosangue.</p>
+                                <a href="javascript:void(0)" class="news-readmore">Đọc thêm <i>&rarr;</i></a>
+                            </div>
+                        </article>
+
+                        <!-- Card 3 -->
+                        <article class="news-card">
+                            <div class="news-card-img">
+                                <span class="news-badge">Thương Hiệu</span>
+                                <img src="TinTuc/image/mclaren.png" alt="Brand News">
+                            </div>
+                            <div class="news-content">
+                                <span class="news-date">05 Tháng 04, 2026</span>
+                                <h2 class="news-title">McLaren Khai Trương Showroom Mới Tại Monaco</h2>
+                                <p class="news-desc">Showroom mới với kiến trúc hiện đại tập trung vào các mẫu siêu xe thể thao hàng đầu.</p>
+                                <a href="javascript:void(0)" class="news-readmore">Đọc thêm <i>&rarr;</i></a>
+                            </div>
+                        </article>
+
+                        <!-- Card 4 -->
+                        <article class="news-card">
+                            <div class="news-card-img">
+                                <span class="news-badge">Kinh Doanh</span>
+                                <img src="TinTuc/image/porsche.png" alt="Market News">
+                            </div>
+                            <div class="news-content">
+                                <span class="news-date">01 Tháng 04, 2026</span>
+                                <h2 class="news-title">Cổ Phiếu Porsche Tăng Vọt Cùng Với Các Kế Hoạch Mới</h2>
+                                <p class="news-desc">Thị trường phản ứng tích cực với chiến lược chuyển đổi sang thuần điện của hãng xe Đức.</p>
+                                <a href="javascript:void(0)" class="news-readmore">Đọc thêm <i>&rarr;</i></a>
+                            </div>
+                        </article>
+
+                        <!-- Card 5 -->
+                        <article class="news-card">
+                            <div class="news-card-img">
+                                <span class="news-badge">Sự Kiện</span>
+                                <img src="TinTuc/image/1.jpg" alt="Concours Event">
+                            </div>
+                            <div class="news-content">
+                                <span class="news-date">28 Tháng 03, 2026</span>
+                                <h2 class="news-title">Sự Kiện Siêu Xe Mùa Hè: Monterey Car Week 2026</h2>
+                                <p class="news-desc">Nơi tụ hội của những chiếc xe hiếm nhất và siêu xe hiện đại đắt giá nhất thế giới.</p>
+                                <a href="javascript:void(0)" class="news-readmore">Đọc thêm <i>&rarr;</i></a>
+                            </div>
+                        </article>
+
+                        <!-- Card 6 -->
+                        <article class="news-card">
+                            <div class="news-card-img">
+                                <span class="news-badge">Đấu Giá</span>
+                                <img src="TinTuc/image/ferrari.png" alt="Auction">
+                            </div>
+                            <div class="news-content">
+                                <span class="news-date">25 Tháng 03, 2026</span>
+                                <h2 class="news-title">Kỷ Lục Đấu Giá: Huyền Thoại Ferrari Ghi Điểm Tuyệt Đối</h2>
+                                <p class="news-desc">Mẫu xe huyền thoại tiếp tục khẳng định vị thế là tài sản đầu tư có giá trị nhất mọi thời đại.</p>
+                                <a href="javascript:void(0)" class="news-readmore">Đọc thêm <i>&rarr;</i></a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <button class="slider-nav next-btn"><i>&rarr;</i></button>
+            </div>
+</section>
+
+        <!-- Section 2: Mẫu xe được yêu thích -->
+        <section class="news-section section-alt">
+            <div class="news-section-header">
+                <h2>Mẫu Xe Được Yêu Thích</h2>
+                <p>Khám phá lý do tại sao những cỗ máy này lại trở thành niềm khao khát của mọi tín đồ tốc độ.</p>
+            </div>
+
+            <div class="news-slider-container">
+                <button class="slider-nav prev-btn"><i>&larr;</i></button>
+                <div class="news-slider-track-wrap">
+                    <div class="news-track">
+                        <!-- Card 1 -->
+                        <article class="news-card">
+                            <div class="news-card-img">
+                                <span class="news-badge">Đánh Giá</span>
+                                <img src="TinTuc/image/rolls-royce.jpg" alt="Rolls Royce">
+                            </div>
+                            <div class="news-content">
+                                <span class="news-date">15 Tháng 03, 2026</span>
+                                <h2 class="news-title">Trải Nghiệm Sự Tĩnh Lặng Cùng Rolls-Royce Phantom</h2>
+                                <p class="news-desc">Cảm giác lái như lướt trên thảm ma thuật và khoang cabin tĩnh lặng đến tuyệt đối.</p>
+                                <a href="javascript:void(0)" class="news-readmore">Đọc thêm <i>&rarr;</i></a>
+                            </div>
+                        </article>
+
+                        <!-- Card 2 -->
+                        <article class="news-card">
+                            <div class="news-card-img">
+                                <span class="news-badge">Độc Quyền</span>
+                                <img src="TinTuc/image/bugatti.jpg" alt="Bugatti">
+                            </div>
+                            <div class="news-content">
+                                <span class="news-date">05 Tháng 03, 2026</span>
+                                <h2 class="news-title">Bugatti Chiron Super Sport - Quái Thú 1600 Mã Lực</h2>
+                                <p class="news-desc">Sự kết hợp hoàn hảo giữa tốc độ cực hạn và sự sang trọng tột cùng của nghệ thuật xe hơi.</p>
+                                <a href="javascript:void(0)" class="news-readmore">Đọc thêm <i>&rarr;</i></a>
+                            </div>
+                        </article>
+
+                        <!-- Card 3 -->
+                        <article class="news-card">
+                            <div class="news-card-img">
+                                <span class="news-badge">Bình Chọn</span>
+                                <img src="TinTuc/image/lamborghini.png" alt="Model Love">
+                            </div>
+                            <div class="news-content">
+                                <span class="news-date">20 Tháng 03, 2026</span>
+                                <h2 class="news-title">Lamborghini Revuelto: Niềm Tự Hào Của Dòng V12 Hybrid</h2>
+                                <p class="news-desc">Tại sao mẫu Hybrid V12 này lại cháy hàng suốt 3 năm tới? Cùng chúng tôi phân tích sự kết tinh sức mạnh.</p>
+                                <a href="javascript:void(0)" class="news-readmore">Đọc thêm <i>&rarr;</i></a>
+                            </div>
+                        </article>
+
+                        <!-- Card 4 -->
+                        <article class="news-card">
+                            <div class="news-card-img">
+                                <span class="news-badge">Huyền Thoại</span>
+                                <img src="https://images.unsplash.com/photo-1583121274602-5e429c879493?auto=format&fit=crop&q=80&w=1000" alt="Audi R8">
+                            </div>
+                            <div class="news-content">
+                                <span class="news-date">18 Tháng 03, 2026</span>
+                                <h2 class="news-title">Audi R8 Thức Tỉnh: Lời Chia Tay Khúc Động Cơ V10</h2>
+                                <p class="news-desc">Giới siêu xe ngậm ngùi chia tay huyền thoại động cơ hút khí tự nhiên đã làm nên tên tuổi của Audi trên các cung đường.</p>
+                                <a href="javascript:void(0)" class="news-readmore">Đọc thêm <i>&rarr;</i></a>
+                            </div>
+                        </article>
+
+                        <!-- Card 5 -->
+                        <article class="news-card">
+                            <div class="news-card-img">
+                                <span class="news-badge">Đẳng Cấp</span>
+                                <img src="TinTuc/image/bentley.png" alt="Luxury Car">
+                            </div>
+                            <div class="news-content">
+                                <span class="news-date">12 Tháng 03, 2026</span>
+                                <h2 class="news-title">Bentley Continental GT: Tuyệt Tác Grand Tourer Siêu Sang</h2>
+                                <p class="news-desc">Kết hợp hoàn hảo giữa thiết kế lãng mạn phong cách cổ điển và sức mạnh đương đại đỉnh cao của Anh Quốc.</p>
+                                <a href="javascript:void(0)" class="news-readmore">Đọc thêm <i>&rarr;</i></a>
+                            </div>
+                        </article>
+
+                        <!-- Card 6 -->
+                        <article class="news-card">
+                            <div class="news-card-img">
+                                <span class="news-badge">Giới Hạn</span>
+                                <img src="https://images.unsplash.com/photo-1502877338535-766e14526847?auto=format&fit=crop&q=80&w=1000" alt="Aston Martin">
+                            </div>
+                            <div class="news-content">
+                                <span class="news-date">08 Tháng 03, 2026</span>
+                                <h2 class="news-title">Bản Sắc Aston Martin: Tái Sinh Thiết Kế V12 Vantage</h2>
+                                <p class="news-desc">Sự hợp nhất hoàn mỹ giữa sức mạnh mãnh liệt của siêu xe và nét cổ điển lịch lãm không thể pha lẫn từ Anh Quốc.</p>
+                                <a href="javascript:void(0)" class="news-readmore">Đọc thêm <i>&rarr;</i></a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <button class="slider-nav next-btn"><i>&rarr;</i></button>
+            </div>
+        </section>
+
+        <!-- Section 3: Xe điện & Môi trường xanh -->
+        <section class="news-section">
+            <div class="news-section-header">
+                <h2>Xe Điện & Môi Trường Xanh</h2>
+                <p>Kỷ nguyên mới của tốc độ: Sạch hơn, thông minh hơn và vẫn đầy mãnh liệt.</p>
+            </div>
+
+            <div class="news-slider-container">
+                <button class="slider-nav prev-btn"><i>&larr;</i></button>
+                <div class="news-slider-track-wrap">
+                    <div class="news-track">
+                        <!-- Card 1 -->
+                        <article class="news-card">
+                            <div class="news-card-img">
+                                <span class="news-badge">Công Nghệ</span>
+                                <img src="TinTuc/image/tech-auto.jpg" alt="Taycan">
+                            </div>
+                            <div class="news-content">
+                                <span class="news-date">28 Tháng 03, 2026</span>
+                                <h2 class="news-title">Porsche Taycan Turbo GT: Phá Vỡ Kỷ Lục Nürburgring</h2>
+                                <p class="news-desc">Mẫu xe điện mạnh nhất lịch sử Porsche vừa chính thức xác lập kỷ lục mới, chứng minh sức mạnh thuần điện.</p>
+                                <a href="javascript:void(0)" class="news-readmore">Đọc thêm <i>&rarr;</i></a>
+                            </div>
+                        </article>
+
+                        <!-- Card 2 -->
+                        <article class="news-card">
+                            <div class="news-card-img">
+                                <span class="news-badge">Xe Điện</span>
+                                <img src="TinTuc/image/lotus_evija.png" alt="Rimac">
+                            </div>
+                            <div class="news-content">
+                                <span class="news-date">20 Tháng 03, 2026</span>
+                                <h2 class="news-title">Lotus Evija: Tương Lai Của Siêu Xe Thể Thao Thuần Điện</h2>
+                                <p class="news-desc">Trọng lượng nhẹ và lực ép xuống cực lớn là chìa khóa giúp Evija giữ vững linh hồn truyền thống của Lotus.</p>
+                                <a href="javascript:void(0)" class="news-readmore">Đọc thêm <i>&rarr;</i></a>
+                            </div>
+                        </article>
+
+                        <!-- Card 3 -->
+                        <article class="news-card">
+                            <div class="news-card-img">
+                                <span class="news-badge">Xu Hướng</span>
+                                <img src="TinTuc/image/bugatti.png" alt="EV Future">
+                            </div>
+                            <div class="news-content">
+                                <span class="news-date">15 Tháng 03, 2026</span>
+                                <h2 class="news-title">Công Nghệ Hybrid Tiên Tiến Trên Những Mẫu Hypercar Bugatti Mới</h2>
+                                <p class="news-desc">Khám phá cách Bugatti duy trì sức mạnh 1600 mã lực thông qua sự kết hợp điện năng và đốt trong.</p>
+                                <a href="javascript:void(0)" class="news-readmore">Đọc thêm <i>&rarr;</i></a>
+                            </div>
+                        </article>
+
+                        <!-- Card 4 -->
+                        <article class="news-card">
+                            <div class="news-card-img">
+                                <span class="news-badge">Hệ Sinh Thái</span>
+                                <img src="TinTuc/image/3.jpg" alt="Charging">
+                            </div>
+                            <div class="news-content">
+                                <span class="news-date">10 Tháng 03, 2026</span>
+                                <h2 class="news-title">Mạng Lưới Sạc Siêu Nhanh ZORENB Charging Network</h2>
+                                <p class="news-desc">Chúng tôi bắt đầu triển khai các trạm sạc 400kW tại các tuyến đường huyết mạch phục vụ các chủ xe.</p>
+                                <a href="javascript:void(0)" class="news-readmore">Đọc thêm <i>&rarr;</i></a>
+                            </div>
+                        </article>
+
+                        <!-- Card 5 -->
+                        <article class="news-card">
+                            <div class="news-card-img">
+                                <span class="news-badge">Môi Trường</span>
+                                <img src="TinTuc/image/2.jpg" alt="Eco Tech">
+                            </div>
+                            <div class="news-content">
+                                <span class="news-date">05 Tháng 03, 2026</span>
+                                <h2 class="news-title">Công Nghệ Tái Chế Carbon: Bước Đột Phá Lên Khung Gầm</h2>
+                                <p class="news-desc">Ứng dụng vật liệu sợi carbon tái sinh nguyên khối giúp các mẫu hypercar giữ nguyên độ cứng với giá thành siêu việt.</p>
+                                <a href="javascript:void(0)" class="news-readmore">Đọc thêm <i>&rarr;</i></a>
+                            </div>
+                        </article>
+
+                        <!-- Card 6 -->
+                        <article class="news-card">
+                            <div class="news-card-img">
+                                <span class="news-badge">Tương Lai</span>
+                                <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&q=80&w=1000" alt="Aerodynamics Concept">
+                            </div>
+                            <div class="news-content">
+                                <span class="news-date">01 Tháng 03, 2026</span>
+                                <h2 class="news-title">Khí Động Học Mới Nhất: Thay Đổi Hình Dáng Theo Vận Tốc</h2>
+                                <p class="news-desc">Công nghệ lưới tản nhiệt chủ động hứa hẹn mang lại khả năng hạn chế lực cản và cân bằng mức tản nhiệt hoàn chỉnh.</p>
+                                <a href="javascript:void(0)" class="news-readmore">Đọc thêm <i>&rarr;</i></a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <button class="slider-nav next-btn"><i>&rarr;</i></button>
+            </div>
+</section>
+
+        <!-- Section 4: Xe sắp được ra mắt -->
+        <section class="news-section section-alt">
+            <div class="news-section-header">
+                <h2>Xe Sắp Được Ra Mắt</h2>
+                <p>Những bản concept và nguyên mẫu đang chuẩn bị "làm mưa làm gió" trên các cung đường thượng lưu.</p>
+            </div>
+
+            <div class="news-slider-container">
+                <button class="slider-nav prev-btn"><i>&larr;</i></button>
+                <div class="news-slider-track-wrap">
+                    <div class="news-track">
+                        <!-- Card 1 -->
+                        <article class="news-card">
+                            <div class="news-card-img">
+                                <span class="news-badge">Sắp Ra Mắt</span>
+                                <img src="TinTuc/image/mclaren.jpg" alt="McLaren">
+                            </div>
+                            <div class="news-content">
+                                <span class="news-date">07 Tháng 04, 2026</span>
+                                <h2 class="news-title">McLaren Công Bố Siêu Phẩm Hypercar Thế Hệ Mới</h2>
+                                <p class="news-desc">Mẫu xe hybrid mới nhất của McLaren mang đến sức mạnh kết hợp lên tới 1200 mã lực.</p>
+                                <a href="javascript:void(0)" class="news-readmore">Đọc thêm <i>&rarr;</i></a>
+                            </div>
+                        </article>
+
+                        <!-- Card 2 -->
+                        <article class="news-card">
+                            <div class="news-card-img">
+                                <span class="news-badge">Concept</span>
+                                <img src="TinTuc/image/ferrari_prototype.png" alt="Ferrari F250">
+                            </div>
+                            <div class="news-content">
+                                <span class="news-date">01 Tháng 04, 2026</span>
+                                <h2 class="news-title">Rò Rỉ Hình Ảnh Ferrari Prototype Chạy Thử Tại Maranello</h2>
+                                <p class="news-desc">Mẫu hypercar được ngụy trang mới nhất của Ferrari lộ diện khi đang được thử nghiệm trên đường đua khép kín.</p>
+                                <a href="javascript:void(0)" class="news-readmore">Đọc thêm <i>&rarr;</i></a>
+                            </div>
+                        </article>
+
+                        <!-- Card 3 -->
+                        <article class="news-card">
+                            <div class="news-card-img">
+                                <span class="news-badge">Tin Đồn</span>
+                                <img src="TinTuc/image/porsche_mission_x.png" alt="Porsche Mission">
+                            </div>
+                            <div class="news-content">
+                                <span class="news-date">25 Tháng 03, 2026</span>
+                                <h2 class="news-title">Porsche Mission X Concept Xuất Hiện Đầy Bí Ẩn</h2>
+                                <p class="news-desc">Thiết kế phi thuyền tương lai cùng lớp sơn màu bạc làm cho Porsche Mission X trở thành tâm điểm chú ý.</p>
+                                <a href="javascript:void(0)" class="news-readmore">Đọc thêm <i>&rarr;</i></a>
+                            </div>
+                        </article>
+
+                        <!-- Card 4 -->
+                        <article class="news-card">
+                            <div class="news-card-img">
+                                <span class="news-badge">Concept</span>
+                                <img src="TinTuc/image/rolls_royce.png" alt="Mercedes">
+                            </div>
+                            <div class="news-content">
+                                <span class="news-date">20 Tháng 03, 2026</span>
+                                <h2 class="news-title">Siêu Phẩm Điện Chạy Pin Mới Hứa Hẹn Sự Đột Phá Từ Rolls-Royce</h2>
+                                <p class="news-desc">Kiến trúc sang trọng của Rolls-Royce sẽ được kết hợp với một hệ truyền động không tiếng ồn hoàn hảo.</p>
+                                <a href="javascript:void(0)" class="news-readmore">Đọc thêm <i>&rarr;</i></a>
+                            </div>
+                        </article>
+
+                        <!-- Card 5 -->
+                        <article class="news-card">
+                            <div class="news-card-img">
+                                <span class="news-badge">Hé Lộ</span>
+                                <img src="https://images.unsplash.com/photo-1553440569-bea36a8ebff1?auto=format&fit=crop&q=80&w=1000" alt="Pagani Concept">
+                            </div>
+                            <div class="news-content">
+                                <span class="news-date">15 Tháng 03, 2026</span>
+                                <h2 class="news-title">Sự Giao Thoa Giữa Công Nghệ Vượt Trội Và Sự Sang Trọng Của Pagani</h2>
+                                <p class="news-desc">Hãng xưởng siêu xe Ý Pagani hé lộ kiệt tác bespoke độc quyền tiếp theo chỉ đếm trên đầu ngón tay cho các nhà sưu tầm.</p>
+                                <a href="javascript:void(0)" class="news-readmore">Đọc thêm <i>&rarr;</i></a>
+                            </div>
+                        </article>
+
+                        <!-- Card 6 -->
+                        <article class="news-card">
+                            <div class="news-card-img">
+                                <span class="news-badge">Dự Đoán</span>
+                                <img src="https://images.unsplash.com/photo-1492144534654-6efa9a12c03f?auto=format&fit=crop&q=80&w=1000" alt="Maserati Next Gen">
+                            </div>
+                            <div class="news-content">
+                                <span class="news-date">10 Tháng 03, 2026</span>
+                                <h2 class="news-title">Maserati Folgore MC20: Phiên Bản Chớp Nhoáng Cực Đoan Mới</h2>
+                                <p class="news-desc">Nhiều bằng chứng phác họa thiết kế khí động học siêu tưởng về một dòng siêu xe Trident thuần điện hoàn toàn.</p>
+                                <a href="javascript:void(0)" class="news-readmore">Đọc thêm <i>&rarr;</i></a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <button class="slider-nav next-btn"><i>&rarr;</i></button>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER TỪ SOURCE CHÍNH -->
+    <footer class="main-footer fade-in">
+        <p data-i18n="footer_copyright">&copy; 2026 ZORENB Luxury Showroom. Đã đăng ký bản quyền toàn cầu.</p>
+    </footer>
+
+    <!-- NÚT CSKH GÓC DƯỚI PHẢI TỪ SOURCE CHÍNH (Jumping Support Button) -->
+    <a href="tel:18001909" class="cskh-wrapper bounce-luxury">
+        <div class="cskh-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+        </div>
+        <div class="cskh-text">
+            <span data-i18n="cskh_label">CSKH:</span>
+            <strong>18001909</strong>
+        </div>
+    </a>
+
+    
+    <!-- JS riêng cho trang Tin Tức (bao gồm cả xử lý con trỏ chuột) -->
+    <script src="TinTuc/tintuc.js"></script>
+</body>
+
+</html>
