@@ -30,7 +30,7 @@ const globalHeaderHTML = `
                     </ul>
                 </li>
                 <li class="nav-item-dropdown">
-                    <a href="index.html" class="nav-item" data-id="services" data-i18n="nav_services">DỊCH VỤ</a>
+                    <a href="DichVu.html" class="nav-item" data-id="services" data-i18n="nav_services">DỊCH VỤ</a>
                     <ul class="dropdown-menu">
                         <li><a href="rental.html" class="dropdown-item" data-i18n="service_rental">Cho Thuê Xe</a></li>
                         <li><a href="maintenance.html" class="dropdown-item" data-i18n="service_maintenance">Bảo Dưỡng</a></li>
@@ -38,7 +38,7 @@ const globalHeaderHTML = `
                         <li><a href="concierge.html" class="dropdown-item" data-i18n="service_contact">Liên Hệ</a></li>
                     </ul>
                 </li>
-                <li><a href="../index.html" class="nav-item" data-id="news" data-i18n="nav_news">TIN TỨC</a></li>
+                <li><a href="../TinTuc/tintuc.html" class="nav-item" data-id="news" data-i18n="nav_news">TIN TỨC</a></li>
             </ul>
         </nav>
         

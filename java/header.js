@@ -35,13 +35,11 @@ const globalHeaderHTML = `
                         <li><a href="DichVu/rental.html" class="dropdown-item" data-i18n="service_rental">Cho Thuê Xe</a></li>
                         <li><a href="DichVu/maintenance.html" class="dropdown-item" data-i18n="service_maintenance">Bảo Dưỡng</a></li>
                         <li><a href="DichVu/upgrade.html" class="dropdown-item" data-i18n="service_upgrade">Nâng Cấp Ngoại Thất</a></li>
-                         <li><a href="DichVu/concierge.html" class="dropdown-item" data-i18n="service_contact">Liên Hệ</a></li>
-
-
+                        <li><a href="DichVu/concierge.html" class="dropdown-item" data-i18n="service_contact">Liên Hệ</a></li>
                     </ul>
                 </li>
                 <li><a href="TinTuc/tintuc.html" class="nav-item" data-id="news" data-i18n="nav_news">TIN TỨC</a></li>
-                
+            </ul>
         </nav>
         
         <!-- Bên phải: Ngôn ngữ / Đăng nhập / Đăng ký -->
