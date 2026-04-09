@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // INFINITE SLIDER LOGIC
     // ==========================================
     const sections = document.querySelectorAll('.news-section');
-    
+
     sections.forEach(section => {
         const track = section.querySelector('.news-track');
         const prevBtn = section.querySelector('.prev-btn');
@@ -19,50 +19,63 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         let isAnimating = false;
+        let clickQueue = 0;
 
-        nextBtn.addEventListener('click', () => {
-            if (isAnimating) return;
+        const processQueue = () => {
+            if (clickQueue === 0) {
+                isAnimating = false;
+                return;
+            }
+            
             isAnimating = true;
+            const isNext = clickQueue > 0;
             
             const gap = 30; // Matches CSS gap
             const moveDistance = track.querySelector('.news-card').offsetWidth + gap;
-            
-            track.style.transition = 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)';
-            track.style.transform = `translateX(-${moveDistance}px)`;
-            
-            setTimeout(() => {
-                track.style.transition = 'none';
-                track.appendChild(track.firstElementChild);
-                track.style.transform = 'translateX(0)';
-                
-                // Đợi một chút để browser kịp render
+
+            if (isNext) {
+                clickQueue--;
+                track.style.transition = 'transform 0.2s cubic-bezier(0.25, 1, 0.5, 1)';
+                track.style.transform = `translateX(-${moveDistance}px)`;
+
                 setTimeout(() => {
-                    isAnimating = false;
-                }, 50);
-            }, 600); // 600ms match với transition
+                    track.style.transition = 'none';
+                    track.appendChild(track.firstElementChild);
+                    track.style.transform = 'translateX(0)';
+
+                    requestAnimationFrame(() => {
+                        requestAnimationFrame(() => {
+                            processQueue();
+                        });
+                    });
+                }, 200);
+            } else {
+                clickQueue++;
+                track.style.transition = 'none';
+                track.prepend(track.lastElementChild);
+                track.style.transform = `translateX(-${moveDistance}px)`;
+
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        track.style.transition = 'transform 0.2s cubic-bezier(0.25, 1, 0.5, 1)';
+                        track.style.transform = 'translateX(0)';
+
+                        setTimeout(() => {
+                            processQueue();
+                        }, 200);
+                    });
+                });
+            }
+        };
+
+        nextBtn.addEventListener('click', () => {
+            clickQueue++;
+            if (!isAnimating) processQueue();
         });
 
         prevBtn.addEventListener('click', () => {
-            if (isAnimating) return;
-            isAnimating = true;
-            
-            const gap = 30; // Matches CSS gap
-            const moveDistance = track.querySelector('.news-card').offsetWidth + gap;
-            
-            // Đưa thẳng phần tử cuối lên đầu và dịch track sang trái mà không dùng effect
-            track.style.transition = 'none';
-            track.prepend(track.lastElementChild);
-            track.style.transform = `translateX(-${moveDistance}px)`;
-            
-            // Sau một frame, kích hoạt hiệu ứng mượt mà để chạy về 0 (chạy về bên phải)
-            setTimeout(() => {
-                track.style.transition = 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)';
-                track.style.transform = 'translateX(0)';
-                
-                setTimeout(() => {
-                    isAnimating = false;
-                }, 600);
-            }, 50);
+            clickQueue--;
+            if (!isAnimating) processQueue();
         });
 
         // Khi resize màn hình, căn lại vị trí gốc
@@ -116,15 +129,15 @@ document.addEventListener("DOMContentLoaded", () => {
     // ==========================================
     const cursor = document.querySelector('.cursor');
     const follower = document.querySelector('.cursor-follower');
-    
+
     if (cursor && follower) {
         let mouseX = 0, mouseY = 0;
         let posX = 0, posY = 0;
-        
+
         document.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
             mouseY = e.clientY;
-            
+
             // Cập nhật vị trí con trỏ chính ngay lập tức
             if (cursor) {
                 cursor.style.left = mouseX + 'px';
@@ -138,7 +151,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         // Xử lý hiệu ứng hover phóng to khi lướt lên các nút, link, card tin tức hoặc nút chuyển slide
-        const interactiveElements = document.querySelectorAll('a, button, .news-card, .nav-item, .lang-option, .slider-nav');
+        const interactiveElements = document.querySelectorAll('a, button, .news-card, .nav-item, .lang-option, .slider-nav, #closeNewsModal');
         interactiveElements.forEach(el => {
             el.addEventListener('mouseenter', () => {
                 cursor.classList.add('hover-active');
@@ -150,4 +163,56 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
     }
+
+    // ==========================================
+    // MODAL LOGIC
+    // ==========================================
+    const modal = document.getElementById('newsModal');
+    const closeBtn = document.getElementById('closeNewsModal');
+    const modalOverlay = document.querySelector('.news-modal-overlay');
+
+    const modalBadge = document.getElementById('modalBadge');
+    const modalDate = document.getElementById('modalDate');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalImage = document.getElementById('modalImage');
+    const modalBody = document.getElementById('modalBody');
+
+    if (modal && closeBtn && modalOverlay) {
+        const openModal = (newsId) => {
+            if (!window.newsData || !window.newsData[newsId]) return;
+
+            const data = window.newsData[newsId];
+
+            // Populate data
+            modalBadge.textContent = data.badge;
+            modalDate.textContent = data.date;
+            modalTitle.textContent = data.title;
+            modalImage.src = data.image;
+            modalBody.innerHTML = data.content;
+
+            // Show modal
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        };
+
+        const closeModal = () => {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        };
+
+        closeBtn.addEventListener('click', closeModal);
+        modalOverlay.addEventListener('click', closeModal);
+
+        // Make cards clickable
+        document.querySelectorAll('.news-card').forEach(card => {
+            card.style.cursor = 'none'; // Vì đang dùng custom cursor
+            card.addEventListener('click', function () {
+                const newsId = this.getAttribute('data-news-id');
+                if (newsId) {
+                    openModal(newsId);
+                }
+            });
+        });
+    }
 });
+
