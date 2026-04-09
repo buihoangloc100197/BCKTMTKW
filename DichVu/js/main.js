@@ -120,8 +120,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const specSpeed = document.getElementById('spec-speed');
     const specEngine = document.getElementById('spec-engine');
 
-    // --- HIỆU ỨNG GÕ CHỮ (Typewriter Effect) ---
-    function typeWriter(element, htmlContent, speed = 30) {
+    if (heroSection) {
+        // --- HIỆU ỨNG GÕ CHỮ (Typewriter Effect) ---
+        function typeWriter(element, htmlContent, speed = 30) {
         element.innerHTML = ""; // Xóa nội dung cũ
         let i = 0;
         let isTag = false;
@@ -182,8 +183,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Lắng nghe sự kiện Nút bấm
-    document.getElementById('next-car').addEventListener('click', nextCar);
-    document.getElementById('prev-car').addEventListener('click', prevCar);
+    const btnNext = document.getElementById('next-car');
+    const btnPrev = document.getElementById('prev-car');
+    if (btnNext) btnNext.addEventListener('click', nextCar);
+    if (btnPrev) btnPrev.addEventListener('click', prevCar);
 
     // Lắng nghe sự kiện Cuộn chuột (Scroll switch)
     let lastScrollTime = 0;
@@ -219,8 +222,9 @@ document.addEventListener('DOMContentLoaded', () => {
         autoPlayTimer = setInterval(nextCar, 10000);
     }
 
-    // Khởi tạo xe đầu tiên ngay khi tải trang
-    updateVehicle(0);
+        // Khởi tạo xe đầu tiên ngay khi tải trang
+        updateVehicle(0);
+    }
 
     // =========================================
     // 5. LOGIC ĐẶT LỊCH LÁI THỬ (Test Drive Booking)
